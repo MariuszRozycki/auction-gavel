@@ -1,0 +1,27 @@
+{
+  "name": "auction-gavel",
+  "version": "1.0.0",
+  "description": "Semester Project 2 at Noroff. An auction website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariuszRozycki/auction-gavel.git"
+  },
+  "keywords": [
+    "auction",
+    "house",
+    "bid",
+    "listing",
+    "gavel",
+    "semester-project-2-Noroff"
+  ],
+  "author": "Mariusz Rozycki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MariuszRozycki/auction-gavel/issues"
+  },
+  "homepage": "https://github.com/MariuszRozycki/auction-gavel#readme"
+}
