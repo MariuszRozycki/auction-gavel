@@ -1,0 +1,54 @@
+{
+  "type": "module",
+  "name": "auction-gavel",
+  "version": "1.0.0",
+  "description": "Semester Project 2 at Noroff. An auction website.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "lint-fix": "eslint src/**/*.js --cache --fix",
+    "test": "node src/js/joker.test.js",
+    "format": "prettier -w src/js/joker.js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariuszRozycki/auction-gavel.git"
+  },
+  "keywords": [
+    "auction",
+    "house",
+    "bid",
+    "listing",
+    "gavel",
+    "semester-project-2-Noroff"
+  ],
+  "author": "Mariusz Rozycki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MariuszRozycki/auction-gavel/issues"
+  },
+  "homepage": "https://github.com/MariuszRozycki/auction-gavel#readme",
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1"
+  },
+  "dependencies": {
+    "give-me-a-joke": "^0.5.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "eslint --cache --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "prettier --write"
+    ]
+  }
+}
