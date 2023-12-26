@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "auction-gavel",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Semester Project 2 at Noroff. An auction website.",
   "main": "index.js",
   "scripts": {
