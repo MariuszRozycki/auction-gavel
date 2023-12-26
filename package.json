@@ -5,8 +5,10 @@
   "description": "Semester Project 2 at Noroff. An auction website.",
   "main": "index.js",
   "scripts": {
+    "build": "sass src/scss:dist/css",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
+    "watch": "concurrently \"sass --watch src/scss:dist/css\" \"npx live-server\"",
     "test": "node src/js/joker.test.js",
     "format": "prettier -w src/js/joker.js",
     "prepare": "husky install"
@@ -30,9 +32,11 @@
   },
   "homepage": "https://github.com/MariuszRozycki/auction-gavel#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "eslint": "^8.55.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "live-server": "^1.2.2",
     "prettier": "^3.1.1",
     "sass": "^1.69.5"
   },
