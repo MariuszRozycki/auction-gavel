@@ -37,6 +37,7 @@
     "sass": "^1.69.5"
   },
   "dependencies": {
+    "bootstrap": "^5.3.2",
     "give-me-a-joke": "^0.5.0"
   },
   "lint-staged": {
