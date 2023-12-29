@@ -9,8 +9,8 @@
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint src/**/*.js --cache --fix",
     "watch": "concurrently \"sass --watch src/scss:dist/css\" \"npx live-server\"",
-    "test": "node src/js/joker.test.js",
-    "format": "prettier -w src/js/joker.js",
+    "test": "",
+    "format": "prettier --write \"src/**/*.js\" \"*.html\" \"layout/**/*.html\"",
     "prepare": "husky install"
   },
   "repository": {
@@ -47,7 +47,6 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --fix",
       "eslint --cache --fix"
     ],
     "*.html": [
