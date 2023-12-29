@@ -1,1 +1,5 @@
-@import '../scss/global/global';
+@import "../scss/utils/variables";
+@import "../scss/components/nav/nav";
+@import "../scss/global/global";
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
