@@ -1,0 +1,25 @@
+$primary: #654534;
+// $secondary: $gray-600;
+// $success: $green;
+// $info: $cyan;
+// $warning: $yellow;
+// $danger: $red;
+// $light: $gray-100;
+// $dark: $gray-900;
+$white: #fff;
+$black: #000;
+
+$link-color: $white;
+$nav-link-color: $white;
+
+/* class="navbar-toggler" */
+$navbar-toggler-padding-x: 0.25rem;
+
+$body-tertiary-bg: $black;
+
+$position-values: (
+  0: 0,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+);

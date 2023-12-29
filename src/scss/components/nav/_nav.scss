@@ -1,0 +1,27 @@
+.navbar .container {
+  height: 76px;
+
+  .logo {
+    height: 1.75em;
+    margin: 0;
+  }
+
+  .menu-line {
+    width: 1.5em;
+    height: 0.2em;
+    background-color: $white;
+    margin: 2px;
+    border-radius: var(--bs-navbar-toggler-border-radius);
+  }
+
+  .menu-line-short {
+    width: 1em;
+  }
+
+  a.nav-link,
+  a.nav-link,
+  .offcanvas,
+  .divider {
+    color: $white;
+  }
+}
