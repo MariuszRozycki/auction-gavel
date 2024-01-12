@@ -1,3 +1,31 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+p a,
+a.nav-link {
+  text-decoration: none;
+  transition: $transition;
+  cursor: pointer;
+  color: $color-text;
+
+  &:hover {
+    color: $color-hover;
+  }
+}
+
+.bg-brown {
+  background-color: $color-hero;
+}
+
+.header-focus-bg,
+.focus-bg {
+  background-color: $color-focus;
+}
