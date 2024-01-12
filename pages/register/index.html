@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/index.css" />
+    <title>Auction - Gavel || Register</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0">
+      <div class="container-sm">
+        <a class="navbar-brand" href="#"
+          ><span class="logo-wrapper d-flex flex-column align-items-center">
+            <img class="logo" src="../../images/logo/logo.svg" alt="Logo" /></span
+        ></a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
+          <!-- <span class="navbar-toggler-icon"> -->
+          <span class="d-flex flex-column justify-content-center align-items-end">
+            <div class="menu-line menu-line-short"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line menu-line-short"></div>
+          </span>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end bg-body-tertiary"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          data-bs-theme="dark"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <img class="logo" src="../../images/logo/logo.svg" alt="logo" />
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body fs-5">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li><hr class="divider" /></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Log in</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-light fs-6 fw-normal" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="hero bg-brown">
+      <div class="container-sm">
+        <div class="highlight-element rounded d-flex flex-column justify-content-center my-5">
+          <div class="row">
+            <div class="col-10 col-sm-10 mx-auto my-3 py-3 header-focus-bg rounded">
+              <h1 class="h3 h1-header-focus text-center text-light my-0">Sign up to get full access!</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-10 col-sm-10 mx-auto">
+              <form class="text-light mt-5">
+                <div class="mb-3">
+                  <label for="name" class="form-labe fs-5">Name</label>
+                  <input name="name" type="text" class="form-control fs-5" id="name" aria-describedby="nameHelp" />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-labe fs-5">Email address</label>
+                  <input
+                    name="exampleInputEmail1"
+                    type="email"
+                    class="form-control fs-5"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label fs-5 my-0" name="exampleInputPassword1"
+                    >Password</label
+                  >
+                  <input
+                    name="exampleInputPassword1"
+                    type="password"
+                    class="form-control fs-5"
+                    id="exampleInputPassword1"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="avatar" class="form-labe fs-5">Avatar</label>
+                  <input name="avatar" type="url" class="form-control fs-5" id="name" aria-describedby="avatarHelp" />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg text-uppercase fw-semibold d-block mx-auto mt-5 mb-4"
+                >
+                  Log In
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="row">
+            <div
+              class="col-10 col-sm-10 col-md-8 mx-auto my-3 support-message-wrapper focus-bg d-flex justify-content-center align-items-center rounded"
+            >
+              <p class="support-message text-light mx-auto text-center my-0 py-3 w-100 fs-6">
+                <a href="../../">Already registered? Log in!</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer focus-bg text-light text-center py-2">
+      <div class="container-sm">
+        <div class="row">
+          <div class="col-12 fs-6">
+            <p class="my-0">All rights reserved MRD&copy;</p>
+            <p class="my-0"><a href="mailto:marius.front@gmail.com">marius.front@gmail.com</a></p>
+            <p class="my-0"><a href="tel:+4793928270"></a>tlf:+4793928270</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
