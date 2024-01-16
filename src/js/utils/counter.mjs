@@ -1,5 +1,5 @@
 export function counter() {
-  let counter = 1005;
+  let counter = 5;
   const countingDownSuccess = document.querySelector(".counter");
   countingDownSuccess.classList.remove("d-none");
   const countDown = setInterval(() => {
