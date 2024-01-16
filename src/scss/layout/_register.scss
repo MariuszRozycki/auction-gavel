@@ -1,0 +1,23 @@
+.error,
+.success {
+  color: $color-error;
+  background: $color-focus-light;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: var(--bs-border-radius);
+}
+
+.success {
+  color: $color-success;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-focus;
+  color: $color-success;
+  text-align: center;
+  border-radius: var(--bs-border-radius);
+  border: 2px solid $color-success;
+}
