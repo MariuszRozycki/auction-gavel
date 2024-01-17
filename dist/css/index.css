@@ -1,6 +1,9 @@
 @charset "UTF-8";
 /* import of variables created by me */
 /* class="navbar-toggler" */
+/*   > .form-select */
+/* > .form-control, > .form-control-plaintext, > .form-select */
+/* border radius */
 /* import global styles */
 * {
   box-sizing: border-box;
@@ -32,6 +35,27 @@ a.nav-link:hover {
 .header-focus-bg,
 .focus-bg {
   background-color: #000;
+}
+
+.color-headers {
+  background-color: #312219;
+}
+
+.hero,
+.home {
+  flex: 1;
+}
+.hero .highlight-element,
+.home .highlight-element {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 490px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.fa-search {
+  font-size: 1.5rem;
 }
 
 /* import other files */
@@ -81,17 +105,27 @@ a.nav-link:hover {
   border: 2px solid #00fc00;
 }
 
-.hero {
-  flex: 1;
+.home .form-control-search {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-width: 0;
 }
-.hero .highlight-element {
-  margin: 20px auto;
-  width: 90%;
-  max-width: 490px;
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.3);
+.home .button-form-search {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-width: 0;
+  background-color: #312219;
+}
+.home div.form-floating {
+  position: static;
 }
 
+/* breakpoint sm */
+@media (min-width: 576px) {
+  .element-rounded {
+    border-radius: 0.375rem;
+  }
+}
 /* import bootstrap */
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
@@ -2615,9 +2649,9 @@ textarea.form-control-lg {
 .form-floating > .form-control,
 .form-floating > .form-control-plaintext,
 .form-floating > .form-select {
-  height: calc(3.5rem + calc(var(--bs-border-width) * 2));
-  min-height: calc(3.5rem + calc(var(--bs-border-width) * 2));
-  line-height: 1.25;
+  height: auto;
+  min-height: auto;
+  line-height: 1.5;
 }
 .form-floating > label {
   position: absolute;
@@ -2651,17 +2685,17 @@ textarea.form-control-lg {
 .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown),
 .form-floating > .form-control-plaintext:focus,
 .form-floating > .form-control-plaintext:not(:placeholder-shown) {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .form-floating > .form-control:-webkit-autofill,
 .form-floating > .form-control-plaintext:-webkit-autofill {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .form-floating > .form-select {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,

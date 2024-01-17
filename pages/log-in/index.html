@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dist/css/index.css" />
-    <title>Gavel || Home - All listings</title>
-    <script src="https://kit.fontawesome.com/136bcbc643.js" crossorigin="anonymous"></script>
+    <title>Gavel || Log In</title>
   </head>
   <body>
     <!-- nav -->
@@ -67,55 +66,47 @@
         </div>
       </div>
     </nav>
-    <section class="home bg-brown">
+    <section class="hero bg-brown">
       <div class="container-sm">
-        <div class="row">
-          <div class="col-12 col-sm-10 mx-auto my-3 py-3 element-rounded bg-white">
-            <p class="fs-5 text-center text-dark my-0 fst-italic">To get full access you have to be logged!</p>
+        <div class="highlight-element rounded d-flex flex-column justify-content-center my-5 error-wrap">
+          <div class="row">
+            <div class="col-10 col-sm-10 mx-auto my-3 py-3 header-focus-bg rounded">
+              <h1 class="h4 h1-header-focus text-center text-light my-0">Log In!</h1>
+            </div>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <button type="submit" class="btn btn-primary btn-lg text-uppercase fw-semibold d-block mx-auto">
-              Log In
-            </button>
+          <div class="row">
+            <div class="col-10 col-sm-10 mx-auto">
+              <form class="text-light mt-5" id="log-in-form">
+                <div class="mb-3">
+                  <label for="email" class="form-labe fs-5">Email address</label>
+                  <input name="email" type="email" class="form-control fs-5" id="email" aria-describedby="emailHelp" />
+                  <p class="email-error error d-none"></p>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label fs-5 my-0" name="exampleInputPassword1">Password</label>
+                  <input name="password" type="password" class="form-control fs-5" id="password" />
+                  <p class="password-error error d-none"></p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg text-uppercase fw-semibold d-block mx-auto mt-5 mb-4"
+                >
+                  Log In
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="col-12 col-md-10 mx-auto mt-5 mb-3 pe-0 d-flex justify-content-center justify-content-md-end">
-            <form class="d-flex" role="search">
-              <input class="form-control form-control-search" type="search" placeholder="Search" aria-label="Search" />
-              <button
-                class="btn btn-light btn-outline-light fs-6 fw-normal d-flex justify-content-center align-items-center button-form-search"
-                type="submit"
-              >
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 col-sm-10 mx-auto my-3 py-3 color-headers element-rounded">
-            <h1 class="h4 h1-header-focus text-center text-light my-0">All listings</h1>
-            <div class="col-12 col-sm-10 col-md-8 mx-auto">
-              <div class="form-floating">
-                <select class="form-select mt-2" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>View listing by:</option>
-                  <option value="1">From newest</option>
-                  <option value="2">From oldest</option>
-                </select>
-              </div>
+          <div class="row">
+            <div
+              class="col-10 col-sm-10 col-md-8 mx-auto my-3 support-message-wrapper focus-bg d-flex justify-content-center align-items-center rounded"
+            >
+              <p class="support-message text-light mx-auto text-center my-0 py-3 w-100 fs-6">
+                <a href="./pages/register/">Don't have an account? Sign up!</a>
+              </p>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-10 col-sm-10 mx-auto"></div>
-        </div>
-        <!-- <div class="highlight-element rounded d-flex flex-column justify-content-center my-5 error-wrap"> -->
-        <!-- </div> -->
       </div>
     </section>
     <footer class="footer focus-bg text-light text-center py-2">

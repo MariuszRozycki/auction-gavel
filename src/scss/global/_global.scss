@@ -29,3 +29,24 @@ a.nav-link {
 .focus-bg {
   background-color: $color-focus;
 }
+
+.color-headers {
+  background-color: $color-headers;
+}
+
+.hero,
+.home {
+  flex: 1;
+
+  .highlight-element {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 490px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.fa-search {
+  font-size: 1.5rem;
+}
