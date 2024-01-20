@@ -3,16 +3,40 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right-width: 0;
+
+    &:focus {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+      border-right-width: $border-width;
+    }
   }
 
   .button-form-search {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left-width: 0;
-    background-color: $color-headers;
+    background-color: $color-text;
+    color: $color-focus;
   }
 
   div.form-floating {
     position: static;
+  }
+
+  .card {
+    position: static;
+    background-color: $color-offer-bg;
+    border: 3px solid $bg-brown;
+    border-radius: $border-radius-lg;
+    color: $color-text;
+
+    .img-wrapper {
+      height: 180px;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }

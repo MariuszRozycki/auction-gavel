@@ -70,7 +70,7 @@
     <section class="home bg-brown">
       <div class="container-sm">
         <div class="row">
-          <div class="col-12 col-sm-10 mx-auto my-3 py-3 element-rounded bg-white">
+          <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto my-3 py-3 element-rounded bg-white">
             <p class="fs-5 text-center text-dark my-0 fst-italic">To get full access you have to be logged!</p>
           </div>
         </div>
@@ -84,9 +84,31 @@
         </div>
 
         <div class="row">
-          <div class="col-12 col-md-10 mx-auto mt-5 mb-3 pe-0 d-flex justify-content-center justify-content-md-end">
-            <form class="d-flex" role="search">
-              <input class="form-control form-control-search" type="search" placeholder="Search" aria-label="Search" />
+          <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto my-3 py-3 color-headers element-rounded">
+            <h1 class="h4 h1-header-focus text-center text-light my-0">All listings</h1>
+            <div class="col-12 col-sm-10 mx-auto">
+              <div class="form-floating">
+                <select class="form-select mt-2" id="floatingSelect" aria-label="Floating label select example">
+                  <option selected>Filter listing by:</option>
+                  <option value="1">From newest</option>
+                  <option value="2">From oldest</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- search -->
+        <div class="row">
+          <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto my-3 py-3 color-headers element-rounded">
+            <form class="d-flex me-2" id="search-form" role="search">
+              <input
+                class="form-control form-control-search"
+                id="search-input-home"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
               <button
                 class="btn btn-light btn-outline-light fs-6 fw-normal d-flex justify-content-center align-items-center button-form-search"
                 type="submit"
@@ -96,26 +118,35 @@
             </form>
           </div>
         </div>
+      </div>
 
+      <!-- Listings -->
+      <div class="container-md">
         <div class="row">
-          <div class="col-12 col-sm-10 mx-auto my-3 py-3 color-headers element-rounded">
-            <h1 class="h4 h1-header-focus text-center text-light my-0">All listings</h1>
-            <div class="col-12 col-sm-10 col-md-8 mx-auto">
-              <div class="form-floating">
-                <select class="form-select mt-2" id="floatingSelect" aria-label="Floating label select example">
-                  <option selected>View listing by:</option>
-                  <option value="1">From newest</option>
-                  <option value="2">From oldest</option>
-                </select>
-              </div>
-            </div>
+          <div class="col-12 col-sm-10 mx-auto my-3 element-rounded">
+            <div class="row justify-content-start g-1 py-2" id="listings-container"></div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-10 col-sm-10 mx-auto"></div>
+        <div class="row my-5">
+          <div class="col-6">
+            <button
+              type="submit"
+              id="show-less-btn"
+              class="btn btn-primary btn-lg text-uppercase fw-semibold d-block mx-auto"
+            >
+              Show less
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              type="submit"
+              id="show-more-btn"
+              class="btn btn-primary btn-lg text-uppercase fw-semibold d-block mx-auto"
+            >
+              Show more
+            </button>
+          </div>
         </div>
-        <!-- <div class="highlight-element rounded d-flex flex-column justify-content-center my-5 error-wrap"> -->
-        <!-- </div> -->
       </div>
     </section>
     <footer class="footer focus-bg text-light text-center py-2">
