@@ -150,6 +150,11 @@ a.nav-link:hover {
     height: 130px;
   }
 }
+@media (min-width: 992px) {
+  .home .card .img-wrapper {
+    height: 150px;
+  }
+}
 /* import bootstrap */
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)

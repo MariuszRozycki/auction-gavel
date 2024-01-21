@@ -17,6 +17,6 @@ export const allListings = async () => {
     const jsonLimitedTo_10 = await getListings(URL_limited_to_10);
     renderListings(jsonLimitedTo_10, path, offsetNr + 1);
     showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, URL_limited_to_10, path);
-    search(jsonAllListings, path, offsetNr);
+    search(jsonAllListings, path, offsetNr, showLessBtn, showMoreBtn, jsonLimitedTo_10);
   }
 };
