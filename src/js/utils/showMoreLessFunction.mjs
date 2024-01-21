@@ -38,9 +38,9 @@ export const showMoreLessFunction = async (
 
   const showLessHandler = async () => {
     listingsContainer.innerHTML = ``;
+    offsetNr -= limitNr;
     URL_limited_to_10 = `${URL_allListings}?limit=${limitNr}&offset=${offsetNr}`;
     const updatedJsonWithOffset = await getListings(URL_limited_to_10);
-    offsetNr -= limitNr;
     renderListings(updatedJsonWithOffset, path, offsetNr + 1);
 
     if (offsetNr + limitNr < maxLimit) {
