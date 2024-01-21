@@ -39,4 +39,12 @@
       }
     }
   }
+
+  .page-number-btn {
+    color: $color-focus;
+
+    .active {
+      color: $color-text;
+    }
+  }
 }

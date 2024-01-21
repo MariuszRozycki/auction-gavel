@@ -15,14 +15,13 @@ export const showMoreLessFunction = async (
   const listingsContainer = document.querySelector("#listings-container");
 
   let pageNr = offsetNr + limitNr;
-
-  let currentPage = 10;
+  const updatePageNr = () => {
+    pageNr = offsetNr + limitNr;
+  };
 
   if (offsetNr + limitNr <= 10) {
     showLessBtn.classList.add("d-none");
   }
-
-  const calculateCurrentPage = () => Math.floor(offsetNr / limitNr) + 1;
 
   const showMoreHandler = async () => {
     listingsContainer.innerHTML = ``;
@@ -40,11 +39,9 @@ export const showMoreLessFunction = async (
       showLessBtn.classList.remove("d-none");
     }
 
-    pageNr = offsetNr + limitNr;
-    console.log(pageNr);
-    currentPage = calculateCurrentPage();
-    renderPageNumbers(currentPage);
-    console.log("currentPage", currentPage);
+    updatePageNr();
+    // pageNr = offsetNr + limitNr;
+    // console.log(pageNr);
   };
 
   const showLessHandler = async () => {
@@ -63,15 +60,16 @@ export const showMoreLessFunction = async (
       showLessBtn.classList.add("d-none");
     }
 
-    pageNr = offsetNr + limitNr;
-
-    currentPage = calculateCurrentPage();
-    renderPageNumbers(currentPage);
+    updatePageNr();
+    // pageNr = offsetNr + limitNr;
   };
-
-  console.log(currentPage);
-  renderPageNumbers(pageNr);
 
   showMoreBtn.addEventListener("click", showMoreHandler);
   showLessBtn.addEventListener("click", showLessHandler);
+
+  return {
+    showMoreHandler,
+    showLessHandler,
+    getCurrentPageNr: () => pageNr,
+  };
 };
