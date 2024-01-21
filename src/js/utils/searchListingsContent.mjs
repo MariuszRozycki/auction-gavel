@@ -1,7 +1,7 @@
 import { renderListings } from "../all-listings/renderListings.mjs";
 import { displayError } from "./displayError.mjs";
 
-export const searchListingsContent = async (json, inputValue, listingsContainer, path) => {
+export const searchListingsContent = async (json, inputValue, listingsContainer, path, offsetNr) => {
   let searchedContent;
   try {
     searchedContent = json.filter((listing) => {
@@ -24,7 +24,7 @@ export const searchListingsContent = async (json, inputValue, listingsContainer,
     //   allPostsHeader.innerText = "All posts:";
     //   filterOption.style = "display: block";
     // }
-    renderListings(searchedContent, path);
+    renderListings(searchedContent, path, offsetNr + 1);
   } catch (error) {
     console.log(error);
     displayError();

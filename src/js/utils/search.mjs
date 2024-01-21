@@ -1,6 +1,6 @@
 import { searchListingsContent } from "./searchListingsContent.mjs";
 
-export const search = async (json, path) => {
+export const search = async (json, path, offerNr) => {
   const searchForm = document.querySelector("#search-form");
   const searchInputHome = document.querySelector("#search-input-home");
   const listingsContainer = document.querySelector("#listings-container");
@@ -9,7 +9,7 @@ export const search = async (json, path) => {
     e.preventDefault();
     const searchInputHomeValue = searchInputHome.value.toLowerCase();
 
-    searchListingsContent(json, searchInputHomeValue, listingsContainer, path);
+    searchListingsContent(json, searchInputHomeValue, listingsContainer, path, offerNr);
   };
 
   searchInputHome.addEventListener("input", searchHandler);
