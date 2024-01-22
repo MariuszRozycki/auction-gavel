@@ -6,11 +6,6 @@ import { renderPageNumbers } from "./renderPageNumbers.mjs";
 export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path) => {
   const listingsContainer = document.querySelector("#listings-container");
 
-  const updatePageNumbers = () => {
-    const currentPage = Math.floor(offsetNr / limitNr) + 1;
-    renderPageNumbers(currentPage, handlePageChange, listingsContainer);
-  };
-
   const handlePageChange = async (pageNumber) => {
     const newOffsetNr = (pageNumber - 1) * limitNr;
     const URL_with_offset = `${URL_allListings}?limit=${limitNr}&offset=${newOffsetNr}`;
@@ -18,7 +13,8 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
       const updatedJsonWithOffset = await getListings(URL_with_offset);
       renderListings(updatedJsonWithOffset, path, newOffsetNr + 1);
       offsetNr = newOffsetNr;
-      updatePageNumbers();
+
+      return offsetNr;
     } catch (error) {
       console.error("Error loading listings:", error);
     }
@@ -27,9 +23,9 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
   showMoreBtn.addEventListener("click", async () => {
     if (offsetNr + limitNr < maxLimit) {
       listingsContainer.innerHTML = ``;
-      offsetNr += limitNr;
       showLessBtn.classList.remove("d-none");
-      await handlePageChange(offsetNr / limitNr + 1);
+      const currentOffSetNr = await handlePageChange(offsetNr / limitNr + 2);
+      console.log("currentOffSetNr moreBtn", currentOffSetNr);
     }
 
     if (offsetNr + limitNr === maxLimit) {
@@ -43,8 +39,8 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
     if (offsetNr - limitNr >= 0) {
       listingsContainer.innerHTML = ``;
       showLessBtn.classList.add("d-none");
-      offsetNr -= limitNr;
-      await handlePageChange(offsetNr / limitNr + 1);
+      const currentOffSetNr = await handlePageChange(offsetNr / limitNr);
+      console.log("currentOffSetNr lessBtn", currentOffSetNr);
     }
 
     if (offsetNr + limitNr <= maxLimit) {
@@ -53,5 +49,6 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
     }
   });
 
-  updatePageNumbers();
+  const currentPage = Math.floor(offsetNr / limitNr) + 1;
+  renderPageNumbers(currentPage, handlePageChange, listingsContainer);
 };

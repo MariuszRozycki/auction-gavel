@@ -15,7 +15,6 @@ export const renderListings = async (data, path, offsetNr) => {
       if (tagsList === "" || null) {
         tagsList = "Tags not exists";
       }
-
       const card = createElement("div", "card col-sm-6 col-lg-4 col-xl-3 px-0");
       const offerNr = createElement("h2", "h5 text-center py-1 offer-nr", `Offer nr ${sum++}`);
       const imgWrapper = createElement("div", "img-wrapper");

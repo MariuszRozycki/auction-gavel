@@ -3,7 +3,6 @@ import { search } from "../utils/search.mjs";
 import { getListings } from "./getListings.mjs";
 import { renderListings } from "./renderListings.mjs";
 import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
-import { renderPageNumbers } from "../utils/renderPageNumbers.mjs";
 
 export const allListings = async () => {
   const path = location.pathname;
@@ -19,6 +18,5 @@ export const allListings = async () => {
     renderListings(jsonLimitedTo_10, path, offsetNr + 1);
     showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, URL_limited_to_10, path);
     search(jsonAllListings, path, offsetNr, showLessBtn, showMoreBtn, jsonLimitedTo_10);
-    // renderPageNumbers(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, URL_limited_to_10, path);
   }
 };
