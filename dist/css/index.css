@@ -140,6 +140,14 @@ a.nav-link:hover {
   height: 100%;
   object-fit: cover;
 }
+.home .btn.page-number-btn {
+  min-width: 50px;
+  color: #000;
+}
+.home .btn.active {
+  background-color: #dfdfdf;
+  font-size: larger;
+}
 
 /* breakpoint sm */
 @media (min-width: 576px) {

@@ -39,4 +39,14 @@
       }
     }
   }
+
+  .btn.page-number-btn {
+    min-width: 50px;
+    color: $color-focus;
+  }
+
+  .btn.active {
+    background-color: $color-text;
+    font-size: larger;
+  }
 }
