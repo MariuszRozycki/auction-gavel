@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+p a,
+a.nav-link {
+  text-decoration: none;
+  transition: $transition;
+  cursor: pointer;
+  color: $color-text;
+
+  &:hover {
+    color: $color-hover;
+  }
+}
+
+.bg-brown {
+  background-color: $color-hero;
+}
+
+.header-focus-bg,
+.focus-bg {
+  background-color: $color-focus;
+}
+
+.color-headers {
+  background-color: $color-headers;
+}
+
+.hero,
+.home {
+  flex: 1;
+
+  .highlight-element {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 490px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.fa-search {
+  font-size: 1.5rem;
+}

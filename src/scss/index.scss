@@ -1,0 +1,19 @@
+/* import of variables created by me */
+@import "../scss/utils/variables";
+
+/* import global styles */
+@import "../scss/global/global";
+
+/* import other files */
+@import "../scss/components/buttons/buttons";
+@import "../scss/components/nav/nav";
+@import "../scss/layout/register";
+@import "../scss/layout/login";
+@import "../scss/layout/home";
+@import "../scss/media_queries/media_queries";
+
+/* import bootstrap */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* import custom created by me */
+@import "../scss/utils/custom";

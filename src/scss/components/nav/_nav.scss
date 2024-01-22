@@ -1,0 +1,26 @@
+.navbar .container-sm {
+  .logo {
+    height: 1.75em;
+    margin: 0;
+  }
+
+  .menu-line {
+    width: 1.5em;
+    height: 0.2em;
+    background-color: $color-text;
+    margin: 2px;
+    border-radius: var(--bs-navbar-toggler-border-radius);
+  }
+
+  .menu-line-short {
+    width: 1em;
+  }
+
+  .offcanvas button {
+    border-color: $color-text;
+    transition: $transition;
+    &:hover {
+      background-color: $color-button-bg;
+    }
+  }
+}

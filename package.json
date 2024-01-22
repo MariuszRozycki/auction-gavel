@@ -1,14 +1,16 @@
 {
   "type": "module",
   "name": "auction-gavel",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "Semester Project 2 at Noroff. An auction website.",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "lint": "eslint src/**/*.js",
-    "lint-fix": "eslint src/**/*.js --cache --fix",
-    "test": "node src/js/joker.test.js",
-    "format": "prettier -w src/js/joker.js",
+    "build": "sass src/scss:dist/css",
+    "lint": "eslint src/**/*.js && eslint src/**/*.mjs",
+    "lint-fix": "eslint src/**/*.js --cache --fix && eslint src/**/*.js --cache --fix",
+    "watch": "concurrently \"sass --watch src/scss:dist/css\" \"npx live-server\"",
+    "test": "",
+    "format": "prettier --write \"src/**/*.js\" \"src/**/*.mjs \"*.html\" \"layout/**/*.html\"",
     "prepare": "husky install"
   },
   "repository": {
@@ -30,18 +32,21 @@
   },
   "homepage": "https://github.com/MariuszRozycki/auction-gavel#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "eslint": "^8.55.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1"
+    "live-server": "^1.2.2",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.5"
   },
   "dependencies": {
+    "bootstrap": "^5.3.2",
     "give-me-a-joke": "^0.5.0"
   },
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "eslint --fix",
       "eslint --cache --fix"
     ],
     "*.html": [

@@ -1,0 +1,24 @@
+/* breakpoint sm */
+@media (min-width: 576px) {
+  .home {
+    .element-rounded {
+      border-radius: $border-radius;
+    }
+
+    .card {
+      .img-wrapper {
+        height: 130px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .home {
+    .card {
+      .img-wrapper {
+        height: 150px;
+      }
+    }
+  }
+}
