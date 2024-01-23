@@ -22,3 +22,20 @@
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div> */
+
+/* nav */
+{
+  /* <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="">Home</a>
+              </li>
+              <li><hr class="divider" /></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/log-in/">Log in</a>
+              </li> */
+}
