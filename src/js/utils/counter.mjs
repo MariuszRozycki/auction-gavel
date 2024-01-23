@@ -11,7 +11,7 @@ export function counter() {
 
     if (counter < 0) {
       clearInterval(countDown);
-      window.location.href = "../../";
+      window.location.href = "../log-in/";
     }
   }, 1000);
 }
