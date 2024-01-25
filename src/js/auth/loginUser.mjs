@@ -26,7 +26,7 @@ export async function loginUser(url, userData) {
     console.log("userProfileData", userProfileData);
 
     if (response.ok) {
-      // window.location.href = "" // write location
+      window.location.href = "../../../pages/user-details/";
       console.log("response.ok");
     } else {
       const password = document.querySelector("#password").value;
