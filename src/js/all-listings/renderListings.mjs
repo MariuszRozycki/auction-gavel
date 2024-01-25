@@ -2,14 +2,10 @@ import { createElement } from "../utils/createElement.mjs";
 import { abbreviateAndCapitalize } from "../utils/abbrevAndCapitalize.mjs";
 
 export const renderListings = async (data, path, offsetNr) => {
-  const repoName = "/auction-gavel/";
-  const isRootPath = path === "../../../pages/log-in/" || path.startsWith(repoName);
   const listingsContainer = document.querySelector("#listings-container");
-  /* /auction-gavel/pages/log-in/ */
 
   let sum = offsetNr;
-
-  if (isRootPath) {
+  if (path === "/") {
     try {
       for (let listing of data) {
         const { created, description, endsAt, id, media, tags, title, updated, _count } = listing;
