@@ -13,8 +13,7 @@ export const navNotLogged = () => {
 
   navItems.forEach((item) => {
     // Sprawdź, czy aktualny adres URL pasuje do href elementu nawigacji
-    const isCurrentPage =
-      location.pathname.endsWith(item.href) || (location.pathname === "/" && item.href === "./index.html");
+    const isCurrentPage = location.pathname.endsWith(item.href) || (location.pathname === "/" && item.href === "/");
     console.log("isCurrentPage", isCurrentPage);
 
     const listItem = createElement("li", "nav-item");
