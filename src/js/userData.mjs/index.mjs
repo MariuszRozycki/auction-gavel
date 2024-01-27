@@ -9,28 +9,29 @@ const path = location.pathname;
 const registerForm = document.querySelector("#register-form");
 const logInForm = document.querySelector("#log-in-form");
 
-export const registerPath = async () => {
+export const registerPath = () => {
   if (path === "/pages/register/") {
-    registerForm.addEventListener("submit", (e) => {
+    registerForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const userName = document.querySelector("#userName").value;
       const email = document.querySelector("#email").value;
       const password = document.querySelector("#password").value;
       const avatar = document.querySelector("#avatar").value;
       const userData = userRegisterData(userName, email, password, avatar);
-      registerUser(URL_register, userData);
+      const regiUser = await registerUser(URL_register, userData);
+      console.log("regiUser", regiUser);
     });
   }
 };
 
 export const loginPath = () => {
   if (path === "/pages/log-in/") {
-    logInForm.addEventListener("submit", (e) => {
+    logInForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const email = document.querySelector("#email").value;
       const password = document.querySelector("#password").value;
       const userData = userLoginData(email, password);
-      const userD = loginUser(URL_login, userData);
+      const userD = await loginUser(URL_login, userData);
       console.log(userD);
     });
   }
