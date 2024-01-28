@@ -11,6 +11,7 @@ export async function loginUser(url, userData) {
     };
 
     const response = await fetch(url, postData);
+    console.log("response", response);
     const json = await response.json();
     console.log("json", json);
 
@@ -24,8 +25,7 @@ export async function loginUser(url, userData) {
       console.log("accessToken", accessToken);
       console.log("userProfileData", userProfileData);
 
-      // window.location.href = "../../../pages/user-details/";
-      console.log("response.ok");
+      window.location.href = "../../../pages/user-details/";
     } else {
       const password = document.querySelector("#password").value;
       const emailError = document.querySelector(".email-error");
