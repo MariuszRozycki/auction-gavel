@@ -11,7 +11,7 @@
     <!-- nav -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0">
       <div class="container-sm">
-        <a class="navbar-brand" href="#"
+        <a class="navbar-brand" href=""
           ><span class="logo-wrapper d-flex flex-column align-items-center">
             <img class="logo" src="../../images/logo/logo.svg" alt="Logo" /></span
         ></a>
@@ -44,21 +44,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body fs-5">
-            <ul id="nav-container" class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../../">Home</a>
-              </li>
-              <li><hr class="divider" /></li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/log-in/">Log in</a>
-              </li>
-            </ul>
+            <ul id="nav-container" class="navbar-nav justify-content-end flex-grow-1 pe-3"></ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-light fs-6 fw-normal" type="submit">Search</button>
@@ -71,7 +57,10 @@
       <div class="container-sm">
         <div class="row">
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto my-3 py-3 color-headers element-rounded">
-            <h1 class="h4 h1-header-focus text-center text-light my-0">All listings</h1>
+            <h1 class="h4 h1-header-focus text-center text-light my-0">
+              You are logged!<br />
+              All listings
+            </h1>
             <div class="col-12 col-sm-10 mx-auto">
               <div class="form-floating">
                 <select class="form-select mt-2" id="floatingSelect" aria-label="Floating label select example">
@@ -152,6 +141,6 @@
     </footer>
 
     <script src="../../dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./src/js/index.mjs"></script>
+    <script type="module" src="../../src/js/index.mjs"></script>
   </body>
 </html>
