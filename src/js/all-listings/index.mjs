@@ -7,10 +7,8 @@ import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
 export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;
-  const isRootPath = path === "/" || path.startsWith(repoName);
-
-  const showMoreBtn = document.querySelector("#show-more-btn");
-  const showLessBtn = document.querySelector("#show-less-btn");
+  console.log(path);
+  const isRootPath = path === "/" || path === "/pages/user-details/" || path.startsWith(repoName);
 
   const limitNr = 10;
   const offsetNr = 0;
@@ -18,6 +16,9 @@ export const allListings = async () => {
   const URL_limited_to_10 = `${URL_allListings}?limit=${limitNr}&offset=${offsetNr}`;
 
   if (isRootPath) {
+    const showMoreBtn = document.querySelector("#show-more-btn");
+    const showLessBtn = document.querySelector("#show-less-btn");
+
     try {
       const jsonAllListings = await getListings(URL_allListings);
       const jsonLimitedTo_10 = await getListings(URL_limited_to_10);
