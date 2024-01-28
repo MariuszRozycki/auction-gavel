@@ -5,7 +5,7 @@ export const renderListings = async (data, path, offsetNr) => {
   const listingsContainer = document.querySelector("#listings-container");
 
   let sum = offsetNr;
-  if (path === "/") {
+  if (path === "/" || path === "/pages/user-details/") {
     try {
       for (let listing of data) {
         const { created, description, endsAt, id, media, tags, title, updated, _count } = listing;
