@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="dist/css/index.css" />
-    <title>Gavel || Log out</title>
+    <link rel="stylesheet" href="../../dist/css/index.css" />
+    <title>Gavel || Log Out</title>
   </head>
   <body>
     <!-- nav -->
@@ -12,7 +12,7 @@
       <div class="container-sm">
         <a class="navbar-brand" href="#"
           ><span class="logo-wrapper d-flex flex-column align-items-center">
-            <img class="logo" src="images/logo/logo.svg" alt="Logo" /></span
+            <img class="logo" src="../../images/logo/logo.svg" alt="Logo" /></span
         ></a>
         <button
           class="navbar-toggler border-0"
@@ -38,26 +38,12 @@
         >
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              <img class="logo" src="images/logo/logo.svg" alt="logo" />
+              <img class="logo" src="../../images/logo/logo.svg" alt="logo" />
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body fs-5">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
-              </li>
-              <li><hr class="divider" /></li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Log in</a>
-              </li>
-            </ul>
+            <ul id="nav-container" class="navbar-nav justify-content-end flex-grow-1 pe-3"></ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-light fs-6 fw-normal" type="submit">Search</button>
@@ -68,22 +54,24 @@
     </nav>
     <section class="hero bg-brown">
       <div class="container-sm">
-        <div class="highlight-element rounded d-flex flex-column justify-content-center my-5">
+        <div class="highlight-element rounded d-flex flex-column justify-content-center my-5 error-wrap">
           <div class="row">
             <div class="col-10 col-sm-10 mx-auto my-3 py-3 header-focus-bg rounded">
-              <h1 class="h4 h1-header-focus text-center text-light my-0">You are logged out, log in again</h1>
+              <h1 class="h4 h1-header-focus text-center text-light my-0">You are logged out! Log in again!</h1>
             </div>
           </div>
           <div class="row">
             <div class="col-10 col-sm-10 mx-auto">
-              <form class="text-light mt-5">
+              <form class="text-light mt-5" id="log-in-form">
                 <div class="mb-3">
                   <label for="email" class="form-labe fs-5">Email address</label>
                   <input name="email" type="email" class="form-control fs-5" id="email" aria-describedby="emailHelp" />
+                  <p class="email-error error d-none"></p>
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label fs-5 my-0" name="exampleInputPassword1">Password</label>
                   <input name="password" type="password" class="form-control fs-5" id="password" />
+                  <p class="password-error error d-none"></p>
                 </div>
                 <button
                   type="submit"
@@ -100,7 +88,7 @@
               class="col-10 col-sm-10 col-md-8 mx-auto my-3 support-message-wrapper focus-bg d-flex justify-content-center align-items-center rounded"
             >
               <p class="support-message text-light mx-auto text-center my-0 py-3 w-100 fs-6">
-                <a href="./pages/register/">Don't have an account? Sign up!</a>
+                <a href="../register/">Don't have an account? Sign up!</a>
               </p>
             </div>
           </div>
@@ -119,6 +107,7 @@
       </div>
     </footer>
 
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../src/js/index.mjs"></script>
   </body>
 </html>
