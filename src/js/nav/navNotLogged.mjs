@@ -1,6 +1,6 @@
 import { createElement } from "../utils/createElement.mjs";
 
-export const navNotLogged = () => {
+export const navNotLogged = (navContainer) => {
   console.log("nie zalogowany");
   const path = location.pathname;
   const navItems = [
@@ -10,7 +10,7 @@ export const navNotLogged = () => {
     { text: "Log in", href: "/pages/log-in/" },
   ];
 
-  const navContainer = document.getElementById("nav-container");
+  navContainer.innerHTML = "";
 
   navItems.forEach((item) => {
     const listItem = createElement("li", "nav-item");
