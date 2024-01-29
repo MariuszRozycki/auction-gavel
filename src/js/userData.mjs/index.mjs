@@ -4,6 +4,7 @@ import { userRegisterData } from "../userData.mjs/userRegisterData.mjs";
 import { registerUser } from "../userData.mjs/registerUser.mjs";
 import { userLoginData } from "./userLoginData.mjs";
 import { loginUser } from "../auth/loginUser.mjs";
+import { updateAvatar } from "./updateAvatar.mjs";
 
 const path = location.pathname;
 const registerForm = document.querySelector("#register-form");
@@ -35,4 +36,8 @@ export const loginPath = () => {
       console.log(userD);
     });
   }
+};
+
+export const updateAvatarPath = () => {
+  if (path === "/pages/update-avatar/") updateAvatar();
 };
