@@ -7,7 +7,6 @@ import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
 export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;
-  console.log(path);
   const isRootPath = path === "/" || path === "/pages/user-details/" || path.startsWith(repoName);
 
   const limitNr = 10;
