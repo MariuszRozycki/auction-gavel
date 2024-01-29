@@ -25,7 +25,7 @@ export const registerPath = () => {
 };
 
 export const loginPath = () => {
-  if (path === "/pages/log-in/") {
+  if (path === "/pages/log-in/" || path === "/pages/log-out/") {
     logInForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const email = document.querySelector("#email").value;
