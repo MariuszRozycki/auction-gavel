@@ -5,7 +5,7 @@ export const navLogged = (navContainer) => {
   console.log("Pomyslnie zalogowany!");
   const path = location.pathname;
   const navItems = [
-    { text: "Home", href: "/" },
+    { text: "Home", href: "/pages/user-details/" },
     { text: "My credits", href: "/pages/my-credits/" },
     { text: "About Us", href: "/pages/about/" },
     { text: "Contact", href: "/pages/contact/" },
