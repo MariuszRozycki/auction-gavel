@@ -4,6 +4,7 @@ export const search = async (json, path, offerNr, showLessBtn, showMoreBtn, json
   const searchForm = document.querySelector("#search-form");
   const searchInputHome = document.querySelector("#search-input-home");
   const listingsContainer = document.querySelector("#listings-container");
+  const pageNumberContainer = document.querySelector("#wrapper-page-number-btn");
 
   const searchHandler = async (e) => {
     e.preventDefault();
@@ -19,6 +20,12 @@ export const search = async (json, path, offerNr, showLessBtn, showMoreBtn, json
       showMoreBtn,
       jsonLimitedTo_10,
     );
+
+    if (searchInputHomeValue) {
+      pageNumberContainer.classList.add("d-none");
+    } else {
+      pageNumberContainer.classList.remove("d-none");
+    }
   };
 
   searchInputHome.addEventListener("input", searchHandler);
