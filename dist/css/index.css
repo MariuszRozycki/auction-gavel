@@ -68,6 +68,11 @@ a.nav-link:hover {
   font-size: 1.5rem;
 }
 
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
 /* import other files */
 .navbar .container-sm .logo {
   height: 1.75em;
@@ -156,6 +161,19 @@ a.nav-link:hover {
 .home .btn.active {
   background-color: #dfdfdf;
   font-size: larger;
+}
+
+.new-avatar-container {
+  height: 200px;
+}
+.new-avatar-container .new-avatar-img {
+  width: auto;
+  height: 100%;
+}
+
+.go-back-arrow {
+  width: 6%;
+  margin-right: 10px;
 }
 
 /* breakpoint sm */
