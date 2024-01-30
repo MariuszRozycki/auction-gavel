@@ -33,6 +33,10 @@ a.nav-link:hover {
   background-color: #654534;
 }
 
+.bg-focus-light {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .header-focus-bg,
 .focus-bg {
   background-color: #000;
@@ -46,11 +50,16 @@ a.nav-link:hover {
 .home {
   flex: 1;
 }
+.hero .support-message-wrapper,
+.hero .highlight-element,
+.home .support-message-wrapper,
+.home .highlight-element {
+  max-width: 490px;
+}
 .hero .highlight-element,
 .home .highlight-element {
   margin: 20px auto;
   width: 90%;
-  max-width: 490px;
   height: auto;
   background-color: rgba(0, 0, 0, 0.3);
 }

@@ -25,6 +25,10 @@ a.nav-link {
   background-color: $color-hero;
 }
 
+.bg-focus-light {
+  background-color: $color-focus-light;
+}
+
 .header-focus-bg,
 .focus-bg {
   background-color: $color-focus;
@@ -38,10 +42,14 @@ a.nav-link {
 .home {
   flex: 1;
 
+  .support-message-wrapper,
+  .highlight-element {
+    max-width: 490px;
+  }
+
   .highlight-element {
     margin: 20px auto;
     width: 90%;
-    max-width: 490px;
     height: auto;
     background-color: rgba(0, 0, 0, 0.3);
   }
