@@ -69,8 +69,27 @@ a.nav-link:hover {
 }
 
 img {
-  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+.user-data-container {
+  height: 100px;
+}
+.user-data-container .avatar-and-name-container {
+  height: 100%;
+}
+.user-data-container .avatar-and-name-container .avatar-container {
+  height: 80%;
+}
+.user-data-container .avatar-and-name-container .avatar-container .avatar-name-paragraph {
+  height: 20%;
+}
+.user-data-container .credit-paragraph {
+  margin: 0;
+}
+.user-data-container .icon-credit-container {
+  height: 20px;
 }
 
 /* import other files */

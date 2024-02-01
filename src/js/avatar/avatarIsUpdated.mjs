@@ -10,4 +10,9 @@ export const avatarIsUpdated = () => {
   const newAvatarImg = createElement("img", "new-avatar-img", null, { src: newAvatar });
 
   newAvatarContainer.appendChild(newAvatarImg);
+
+  /* update avatar again button */
+  document.querySelector("#update-again").addEventListener("click", () => {
+    window.location.href = "../../../pages/update-avatar/";
+  });
 };
