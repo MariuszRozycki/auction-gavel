@@ -6,7 +6,8 @@ import { renderPageNumbers } from "./renderPageNumbers.mjs";
 export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path) => {
   const listingsContainer = document.querySelector("#listings-container");
 
-  const updatePageNumbers = () => {
+  const updatePageNumbers = (updatedJson) => {
+    console.log("updatedJson", updatedJson);
     const currentPage = Math.floor(offsetNr / limitNr) + 1;
     renderPageNumbers(currentPage, handlePageChange, listingsContainer);
   };
@@ -18,7 +19,7 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
       const updatedJsonWithOffset = await getListings(URL_with_offset);
       renderListings(updatedJsonWithOffset, path, newOffsetNr + 1);
       offsetNr = newOffsetNr;
-      updatePageNumbers();
+      updatePageNumbers(updatedJsonWithOffset);
     } catch (error) {
       console.error("Error loading listings:", error);
     }

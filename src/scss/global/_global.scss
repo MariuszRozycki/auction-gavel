@@ -7,6 +7,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+  flex: 1;
+}
+
+.main {
+  flex: 1;
 }
 
 p a,
@@ -21,8 +26,25 @@ a.nav-link {
   }
 }
 
+input.form-control,
+input.form-control:focus,
+select.form-select,
+select.form-select:focus,
+textarea.form-control,
+textarea.form-control:focus {
+  background-color: $color-text;
+}
+
 .bg-brown {
   background-color: $color-hero;
+}
+
+.bg-focus-light {
+  background-color: $color-focus-light;
+}
+
+.color-avatar-header {
+  background-color: $color-avatar-header;
 }
 
 .header-focus-bg,
@@ -36,12 +58,14 @@ a.nav-link {
 
 .hero,
 .home {
-  flex: 1;
+  .support-message-wrapper,
+  .highlight-element {
+    max-width: 490px;
+  }
 
   .highlight-element {
     margin: 20px auto;
     width: 90%;
-    max-width: 490px;
     height: auto;
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -49,4 +73,37 @@ a.nav-link {
 
 .fa-search {
   font-size: 1.5rem;
+}
+
+img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-data-container {
+  height: 80px;
+
+  .avatar-and-name-container {
+    height: 100%;
+
+    .avatar-container {
+      height: 80%;
+
+      .avatar-img {
+        // height: 100%;
+      }
+
+      .avatar-name-paragraph {
+        height: 20%;
+      }
+    }
+  }
+
+  .credit-paragraph {
+    margin: 0;
+  }
+
+  .icon-credit-container {
+    height: 20px;
+  }
 }
