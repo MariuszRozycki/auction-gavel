@@ -15,6 +15,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+  flex: 1;
+}
+
+.main {
+  flex: 1;
 }
 
 p a,
@@ -29,12 +34,25 @@ a.nav-link:hover {
   color: #f5913c;
 }
 
+input.form-control,
+input.form-control:focus,
+select.form-select,
+select.form-select:focus,
+textarea.form-control,
+textarea.form-control:focus {
+  background-color: #dfdfdf;
+}
+
 .bg-brown {
   background-color: #654534;
 }
 
 .bg-focus-light {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.color-avatar-header {
+  background-color: #33231a;
 }
 
 .header-focus-bg,
@@ -46,10 +64,6 @@ a.nav-link:hover {
   background-color: #312219;
 }
 
-.hero,
-.home {
-  flex: 1;
-}
 .hero .support-message-wrapper,
 .hero .highlight-element,
 .home .support-message-wrapper,
@@ -74,7 +88,7 @@ img {
 }
 
 .user-data-container {
-  height: 100px;
+  height: 80px;
 }
 .user-data-container .avatar-and-name-container {
   height: 100%;
@@ -195,6 +209,26 @@ img {
   margin-right: 10px;
 }
 
+.contact-background {
+  width: 100%;
+  background-color: #3d322c;
+}
+
+.contact li {
+  list-style: none;
+  margin-block: 0;
+  margin-inline: 0;
+}
+.contact li p {
+  margin: 5px 0;
+}
+.contact img {
+  width: 100%;
+}
+.contact .contact-divider {
+  height: 50px;
+}
+
 /* breakpoint sm */
 @media (min-width: 576px) {
   .home .element-rounded {
@@ -291,8 +325,8 @@ img {
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg: #fff;
-  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-body-bg: #654534;
+  --bs-body-bg-rgb: 101, 69, 52;
   --bs-emphasis-color: #000;
   --bs-emphasis-color-rgb: 0, 0, 0;
   --bs-secondary-color: rgba(33, 37, 41, 0.75);
@@ -2667,10 +2701,10 @@ textarea.form-control-lg {
   outline: 0;
 }
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(217, 178, 110, 0.25);
+  box-shadow: 0 0 0 1px #654534, 0 0 0 0.25rem rgba(217, 178, 110, 0.25);
 }
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(217, 178, 110, 0.25);
+  box-shadow: 0 0 0 1px #654534, 0 0 0 0.25rem rgba(217, 178, 110, 0.25);
 }
 .form-range::-moz-focus-outer {
   border: 0;

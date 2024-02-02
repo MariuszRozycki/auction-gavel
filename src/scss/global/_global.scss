@@ -7,6 +7,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+  flex: 1;
+}
+
+.main {
+  flex: 1;
 }
 
 p a,
@@ -21,12 +26,25 @@ a.nav-link {
   }
 }
 
+input.form-control,
+input.form-control:focus,
+select.form-select,
+select.form-select:focus,
+textarea.form-control,
+textarea.form-control:focus {
+  background-color: $color-text;
+}
+
 .bg-brown {
   background-color: $color-hero;
 }
 
 .bg-focus-light {
   background-color: $color-focus-light;
+}
+
+.color-avatar-header {
+  background-color: $color-avatar-header;
 }
 
 .header-focus-bg,
@@ -40,8 +58,6 @@ a.nav-link {
 
 .hero,
 .home {
-  flex: 1;
-
   .support-message-wrapper,
   .highlight-element {
     max-width: 490px;
@@ -65,7 +81,7 @@ img {
 }
 
 .user-data-container {
-  height: 100px;
+  height: 80px;
 
   .avatar-and-name-container {
     height: 100%;
