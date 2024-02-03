@@ -1,7 +1,7 @@
 import { createElement } from "../utils/createElement.mjs";
 import { abbreviateAndCapitalize } from "../utils/abbrevAndCapitalize.mjs";
 
-export const renderListings = async (data, path, offsetNr) => {
+export const renderListings = async (data) => {
   const listingsContainer = document.querySelector("#listings-container");
 
   // let sum = offsetNr;
