@@ -1,9 +1,12 @@
 .navbar .container-sm {
-  .logo {
-    height: 1.75em;
-    margin: 0;
+  .logo-wrapper,
+  .offcanvas-title {
+    height: 1.75rem;
+    .logo {
+      height: 100%;
+      margin: 0;
+    }
   }
-
   .menu-line {
     width: 1.5em;
     height: 0.2em;
@@ -16,7 +19,7 @@
     width: 1em;
   }
 
-  .offcanvas button {
+  .offcanvas-title .offcanvas button {
     border-color: $color-text;
     transition: $transition;
     &:hover {

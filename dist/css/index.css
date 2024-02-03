@@ -107,8 +107,13 @@ img {
 }
 
 /* import other files */
-.navbar .container-sm .logo {
-  height: 1.75em;
+.navbar .container-sm .logo-wrapper,
+.navbar .container-sm .offcanvas-title {
+  height: 1.75rem;
+}
+.navbar .container-sm .logo-wrapper .logo,
+.navbar .container-sm .offcanvas-title .logo {
+  height: 100%;
   margin: 0;
 }
 .navbar .container-sm .menu-line {
@@ -121,11 +126,11 @@ img {
 .navbar .container-sm .menu-line-short {
   width: 1em;
 }
-.navbar .container-sm .offcanvas button {
+.navbar .container-sm .offcanvas-title .offcanvas button {
   border-color: #dfdfdf;
   transition: 0.2s;
 }
-.navbar .container-sm .offcanvas button:hover {
+.navbar .container-sm .offcanvas-title .offcanvas button:hover {
   background-color: #d9b26e;
 }
 
