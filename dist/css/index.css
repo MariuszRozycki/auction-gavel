@@ -109,7 +109,7 @@ img {
 /* import other files */
 .navbar .container-sm .logo-wrapper,
 .navbar .container-sm .offcanvas-title {
-  height: 1.75rem;
+  height: 50px;
 }
 .navbar .container-sm .logo-wrapper .logo,
 .navbar .container-sm .offcanvas-title .logo {
