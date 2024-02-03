@@ -15,7 +15,9 @@ export const renderAvatarLoggedUser = () => {
       "avatar-and-name-container d-flex flex-column justify-content-center m-0",
     );
     const avatarContainer = createElement("div", "avatar-container");
-    const avatarImg = createElement("img", "avatar-img", null, { src: avatar });
+    const avatarImg = createElement("img", "avatar-img rounded-circle border border-2 border-light", null, {
+      src: avatar,
+    });
     const userName = createElement("p", "avatar-name-paragraph m-0", `Hello ${name}`);
 
     /* credit container */

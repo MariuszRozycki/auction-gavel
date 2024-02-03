@@ -11,6 +11,12 @@
       }
     }
   }
+
+  .contact {
+    ul {
+      padding: 0;
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -19,6 +25,12 @@
       .img-wrapper {
         height: 150px;
       }
+    }
+  }
+
+  .contact {
+    .contact-img-wrapper {
+      height: 300px;
     }
   }
 }

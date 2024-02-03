@@ -83,18 +83,18 @@ textarea.form-control:focus {
 }
 
 img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.user-data-container {
-  height: 80px;
-}
 .user-data-container .avatar-and-name-container {
   height: 100%;
 }
 .user-data-container .avatar-and-name-container .avatar-container {
-  height: 80%;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 10px;
 }
 .user-data-container .avatar-and-name-container .avatar-container .avatar-name-paragraph {
   height: 20%;
@@ -214,12 +214,12 @@ img {
   background-color: #3d322c;
 }
 
-.contact li {
+.contact ul li {
   list-style: none;
   margin-block: 0;
   margin-inline: 0;
 }
-.contact li p {
+.contact ul li p {
   margin: 5px 0;
 }
 .contact img {
@@ -227,6 +227,13 @@ img {
 }
 .contact .contact-divider {
   height: 50px;
+}
+.contact textarea {
+  height: 200px;
+}
+.contact #map {
+  height: 400px;
+  width: 100%;
 }
 
 /* breakpoint sm */
@@ -237,10 +244,16 @@ img {
   .home .card .img-wrapper {
     height: 130px;
   }
+  .contact ul {
+    padding: 0;
+  }
 }
 @media (min-width: 992px) {
   .home .card .img-wrapper {
     height: 150px;
+  }
+  .contact .contact-img-wrapper {
+    height: 300px;
   }
 }
 /* import bootstrap */
