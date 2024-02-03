@@ -4,13 +4,16 @@
 }
 
 .contact {
-  li {
-    list-style: none;
-    margin-block: 0;
-    margin-inline: 0;
+  ul {
+    // padding: 0;
+    li {
+      list-style: none;
+      margin-block: 0;
+      margin-inline: 0;
 
-    p {
-      margin: 5px 0;
+      p {
+        margin: 5px 0;
+      }
     }
   }
 
@@ -20,5 +23,14 @@
 
   .contact-divider {
     height: 50px;
+  }
+
+  textarea {
+    height: 200px;
+  }
+
+  #map {
+    height: 400px;
+    width: 100%;
   }
 }
