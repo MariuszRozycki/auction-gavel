@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../dist/css/index.css" />
-    <title>Auction - Gavel || Register</title>
+    <title>Auction - Gavel || Create new listing</title>
   </head>
   <body>
     <!-- nav -->
@@ -53,64 +53,83 @@
       </div>
     </nav>
     <section class="main my-2">
+      <div class="user-data">
+        <div class="container-sm text-light">
+          <div class="row justify-content-center">
+            <div
+              class="color-avatar-header col-12 user-data-container d-flex justify-content-between rounded py-2"
+            ></div>
+          </div>
+        </div>
+      </div>
       <section class="hero bg-brown">
         <div class="container-sm">
           <div class="highlight-element rounded d-flex flex-column justify-content-center my-5">
             <div class="row">
               <div class="col-10 col-sm-10 mx-auto my-3 py-3 header-focus-bg rounded">
-                <h1 class="h4 h1-header-focus text-center text-light my-0" id="header-main">
-                  Sign up to get full access!
-                </h1>
+                <h1 class="h4 h1-header-focus text-center text-light my-0" id="header-main">Create new listing</h1>
               </div>
             </div>
             <div class="row">
               <div class="col-10 col-sm-10 mx-auto">
-                <form class="text-light mt-5" id="register-form">
-                  <p id="user-registered" class="d-none success">New user is registered!</p>
-                  <p id="user-not-registered" class="d-none error"></p>
+                <form class="text-light mt-5" id="new-listing-form">
+                  <p id="new-listing-created" class="d-none success">New listing is created!</p>
+                  <p id="new-listing-not-created" class="d-none error"></p>
                   <p class="fs-5 counter d-none p-4"></p>
                   <div class="mb-3">
-                    <label for="userName" class="form-labe fs-5">Name</label>
+                    <label for="new-listing-title" class="form-labe fs-5">Title</label>
                     <input
-                      name="userName"
+                      name="new-listing-title"
                       type="text"
                       class="form-control fs-5"
-                      id="userName"
-                      aria-describedby="nameHelp"
+                      id="new-listing-title"
+                      aria-describedby="titleHelp"
                     />
-                    <p class="name-error error d-none"></p>
+                    <p class="new-listing-title-error error d-none"></p>
                   </div>
                   <div class="mb-3">
-                    <label for="email" class="form-labe fs-5">Email address</label>
+                    <label for="new-listing-description" class="form-labe fs-5">Description</label>
                     <input
-                      name="email"
-                      type="email"
+                      name="new-listing-description"
+                      type="text"
                       class="form-control fs-5"
-                      id="email"
-                      aria-describedby="emailHelp"
+                      id="new-listing-description"
+                      aria-describedby="listingHelp"
                     />
-                    <p class="email-error error d-none"></p>
+                    <p class="new-listing-description-error error d-none"></p>
                   </div>
                   <div class="mb-3">
-                    <label for="password" class="form-label fs-5 my-0" name="password">Password</label>
-                    <input name="password" type="password" class="form-control fs-5" id="password" />
-                    <p class="password-error error d-none"></p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="avatar" class="form-labe fs-5">Avatar</label>
+                    <label for="new-listing-endsAt" class="form-labe fs-5">Ends at</label>
                     <input
-                      name="avatar"
+                      name="new-listing-endsAt"
+                      type="text"
+                      class="form-control fs-5"
+                      id="new-listing-endsAt"
+                      aria-describedby="endsAtHelp"
+                    />
+                    <p class="new-listing-endsAt-error error d-none"></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="new-listing-tags" class="form-label fs-5 my-0" name="new-listing-tags">Tags</label>
+                    <input name="new-listing-tags" type="text" class="form-control fs-5" id="new-listing-tags" />
+                    <p class="new-listing-tags-error error d-none"></p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="new-listing-media" class="form-labe fs-5">Media</label>
+                    <input
+                      name="new-listing-media"
                       type="url"
                       class="form-control fs-5"
-                      id="avatar"
-                      aria-describedby="avatarHelp"
+                      id="new-listing-media"
+                      aria-describedby="mediaHelp"
                     />
                   </div>
                   <button
+                    id="add-new-listing-btn"
                     type="submit"
                     class="btn btn-primary btn-lg text-uppercase fw-semibold d-block mx-auto mt-5 mb-4"
                   >
-                    Sign up!
+                    Add new listing
                   </button>
                 </form>
               </div>

@@ -8,11 +8,19 @@ export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;
   const isRootPath = path === "/" || path === "/pages/user-details/" || path.startsWith(repoName);
+  const userLoggedPath = path === "/pages/user-details/";
 
   const limitNr = 10;
   const offsetNr = 0;
   const maxLimit = 100;
   const URL_limited_to_10 = `${URL_allListings}?limit=${limitNr}&offset=${offsetNr}`;
+
+  if (userLoggedPath) {
+    const createNewListingBtn = document.querySelector("#new-listing-btn");
+    createNewListingBtn.addEventListener("click", () => {
+      window.location.href = "../../../pages/create-new-listing/";
+    });
+  }
 
   if (isRootPath) {
     const showMoreBtn = document.querySelector("#show-more-btn");
@@ -20,6 +28,7 @@ export const allListings = async () => {
 
     try {
       const jsonAllListings = await getListings(URL_allListings);
+      console.log("jsonAllListings", jsonAllListings);
       const jsonLimitedTo_10 = await getListings(URL_limited_to_10);
 
       renderListings(jsonLimitedTo_10, path, offsetNr + 1);

@@ -5,6 +5,7 @@ import { navDisplay } from "./nav/index.mjs";
 import { logInOnMainBtn } from "./utils/loginOnMainBtn.mjs";
 import { avatarPathFunctions } from "./avatar/index.mjs";
 import { myCreditsPath } from "./my-credits/index.mjs";
+import { createNewListingPath } from "./create-new-listing/index.mjs";
 
 registerPath();
 loginPath();
@@ -13,3 +14,4 @@ navDisplay();
 logInOnMainBtn();
 avatarPathFunctions();
 myCreditsPath();
+createNewListingPath();
