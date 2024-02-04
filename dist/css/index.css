@@ -119,6 +119,7 @@ img {
 }
 .navbar .container-sm .logo-wrapper .logo,
 .navbar .container-sm .offcanvas-title .logo {
+  object-fit: contain;
   height: 100%;
   margin: 0;
 }
