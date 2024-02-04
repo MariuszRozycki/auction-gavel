@@ -111,6 +111,7 @@ img {
 }
 .user-data-container .icon-credit-container {
   height: 20px;
+  width: 20px;
 }
 
 /* import other files */
@@ -120,7 +121,7 @@ img {
 }
 .navbar .container-sm .logo-wrapper .logo,
 .navbar .container-sm .offcanvas-title .logo {
-  object-fit: contain;
+  width: 100%;
   height: 100%;
   margin: 0;
 }
