@@ -13,7 +13,7 @@ export const allListings = async () => {
   const limitNr = 10;
   const offsetNr = 0;
   const maxLimit = 100;
-  const URL_limited_to_10 = `${URL_allListings}?limit=${limitNr}&offset=${offsetNr}`;
+  const URL_limited_to_10 = `${URL_allListings}?sort=created&sortOrder=desc&limit=${limitNr}&offset=${offsetNr}`;
 
   if (userLoggedPath) {
     const createNewListingBtn = document.querySelector("#new-listing-btn");
