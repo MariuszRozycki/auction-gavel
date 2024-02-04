@@ -115,9 +115,8 @@ img {
 }
 
 /* import other files */
-.navbar .container-sm .logo-wrapper,
-.navbar .container-sm .offcanvas-title {
-  height: 35px;
+.navbar .container-sm {
+  height: 80px;
 }
 .navbar .container-sm .logo-wrapper .logo,
 .navbar .container-sm .offcanvas-title .logo {
