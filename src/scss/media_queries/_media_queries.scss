@@ -1,6 +1,8 @@
 /* breakpoint sm */
 @media (min-width: 576px) {
-  .home {
+  .home,
+  .hero,
+  .my-credits {
     .element-rounded {
       border-radius: $border-radius;
     }
