@@ -13,7 +13,7 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
 
   const handlePageChange = async (pageNumber) => {
     const newOffsetNr = (pageNumber - 1) * limitNr;
-    const URL_with_offset = `${URL_allListings}?limit=${limitNr}&offset=${newOffsetNr}`;
+    const URL_with_offset = `${URL_allListings}?sort=created&sortOrder=desc&limit=${limitNr}&offset=${newOffsetNr}`;
     try {
       const updatedJsonWithOffset = await getListings(URL_with_offset);
       renderListings(updatedJsonWithOffset, path, newOffsetNr + 1);

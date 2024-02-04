@@ -10,6 +10,7 @@ export const renderListings = async (data) => {
   try {
     for (let listing of data) {
       const { created, description, endsAt, id, media, tags, title, updated, _count } = listing;
+      const createdDate = new Date(created);
       const endsDate = new Date(endsAt);
       const abbrevTitle = abbreviateAndCapitalize(title);
       const abbrevDescription = abbreviateAndCapitalize(description);
@@ -25,7 +26,12 @@ export const renderListings = async (data) => {
       const img = createElement("img", "card-img-top", null, { src: `${media}`, alt: `${abbrevTitle}` });
       const cardBody = createElement("div", "card-body");
       const cardText = createElement("p", "card-text", "Description: " + abbrevDescription);
-      const listingEnds = createElement("p", "listing-ends", "Listing ends: " + endsDate.toLocaleString());
+      const listingCreated = createElement(
+        "p",
+        "card-text listing-created",
+        "Created: " + createdDate.toLocaleString(),
+      );
+      const listingEnds = createElement("p", "card-text listing-ends", "Listing ends: " + endsDate.toLocaleString());
 
       // const listingTag = createElement("p", "listing-tag", `${tagsList}`);
 
@@ -35,6 +41,7 @@ export const renderListings = async (data) => {
       imgWrapper.appendChild(img);
       card.appendChild(cardBody);
       cardBody.appendChild(cardText);
+      cardBody.appendChild(listingCreated);
       cardBody.appendChild(listingEnds);
       // cardBody.appendChild(listingTag);
     }
