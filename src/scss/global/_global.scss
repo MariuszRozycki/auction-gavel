@@ -47,6 +47,12 @@ textarea.form-control:focus {
   background-color: $color-avatar-header;
 }
 
+.bg-contact,
+.bg-about {
+  width: 100%;
+  background-color: $color-offer-bg;
+}
+
 .header-focus-bg,
 .focus-bg {
   background-color: $color-focus;
