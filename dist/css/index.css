@@ -188,10 +188,15 @@ img {
 }
 .home .card {
   position: static;
-  background-color: #3d322c;
+  background-color: rgba(0, 0, 0, 0.3);
   border: 3px solid #654534;
   border-radius: 0.5rem;
   color: #dfdfdf;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.home .card:hover {
+  background-color: #3d322c;
 }
 .home .card .img-wrapper {
   height: 180px;

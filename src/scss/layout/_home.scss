@@ -25,10 +25,16 @@
 
   .card {
     position: static;
-    background-color: $color-offer-bg;
+    background-color: $color-focus-light;
     border: 3px solid $bg-brown;
     border-radius: $border-radius-lg;
     color: $color-text;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-offer-bg;
+    }
 
     .img-wrapper {
       height: 180px;
