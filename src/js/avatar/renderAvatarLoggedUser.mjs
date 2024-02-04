@@ -6,7 +6,6 @@ export const renderAvatarLoggedUser = () => {
   if (userData) {
     const parsedUserData = JSON.parse(userData);
     const { avatar, name, credits } = parsedUserData;
-    console.log("parsedUserData", parsedUserData);
     const userDataContainer = document.querySelector(".user-data-container");
 
     /* avatar and name container */
