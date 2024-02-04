@@ -1,5 +1,6 @@
 import { createElement } from "../utils/createElement.mjs";
 import { abbreviateAndCapitalize } from "../utils/abbrevAndCapitalize.mjs";
+import { singleListingById } from "../single-listing/singleListingById.mjs";
 
 export const renderListings = async (data) => {
   const listingsContainer = document.querySelector("#listings-container");
@@ -10,14 +11,15 @@ export const renderListings = async (data) => {
     for (let listing of data) {
       const { created, description, endsAt, id, media, tags, title, updated, _count } = listing;
       const endsDate = new Date(endsAt);
-      console.log(endsDate.toLocaleString());
       const abbrevTitle = abbreviateAndCapitalize(title);
       const abbrevDescription = abbreviateAndCapitalize(description);
+
       let tagsList = tags.join(", ");
       if (tagsList === "" || null) {
         tagsList = "Tags not exists";
       }
-      const card = createElement("div", "card col-sm-6 col-lg-4 col-xl-3 px-0");
+
+      const card = createElement("div", "card col-sm-6 col-lg-4 col-xl-3 px-0", null, { "data-id": id });
       const offerTitle = createElement("h2", "h5 text-center py-1 offer-title", abbrevTitle);
       const imgWrapper = createElement("div", "img-wrapper");
       const img = createElement("img", "card-img-top", null, { src: `${media}`, alt: `${abbrevTitle}` });
@@ -36,6 +38,9 @@ export const renderListings = async (data) => {
       cardBody.appendChild(listingEnds);
       // cardBody.appendChild(listingTag);
     }
+
+    const allCards = document.querySelectorAll(".card");
+    singleListingById(allCards);
   } catch (error) {
     console.log(error);
     throw error;

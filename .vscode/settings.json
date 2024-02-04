@@ -13,5 +13,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "cSpell.words": ["offcanvas", "ylsto"]
+  "cSpell.words": ["offcanvas", "ylsto", "yxxx"]
 }

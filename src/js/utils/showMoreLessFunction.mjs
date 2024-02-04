@@ -6,8 +6,7 @@ import { renderPageNumbers } from "./renderPageNumbers.mjs";
 export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path) => {
   const listingsContainer = document.querySelector("#listings-container");
 
-  const updatePageNumbers = (updatedJson) => {
-    console.log("updatedJson", updatedJson);
+  const updatePageNumbers = () => {
     const currentPage = Math.floor(offsetNr / limitNr) + 1;
     renderPageNumbers(currentPage, handlePageChange, listingsContainer);
   };
@@ -34,7 +33,6 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
     }
 
     if (offsetNr + limitNr === maxLimit) {
-      console.log("maxLimit");
       showMoreBtn.classList.add("d-none");
       showLessBtn.classList.remove("d-none");
     }

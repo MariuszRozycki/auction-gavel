@@ -25,8 +25,6 @@ export const navNotLogged = (navContainer) => {
     listItem.appendChild(link);
     navContainer.appendChild(listItem);
 
-    console.log(link);
-
     if (item.text === "Home") {
       const divider = createElement("hr", "divider");
       navContainer.appendChild(divider);

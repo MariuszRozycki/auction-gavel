@@ -1,7 +1,6 @@
 import { createElement } from "./createElement.mjs";
 
 export const renderPageNumbers = (currentPage, onPageChange, container) => {
-  console.log("currentPage", currentPage);
   const pageNumberContainer = document.querySelector("#wrapper-page-number-btn");
   pageNumberContainer.innerHTML = "";
 
