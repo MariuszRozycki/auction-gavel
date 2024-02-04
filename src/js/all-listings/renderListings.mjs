@@ -5,8 +5,6 @@ import { singleListingById } from "../single-listing/singleListingById.mjs";
 export const renderListings = async (data) => {
   const listingsContainer = document.querySelector("#listings-container");
 
-  // let sum = offsetNr;
-  // if (path === "/" || path === "/pages/user-details/") {
   try {
     for (let listing of data) {
       const { created, description, endsAt, id, media, tags, title, updated, _count } = listing;
@@ -23,7 +21,7 @@ export const renderListings = async (data) => {
       const card = createElement("div", "card col-sm-6 col-lg-4 col-xl-3 px-0", null, { "data-id": id });
       const offerTitle = createElement("h2", "h5 text-center py-1 offer-title", abbrevTitle);
       const imgWrapper = createElement("div", "img-wrapper");
-      const img = createElement("img", "card-img-top", null, { src: `${media}`, alt: `${abbrevTitle}` });
+      const img = createElement("img", "card-img-top", null, { src: `${media[0]}`, alt: `${abbrevTitle}` });
       const cardBody = createElement("div", "card-body");
       const cardText = createElement("p", "card-text", "Description: " + abbrevDescription);
       const listingCreated = createElement(
@@ -33,8 +31,6 @@ export const renderListings = async (data) => {
       );
       const listingEnds = createElement("p", "card-text listing-ends", "Listing ends: " + endsDate.toLocaleString());
 
-      // const listingTag = createElement("p", "listing-tag", `${tagsList}`);
-
       listingsContainer.appendChild(card);
       card.appendChild(offerTitle);
       card.appendChild(imgWrapper);
@@ -43,7 +39,6 @@ export const renderListings = async (data) => {
       cardBody.appendChild(cardText);
       cardBody.appendChild(listingCreated);
       cardBody.appendChild(listingEnds);
-      // cardBody.appendChild(listingTag);
     }
 
     const allCards = document.querySelectorAll(".card");
@@ -52,5 +47,4 @@ export const renderListings = async (data) => {
     console.log(error);
     throw error;
   }
-  // }
 };
