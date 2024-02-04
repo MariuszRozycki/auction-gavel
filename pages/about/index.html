@@ -91,37 +91,48 @@
       <section class="about">
         <div class="container-sm">
           <div class="row">
-            <div class="col-12 py-3 about-background mx-auto rounded">
+            <div class="col-12 py-3 bg-about mx-auto rounded">
               <div class="row justify-content-center">
-                <div class="col-10 col-sm-11 mx-auto my-3 py-3 header-focus-bg rounded">
-                  <h2 class="h4 h1-header-focus text-center text-light my-0">Something about us</h2>
-                </div>
+                <!-- Something about us wrapper - heading, paragraph, picture wrapper -->
+                <div class="col-12 about-wrapper">
+                  <!-- heading -->
+                  <div class="row">
+                    <div class="col-10 col-sm-10 mx-auto my-3 py-3 header-focus-bg rounded">
+                      <h2 class="h4 h1-header-focus text-center text-light my-0">Something about Us</h2>
+                    </div>
+                  </div>
 
-                <div class="row justify-content-center">
-                  <div class="col-12 col-sm-10 about-description-wrapper pb-3">
-                    <div class="row justify-content-center">
-                      <div class="col-10 col-sm-12 contact-img-wrapper pb-3">
-                        <p class="about-us-description text-light"></p>
+                  <!-- paragraph and picture wrapper -->
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 text-light fs-4">
+                      <p class="paragraph-description-about"></p>
+                    </div>
+
+                    <!-- pictures wrapper -->
+                    <div class="col-12 col-sm-6 about-all-img-wrapper pb-3">
+                      <div class="row">
+                        <div class="about-img-wrapper py-4">
+                          <img
+                            class="rounded"
+                            src="../../images/pictures/gavel-about.jpg"
+                            alt="Gavel inside first picture"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="about-img-wrapper py-4">
+                          <img
+                            class="rounded"
+                            src="../../images/pictures/gavel-about-2.jpg"
+                            alt="Gavel building inside second picture"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="row justify-content-center">
-                  <div class="col-12 col-sm-10 contact-all-img-wrapper pb-3">
-                    <div class="row justify-content-center">
-                      <div class="col-10 col-sm-12 contact-img-wrapper pb-3">
-                        <img class="rounded" src="../../images/pictures/gavel-about.jpg" alt="Gavel about" />
-                      </div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                      <div class="col-10 col-sm-12 contact-img-wrapper">
-                        <img class="rounded" src="../../images/pictures/gavel-about-2.jpg" alt="gavel about" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <!-- END paragraph and picture wrapper -->
               </div>
             </div>
           </div>

@@ -55,6 +55,12 @@ textarea.form-control:focus {
   background-color: #33231a;
 }
 
+.bg-contact,
+.bg-about {
+  width: 100%;
+  background-color: #3d322c;
+}
+
 .header-focus-bg,
 .focus-bg {
   background-color: #000;
@@ -214,11 +220,6 @@ img {
   margin-right: 10px;
 }
 
-.contact-background {
-  width: 100%;
-  background-color: #3d322c;
-}
-
 .contact ul li {
   list-style: none;
   margin-block: 0;
@@ -238,6 +239,13 @@ img {
 }
 .contact #map {
   height: 400px;
+  width: 100%;
+}
+
+.about .about-img-wrapper {
+  height: 300px;
+}
+.about .about-img-wrapper img {
   width: 100%;
 }
 

@@ -1,4 +1,4 @@
-const aboutDescription = document.querySelector(".about-us-description");
+const aboutDescription = document.querySelector(".paragraph-description-about");
 
 aboutDescription.innerText = `Welcome to GAVEL Auctions, the dynamic online marketplace where the thrill of the bid is at your fingertips! At GAVEL, we believe that anything you desire can be yours with the right bid. From treasured antiques and fine art to rare collectibles and luxury goods, our platform is a crossroads of curiosity and high-stakes competition.
 
