@@ -2,11 +2,13 @@ import { createElement } from "../utils/createElement.mjs";
 
 export const renderAvatarLoggedUser = () => {
   const userData = localStorage.getItem("USER_DATA");
+  const avatarNotExists = "../../../images/pictures/profile-default.png";
 
   if (userData) {
     const parsedUserData = JSON.parse(userData);
     const { avatar, name, credits } = parsedUserData;
     const userDataContainer = document.querySelector(".user-data-container");
+    const avatarValue = avatar || avatarNotExists;
 
     /* avatar and name container */
     const avatarAndNameContainer = createElement(
@@ -15,7 +17,7 @@ export const renderAvatarLoggedUser = () => {
     );
     const avatarContainer = createElement("div", "avatar-container");
     const avatarImg = createElement("img", "avatar-img rounded-circle border border-2 border-light", null, {
-      src: avatar,
+      src: avatarValue,
     });
     const userName = createElement("p", "avatar-name-paragraph m-0", `Hello ${name}`);
 
