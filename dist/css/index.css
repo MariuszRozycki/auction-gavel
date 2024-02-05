@@ -115,6 +115,9 @@ img {
 }
 
 /* import other files */
+.navbar {
+  z-index: 3;
+}
 .navbar .container-sm {
   height: 80px;
 }
@@ -198,12 +201,16 @@ img {
 .home .card:hover {
   background-color: #3d322c;
 }
-.home .card .img-wrapper {
+.home .card .carousel-item {
   height: 180px;
 }
-.home .card .img-wrapper img {
+.home .card .carousel-item img {
   height: 100%;
   object-fit: cover;
+}
+.home .card .carousel-indicators {
+  background-color: black;
+  border-radius: 0.375rem;
 }
 .home .btn.page-number-btn {
   min-width: 50px;
