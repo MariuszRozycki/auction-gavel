@@ -74,7 +74,6 @@
               <div class="col-10 col-sm-10 mx-auto">
                 <form class="text-light mt-5" id="new-listing-form">
                   <p id="new-listing-created" class="d-none success">New listing is created!</p>
-                  <p id="new-listing-not-created" class="d-none error"></p>
                   <p class="fs-5 counter d-none p-4"></p>
                   <div class="mb-3">
                     <label for="new-listing-title" class="form-labe fs-5">Title</label>
@@ -102,7 +101,7 @@
                     <label for="new-listing-endsAt" class="form-labe fs-5">Ends at</label>
                     <input
                       name="new-listing-endsAt"
-                      type="text"
+                      type="datetime-local"
                       class="form-control fs-5"
                       id="new-listing-endsAt"
                       aria-describedby="endsAtHelp"
@@ -123,6 +122,7 @@
                       id="new-listing-media"
                       aria-describedby="mediaHelp"
                     />
+                    <p class="new-listing-media-error error d-none"></p>
                   </div>
                   <button
                     id="add-new-listing-btn"
