@@ -6,6 +6,7 @@ import { logInOnMainBtn } from "./utils/loginOnMainBtn.mjs";
 import { avatarPathFunctions } from "./avatar/index.mjs";
 import { myCreditsPath } from "./my-credits/index.mjs";
 import { createNewListingPath } from "./create-new-listing/index.mjs";
+import { renderSingleListingPath } from "./single-listing/index.mjs";
 
 registerPath();
 loginPath();
@@ -15,3 +16,4 @@ logInOnMainBtn();
 avatarPathFunctions();
 myCreditsPath();
 createNewListingPath();
+renderSingleListingPath();

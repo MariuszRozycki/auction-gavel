@@ -201,10 +201,10 @@ img {
 .home .card:hover {
   background-color: #3d322c;
 }
-.home .card .carousel-item {
-  height: 180px;
+.home .card .img-wrapper {
+  height: 200px;
 }
-.home .card .carousel-item img {
+.home .card .img-wrapper img {
   height: 100%;
   object-fit: cover;
 }

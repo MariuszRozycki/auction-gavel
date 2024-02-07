@@ -4,7 +4,8 @@ const isValidName = (userName) => {
 };
 
 const isValidEmail = (email) => {
-  return email && (email.endsWith("@noroff.no") || email.endsWith("@stud.noroff.no"));
+  // return email && (email.endsWith("@noroff.no") || email.endsWith("@stud.noroff.no"));
+  return email && email.endsWith("@stud.noroff.no");
 };
 
 const isValidPassword = (password) => {

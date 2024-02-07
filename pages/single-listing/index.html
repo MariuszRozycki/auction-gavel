@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/index.css" />
+    <title>Gavel || Single listing</title>
+  </head>
+
+  <body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0">
+      <div class="container-sm">
+        <a class="navbar-brand" href="#">
+          <span class="logo-wrapper d-flex flex-column align-items-center">
+            <img class="logo" src="../../images/logo/logo.svg" alt="Logo"
+          /></span>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
+          <!-- <span class="navbar-toggler-icon"> -->
+          <div class="d-flex flex-column justify-content-center align-items-end">
+            <div class="menu-line menu-line-short"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line menu-line-short"></div>
+          </div>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end bg-body-tertiary"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          data-bs-theme="dark"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <img class="logo" src="../../images/logo/logo.svg" alt="logo" />
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body fs-5">
+            <ul id="nav-container" class="navbar-nav justify-content-end flex-grow-1 pe-3"></ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-light fs-6 fw-normal" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main my-2">
+      <div class="user-data">
+        <div class="container-sm text-light">
+          <div class="row justify-content-center">
+            <div
+              class="color-avatar-header col-12 user-data-container d-flex justify-content-between rounded py-2"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="home bg-brown">
+        <div class="container-sm">
+          <div class="row">
+            <div id="single-listing-container" class="col-12 mx-auto my-3 py-3 color-headers element-rounded">
+              <h1 class="h1 h1-header-focus text-center text-light my-0">Listing title:</h1>
+              <div class="row">
+                <div
+                  class="col-10 col-sm-10 col-md-8 mx-auto my-3 focus-bg d-flex justify-content-center align-items-center rounded"
+                >
+                  <a
+                    class="btn support-message text-light mx-auto text-center my-0 py-3 w-100 fs-6 d-flex justify-content-center align-items-center"
+                    href="../user-details/"
+                    ><img class="go-back-arrow" src="../../images/pictures/arrow-go-back.svg" alt="Go back arrow" />View
+                    all listings</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about">
+        <div class="container-sm">
+          <div class="row">
+            <div class="col-12 py-3 bg-about mx-auto rounded">
+              <div class="row justify-content-center">
+                <!-- Something about us wrapper - heading, paragraph, picture wrapper -->
+                <div class="col-12 about-wrapper">
+                  <!-- heading -->
+                  <div class="row">
+                    <div class="col-10 col-sm-10 mx-auto my-3 py-3 header-focus-bg rounded">
+                      <h2 class="h4 h1-header-focus text-center text-light my-0">Something about Us</h2>
+                    </div>
+                  </div>
+
+                  <!-- paragraph and picture wrapper -->
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-6 text-light fs-4">
+                      <p class="paragraph-description-about"></p>
+                    </div>
+
+                    <!-- pictures wrapper -->
+                    <div class="col-12 col-sm-6 about-all-img-wrapper pb-3">
+                      <div class="row">
+                        <div class="about-img-wrapper py-4">
+                          <img
+                            class="rounded"
+                            src="../../images/pictures/gavel-about.jpg"
+                            alt="Gavel inside first picture"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="about-img-wrapper py-4">
+                          <img
+                            class="rounded"
+                            src="../../images/pictures/gavel-about-2.jpg"
+                            alt="Gavel building inside second picture"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END paragraph and picture wrapper -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mx-auto my-3 py-3 color-headers element-rounded">
+            <h1 class="h1 h1-header-focus text-center text-light my-0">Gavel Auctions</h1>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer focus-bg text-light text-center py-2">
+      <div class="container-sm">
+        <div class="row">
+          <div class="col-12 fs-6">
+            <p class="my-0">All rights reserved MRD&copy;</p>
+            <p class="my-0"><a href="mailto:marius.front@gmail.com">marius.front@gmail.com</a></p>
+            <p class="my-0"><a href="tel:+4793928270"></a>tlf:+4793928270</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../src/js/index.mjs"></script>
+    <script type="module" src="../../src/js/about/about.mjs"></script>
+  </body>
+</html>
