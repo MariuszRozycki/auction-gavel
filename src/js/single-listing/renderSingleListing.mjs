@@ -2,7 +2,7 @@ import { URL_base } from "../api/index.mjs";
 import { getListings } from "../all-listings/getListings.mjs";
 import { createElement } from "../utils/createElement.mjs";
 import { renderCarousel } from "../utils/renderCarousel.mjs";
-import { abbreviateAndCapitalize } from "../utils/abbrevAndCapitalize.mjs";
+import { renderDescription } from "./renderDescription.mjs";
 
 export const renderSingleListing = async (id) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
@@ -14,7 +14,7 @@ export const renderSingleListing = async (id) => {
 
   try {
     const singleListingData = await getListings(URL_singleListing);
-    console.log("singleListingData: ", singleListingData);
+
     const {
       bids,
       created,
@@ -30,8 +30,8 @@ export const renderSingleListing = async (id) => {
     const titleValue = title || titleNotExists;
 
     /* header */
-    const singleListingH1 = createElement("h1", "h1 h1-header-focus text-center text-light my-0", "Listing title: ");
-    const dataTitle = createElement("span", null, titleValue);
+    const singleListingH1 = createElement("h1", "h1 h1-header-focus text-center text-light my-0", "Listing details");
+    // const dataTitle = createElement("span", null, titleValue);
     const row = createElement("div");
     const backToAllListingsContainer = createElement(
       "div",
@@ -50,7 +50,7 @@ export const renderSingleListing = async (id) => {
     });
 
     singleListingContainer.appendChild(singleListingH1);
-    singleListingH1.appendChild(dataTitle);
+    // singleListingH1.appendChild(dataTitle);
     singleListingContainer.appendChild(row);
     row.appendChild(backToAllListingsContainer);
     backToAllListingsContainer.appendChild(goBackLinkBtn);
@@ -58,6 +58,9 @@ export const renderSingleListing = async (id) => {
 
     /* carousel */
     renderCarousel(id, media, title);
+
+    /* description */
+    renderDescription(title, description);
   } catch (error) {
     console.error(error);
   }
