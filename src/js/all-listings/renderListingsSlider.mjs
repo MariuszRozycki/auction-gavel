@@ -79,6 +79,7 @@ export const renderListings = async (data) => {
         "card-text listing-created",
         "Created: " + createdDate.toLocaleString(),
       );
+
       const listingEnds = createElement("p", "card-text listing-ends", "Listing ends: " + endsDate.toLocaleString());
 
       listingsContainer.appendChild(card);

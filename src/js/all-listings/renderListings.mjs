@@ -23,7 +23,7 @@ export const renderListings = async (data) => {
       const card = createElement("div", "card col-sm-6 col-lg-4 col-xl-3 px-0", null, { "data-id": id });
       const offerTitle = createElement("h2", "h5 text-center py-1 offer-title", abbrevTitle);
       const imgWrapper = createElement("div", "img-wrapper");
-      const img = createElement("img", "card-img-top", null, { src: `${mediaValue}`, alt: `${abbrevTitle}` });
+      const img = createElement("img", "card-img-top", null, { src: `${mediaValue[0]}`, alt: `${abbrevTitle}` });
       const cardBody = createElement("div", "card-body");
       const cardText = createElement("p", "card-text", "Description: " + abbrevDescription);
       const listingCreated = createElement(
