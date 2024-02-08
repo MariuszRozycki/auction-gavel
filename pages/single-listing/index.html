@@ -79,8 +79,36 @@
           <div class="row">
             <div
               id="carousel-wrapper"
-              class="col-11 col-sm-7 col-md-4 py-3 bg-single-listing mx-auto rounded carousel-wrapper"
+              class="col-11 col-sm-7 col-md-5 py-3 bg-single-listing mx-auto rounded carousel-wrapper"
             ></div>
+          </div>
+        </div>
+
+        <!-- give a bid form -->
+        <div id="give-bid-container" class="container-sm d-none">
+          <div class="row">
+            <form
+              class="col-11 col-sm-7 col-md-5 text-light my-3 mx-auto bg-focus-light rounded py-2"
+              id="give-bid-form"
+            >
+              <div class="mb-3">
+                <label for="bid" class="form-label fs-5">Give a bid</label>
+                <input
+                  name="bid"
+                  type="number"
+                  placeholder="Only numbers"
+                  class="form-control fs-5"
+                  id="bid"
+                  aria-describedby="bidHelp"
+                />
+                <p class="bid-error error d-none"></p>
+              </div>
+              <div class="col-6 mx-auto">
+                <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
+                  Give a bid
+                </button>
+              </div>
+            </form>
           </div>
         </div>
         <div class="container-sm">
@@ -91,9 +119,11 @@
             ></div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 mx-auto my-3 py-3 color-headers element-rounded">
-            <h1 class="h1 h1-header-focus text-center text-light my-0">Gavel Auctions</h1>
+        <div class="container-sm">
+          <div class="row">
+            <div class="col-12 mx-auto my-3 py-3 color-headers element-rounded">
+              <h3 class="h1 h1-header-focus text-center text-light my-0">Gavel Auctions</h3>
+            </div>
           </div>
         </div>
       </section>
