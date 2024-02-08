@@ -1,6 +1,6 @@
 import { renderSingleListing } from "./renderSingleListing.mjs";
 
-export const renderSingleListingPath = () => {
+export const singleListingPath = () => {
   const path = location.pathname;
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get("id");
