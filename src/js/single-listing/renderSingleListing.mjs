@@ -7,11 +7,9 @@ import { giveBid } from "./giveBid.mjs";
 
 export const renderSingleListing = async (singleListingId) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
-  const giveBidContainer = document.querySelector("#give-bid-container");
   singleListingContainer.innerHTML = "";
   const userData = localStorage.getItem("USER_DATA");
   const userDataParsed = JSON.parse(userData);
-  console.log("userDataParsed:", userDataParsed);
   const titleNotExists = "Title not exists";
   const URL_singleListing = `${URL_base}/auction/listings/${singleListingId}?_seller=true&_bids=true`;
 
@@ -30,7 +28,13 @@ export const renderSingleListing = async (singleListingId) => {
       updated,
     } = singleListingData;
 
-    console.log(sellerName);
+    let lastBidAmount = 0;
+
+    if (bids.length > 0) {
+      const lastBid = bids[bids.length - 1];
+
+      lastBidAmount = lastBid.amount;
+    }
 
     const titleValue = title || titleNotExists;
 
@@ -38,15 +42,16 @@ export const renderSingleListing = async (singleListingId) => {
     createHeader(singleListingContainer);
 
     /* carousel */
-    renderCarousel(singleListingId, media, title);
+    renderCarousel(singleListingId, media, titleValue);
 
     /* description */
-    renderDescription(title, description);
+    renderDescription(titleValue, description, sellerName, lastBidAmount);
 
     /* give a bid */
-    const { loggedUserName } = userDataParsed;
+    const { name: loggedUserName } = userDataParsed;
+    console.log("userDataParsed: ", userDataParsed);
     if (sellerName !== loggedUserName) {
-      giveBid(giveBidContainer, userData, singleListingId);
+      giveBid(userDataParsed, singleListingId, sellerName, bids);
     }
   } catch (error) {
     console.error(error);

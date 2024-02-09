@@ -23,7 +23,7 @@ export const renderCarousel = (id, media, title) => {
     carouselIndicators.appendChild(button);
 
     const carouselItem = createElement("div", index === 0 ? "carousel-item active" : "carousel-item");
-    const img = createElement("img", "d-block w-100", null, { src: imgSrc, alt: abbrevTitle });
+    const img = createElement("img", "d-block w-100 text-light", null, { src: imgSrc, alt: abbrevTitle });
     carouselItem.appendChild(img);
     carouselInner.appendChild(carouselItem);
   });
