@@ -23,6 +23,8 @@ export const createNewListing = () => {
     const newListingTagsValue = newListingTags.value;
     const newListingMediaValue = newListingMedia.value;
 
+    const titleError = document.querySelector(".new-listing-title-error");
+    const descriptionError = document.querySelector(".new-listing-description-error");
     const endsAtError = document.querySelector(".new-listing-endsAt-error");
     const mediaError = document.querySelector(".new-listing-media-error");
 
@@ -35,11 +37,14 @@ export const createNewListing = () => {
     );
 
     try {
+      let isTitleError = false;
+      let isDescriptionError = false;
       let isDateError = false;
       let isMediaError = false;
-      let listingCreatedFailure = false;
+      let listingCreatedSuccessFlag = false;
 
       const json = await authWithToken(method, URL_newListing, newListingsDataValue);
+      console.log("json inside createNewListing: ", json);
       const jsonBadRequest = json.json.status;
 
       if (jsonBadRequest) {
@@ -47,26 +52,57 @@ export const createNewListing = () => {
 
         for (const error of jsonErrors) {
           const errorMessage = error.message;
+          const errorMessageEmptyTitle = `Title can't be empty`;
+          const errorMessageEmptyDescription = `Description can't be empty`;
+          const errorDateMessage = `Field can't be empty. Date max one year from now`;
 
-          switch (true) {
-            case errorMessage.includes("date"):
-              isDateError = true;
-              listingCreatedFailure = true;
-              endsAtError.classList.remove("d-none");
-              endsAtError.innerText = `${errorMessage}`;
-              break;
-            case errorMessage.includes("URL"):
-              isMediaError = true;
-              listingCreatedFailure = true;
-              mediaError.classList.remove("d-none");
-              mediaError.innerText = `${errorMessage}`;
-              break;
-            default:
+          if (newListingTitleValue === "") {
+            isTitleError = true;
+            listingCreatedSuccessFlag = true;
+            titleError.classList.remove("d-none");
+            titleError.innerText = errorMessageEmptyTitle;
           }
 
+          if (errorMessage.includes("Title")) {
+            isTitleError = true;
+            listingCreatedSuccessFlag = true;
+            titleError.classList.remove("d-none");
+            titleError.innerText = errorMessage;
+          }
+
+          if (newListingDescriptionValue === "") {
+            isDescriptionError = true;
+            listingCreatedSuccessFlag = true;
+            descriptionError.classList.remove("d-none");
+            descriptionError.innerText = errorMessageEmptyDescription;
+          }
+
+          if (errorMessage.includes("Description")) {
+            isDescriptionError = true;
+            listingCreatedSuccessFlag = true;
+            descriptionError.classList.remove("d-none");
+            descriptionError.innerText = errorMessage;
+          }
+
+          if (errorMessage.includes("date")) {
+            isDateError = true;
+            listingCreatedSuccessFlag = true;
+            endsAtError.classList.remove("d-none");
+            endsAtError.innerText = errorDateMessage;
+          }
+
+          if (errorMessage.includes("URL")) {
+            isMediaError = true;
+            listingCreatedSuccessFlag = true;
+            mediaError.classList.remove("d-none");
+            mediaError.innerText = errorMessage;
+          }
+
+          if (!isTitleError) titleError.classList.add("d-none");
+          if (!isDescriptionError) descriptionError.classList.add("d-none");
           if (!isDateError) endsAtError.classList.add("d-none");
           if (!isMediaError) mediaError.classList.add("d-none");
-          if (!listingCreatedFailure) listingCreatedSuccess.classList.remove("d-none");
+          if (!listingCreatedSuccessFlag) listingCreatedSuccess.classList.remove("d-none");
         }
       } else {
         newListingTitle.value = "";

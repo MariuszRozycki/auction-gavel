@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../dist/css/index.css" />
+    <title>Gavel || Single listing</title>
+  </head>
+
+  <body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary position-sticky top-0">
+      <div class="container-sm">
+        <a class="navbar-brand" href="#">
+          <span class="logo-wrapper d-flex flex-column align-items-center">
+            <img class="logo" src="../../images/logo/logo.svg" alt="Logo"
+          /></span>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
+          <!-- <span class="navbar-toggler-icon"> -->
+          <div class="d-flex flex-column justify-content-center align-items-end">
+            <div class="menu-line menu-line-short"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line menu-line-short"></div>
+          </div>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end bg-body-tertiary"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+          data-bs-theme="dark"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <img class="logo" src="../../images/logo/logo.svg" alt="logo" />
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body fs-5">
+            <ul id="nav-container" class="navbar-nav justify-content-end flex-grow-1 pe-3"></ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button class="btn btn-outline-light fs-6 fw-normal" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main my-2">
+      <div class="user-data">
+        <div class="container-sm text-light">
+          <div class="row justify-content-center">
+            <div
+              class="color-avatar-header col-12 user-data-container d-flex justify-content-between rounded py-2"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="home bg-brown">
+        <div class="container-sm">
+          <div class="row">
+            <div id="single-listing-container" class="col-12 mx-auto my-3 py-3 color-headers element-rounded"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="single-listing">
+        <div class="container-sm">
+          <div class="row">
+            <div
+              id="carousel-wrapper"
+              class="col-11 col-sm-7 col-md-5 py-3 bg-single-listing mx-auto rounded carousel-wrapper"
+            ></div>
+          </div>
+        </div>
+
+        <!-- give a bid form -->
+        <div id="give-bid-container" class="container-sm d-none">
+          <div class="row">
+            <form
+              class="col-11 col-sm-7 col-md-5 text-light my-3 mx-auto bg-focus-light rounded py-2"
+              id="give-bid-form"
+            >
+              <div class="mb-3">
+                <label for="bid" class="form-label fs-5">Give a bid</label>
+                <input
+                  name="bid"
+                  type="number"
+                  placeholder="Only numbers"
+                  class="form-control fs-5"
+                  id="bid"
+                  aria-describedby="bidHelp"
+                />
+                <p class="bid-error error d-none"></p>
+              </div>
+              <div class="col-6 mx-auto">
+                <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
+                  Give a bid
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container-sm">
+          <div class="row my-2">
+            <div
+              id="listing-description-container"
+              class="col-11 col-sm-7 col-md-5 text-light mx-auto bg-single-listing rounded"
+            ></div>
+          </div>
+        </div>
+        <div class="container-sm">
+          <div class="row">
+            <div class="col-12 mx-auto my-3 py-3 color-headers element-rounded">
+              <h3 class="h1 h1-header-focus text-center text-light my-0">Gavel Auctions</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer focus-bg text-light text-center py-2">
+      <div class="container-sm">
+        <div class="row">
+          <div class="col-12 fs-6">
+            <p class="my-0">All rights reserved MRD&copy;</p>
+            <p class="my-0"><a href="mailto:marius.front@gmail.com">marius.front@gmail.com</a></p>
+            <p class="my-0"><a href="tel:+4793928270"></a>tlf:+4793928270</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../../src/js/index.mjs"></script>
+  </body>
+</html>

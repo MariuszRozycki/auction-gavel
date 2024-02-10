@@ -1,0 +1,13 @@
+.single-listing {
+  .carousel-item {
+    height: 200px;
+  }
+  ul.object-details-wrapper {
+    list-style: none;
+    padding: 0;
+
+    .object-detail-element {
+      margin: 0;
+    }
+  }
+}

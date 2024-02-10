@@ -2,26 +2,25 @@ import { renderListings } from "../all-listings/renderListings.mjs";
 import { displayError } from "./displayError.mjs";
 
 export const searchListingsContent = async (
-  json,
+  jsonLimitedTo_10,
   inputValue,
   listingsContainer,
   path,
   offsetNr,
   showLessBtn,
   showMoreBtn,
-  jsonLimitedTo_10,
+  URL_allListingsSortByCreatedDate,
 ) => {
   try {
     listingsContainer.innerHTML = "";
 
     if (inputValue === "") {
-      console.log("jsonLimitedTo_10", jsonLimitedTo_10);
       renderListings(jsonLimitedTo_10, path, offsetNr + 1);
       showMoreBtn.classList.remove("d-none");
       return;
     }
 
-    let searchedContent = json.filter((listing) => {
+    let searchedContent = URL_allListingsSortByCreatedDate.filter((listing) => {
       showLessBtn.classList.add("d-none");
       showMoreBtn.classList.add("d-none");
 
@@ -34,10 +33,9 @@ export const searchListingsContent = async (
       return cardTitle || cardBody || cardTags;
     });
 
-    console.log("searchedContent", searchedContent);
     renderListings(searchedContent, path, offsetNr + 1);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     displayError();
     throw error;
   }

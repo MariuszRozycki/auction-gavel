@@ -1,6 +1,13 @@
 import { searchListingsContent } from "./searchListingsContent.mjs";
 
-export const search = async (json, path, offerNr, showLessBtn, showMoreBtn, jsonLimitedTo_10) => {
+export const search = async (
+  jsonLimitedTo_10,
+  path,
+  offerNr,
+  showLessBtn,
+  showMoreBtn,
+  URL_allListingsSortByCreatedDate,
+) => {
   const searchForm = document.querySelector("#search-form");
   const searchInputHome = document.querySelector("#search-input-home");
   const listingsContainer = document.querySelector("#listings-container");
@@ -11,14 +18,14 @@ export const search = async (json, path, offerNr, showLessBtn, showMoreBtn, json
     const searchInputHomeValue = searchInputHome.value.toLowerCase();
 
     searchListingsContent(
-      json,
+      jsonLimitedTo_10,
       searchInputHomeValue,
       listingsContainer,
       path,
       offerNr,
       showLessBtn,
       showMoreBtn,
-      jsonLimitedTo_10,
+      URL_allListingsSortByCreatedDate,
     );
 
     if (searchInputHomeValue) {

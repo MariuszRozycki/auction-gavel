@@ -14,6 +14,7 @@ export const allListings = async () => {
   const offsetNr = 0;
   const maxLimit = 100;
   const URL_limited_to_10 = `${URL_allListings}?sort=created&sortOrder=desc&limit=${limitNr}&offset=${offsetNr}`;
+  const URL_allListingsSortByCreatedDate = `${URL_allListings}?sort=created&sortOrder=desc`;
 
   if (userLoggedPath) {
     const createNewListingBtn = document.querySelector("#new-listing-btn");
@@ -27,13 +28,12 @@ export const allListings = async () => {
     const showLessBtn = document.querySelector("#show-less-btn");
 
     try {
-      const jsonAllListings = await getListings(URL_allListings);
-      console.log("jsonAllListings", jsonAllListings);
+      const jsonAllListings = await getListings(URL_allListingsSortByCreatedDate);
       const jsonLimitedTo_10 = await getListings(URL_limited_to_10);
 
       renderListings(jsonLimitedTo_10, path, offsetNr + 1);
       showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, URL_limited_to_10, path);
-      search(jsonAllListings, path, offsetNr, showLessBtn, showMoreBtn, jsonLimitedTo_10);
+      search(jsonLimitedTo_10, path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
     } catch (error) {
       console.error("Error loading all listings:", error);
     }

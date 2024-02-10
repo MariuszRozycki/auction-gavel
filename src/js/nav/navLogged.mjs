@@ -10,6 +10,7 @@ export const navLogged = (navContainer) => {
     { text: "About Us", href: "/pages/about/" },
     { text: "Contact", href: "/pages/contact/" },
     { text: "Update avatar", href: "/pages/update-avatar/" },
+    { text: "Create listing", href: "/pages/create-new-listing/" },
     { text: "Log out", href: "#" },
   ];
 

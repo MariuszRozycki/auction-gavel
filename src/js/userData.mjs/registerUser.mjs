@@ -48,7 +48,7 @@ export const registerUser = async (url, userData) => {
             nameError.classList.remove("d-none");
             break;
           case errorMessage.includes("email"):
-            emailError.innerText = `Only user with @stud.noroff.no or @noroff.no may register.`;
+            emailError.innerText = `Only user with @stud.noroff.no`;
             emailError.classList.remove("d-none");
             break;
           case errorMessage.includes("Password"):
