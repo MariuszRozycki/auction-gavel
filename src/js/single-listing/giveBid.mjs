@@ -48,7 +48,8 @@ export const giveBid = (
 
       userDataContainer.innerHTML = "";
       renderAvatarLoggedUser();
-      // renderDescription(listingDescriptionContainer, titleValue, description, sellerName, lastBidAmount);
+      listingDescriptionContainer.innerHTML = "";
+      renderDescription(listingDescriptionContainer, titleValue, description, sellerName, inputBidValue);
     } catch (error) {
       console.error(error);
     }
