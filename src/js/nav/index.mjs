@@ -12,5 +12,5 @@ export const navDisplay = () => {
     navNotLogged(navContainer);
   }
 
-  navSearchDisplay(navContainer);
+  navSearchDisplay();
 };

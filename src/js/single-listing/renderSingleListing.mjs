@@ -40,6 +40,9 @@ export const renderSingleListing = async (singleListingId) => {
       lastBidAmount = lastBid.amount;
     }
 
+    const createdDate = new Date(created);
+    const endsDate = new Date(endsAt);
+
     const titleValue = title || titleNotExists;
 
     /* heading */
@@ -49,7 +52,15 @@ export const renderSingleListing = async (singleListingId) => {
     renderCarousel(singleListingId, media, titleValue);
 
     /* description */
-    renderDescription(listingDescriptionContainer, titleValue, description, sellerName, lastBidAmount);
+    renderDescription(
+      listingDescriptionContainer,
+      titleValue,
+      description,
+      sellerName,
+      lastBidAmount,
+      createdDate,
+      endsDate,
+    );
 
     /* give a bid */
     const { name: loggedUserName } = userDataParsed;
@@ -61,7 +72,8 @@ export const renderSingleListing = async (singleListingId) => {
         titleValue,
         description,
         sellerName,
-        lastBidAmount,
+        createdDate,
+        endsDate,
       );
     }
   } catch (error) {

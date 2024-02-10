@@ -11,7 +11,8 @@ export const giveBid = (
   titleValue,
   description,
   sellerName,
-  lastBidAmount,
+  createdDate,
+  endsDate,
 ) => {
   const giveBidContainer = document.querySelector("#give-bid-container");
   const userDataContainer = document.querySelector(".user-data-container");
@@ -50,7 +51,15 @@ export const giveBid = (
       userDataContainer.innerHTML = "";
       renderAvatarLoggedUser();
       listingDescriptionContainer.innerHTML = "";
-      renderDescription(listingDescriptionContainer, titleValue, description, sellerName, inputBidValue);
+      renderDescription(
+        listingDescriptionContainer,
+        titleValue,
+        description,
+        sellerName,
+        inputBidValue,
+        createdDate,
+        endsDate,
+      );
     } catch (error) {
       console.error(error);
     }

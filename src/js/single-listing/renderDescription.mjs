@@ -1,6 +1,6 @@
 import { createElement } from "../utils/createElement.mjs";
 
-export const renderDescription = (container, title, description, seller, lastBidAmount) => {
+export const renderDescription = (container, title, description, seller, lastBidAmount, createdDate, endsDate) => {
   const objectDetailsHeader = createElement("h2", "object-details-header", "Details: ");
   const objectDetailsWrapper = createElement("ul", "object-details-wrapper");
 
@@ -32,6 +32,16 @@ export const renderDescription = (container, title, description, seller, lastBid
   listItemLastBid.appendChild(spanItemLastBid);
   listItemLastBid.append(lastBidAmount + " credits");
 
+  const listItemCreatedDate = createElement("li", "fs-4 object-detail-element");
+  const spanListItemCreatedDate = createElement("span", "fw-bold", "Created: ");
+  listItemCreatedDate.appendChild(spanListItemCreatedDate);
+  listItemCreatedDate.append(createdDate.toLocaleString());
+
+  const listItemEnds = createElement("li", "fs-4 object-detail-element");
+  const spanListItemEnds = createElement("span", "fw-bold", "Ends at: ");
+  listItemEnds.appendChild(spanListItemEnds);
+  listItemEnds.append(endsDate.toLocaleString());
+
   container.appendChild(objectDetailsHeader);
   container.appendChild(objectDetailsWrapper);
 
@@ -41,4 +51,6 @@ export const renderDescription = (container, title, description, seller, lastBid
   objectDetailsWrapper.appendChild(listItemDividerSecond);
   objectDetailsWrapper.appendChild(listItemSeller);
   objectDetailsWrapper.appendChild(listItemLastBid);
+  objectDetailsWrapper.appendChild(listItemCreatedDate);
+  objectDetailsWrapper.appendChild(listItemEnds);
 };
