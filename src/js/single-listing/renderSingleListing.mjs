@@ -4,6 +4,7 @@ import { createHeader } from "./createHeader.mjs";
 import { renderCarousel } from "../utils/renderCarousel.mjs";
 import { renderDescription } from "./renderDescription.mjs";
 import { giveBid } from "./giveBid.mjs";
+import { showAllBids } from "./showAllBids.mjs";
 
 export const renderSingleListing = async (singleListingId) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
@@ -30,7 +31,7 @@ export const renderSingleListing = async (singleListingId) => {
     } = singleListingData;
     console.log("singleListingContainer: ", singleListingData);
 
-    bids.sort((a, b) => a.amount - b.amount);
+    const sortedBids = bids.sort((a, b) => a.amount - b.amount);
 
     let lastBidAmount = 0;
 
@@ -62,22 +63,27 @@ export const renderSingleListing = async (singleListingId) => {
       endsDate,
     );
 
-    /* give a bid */
-    if (new Date() > endsDate) {
-      return;
-    } else {
-      const { name: loggedUserName } = userDataParsed;
-      if (sellerName !== loggedUserName) {
-        giveBid(
-          listingDescriptionContainer,
-          userDataParsed,
-          singleListingId,
-          titleValue,
-          description,
-          sellerName,
-          createdDate,
-          endsDate,
-        );
+    if (userData) {
+      /* showAllBids */
+      showAllBids(sortedBids);
+
+      /* give a bid */
+      if (new Date() <= endsDate) {
+        const { name: loggedUserName } = userDataParsed;
+        if (sellerName !== loggedUserName) {
+          giveBid(
+            listingDescriptionContainer,
+            userDataParsed,
+            singleListingId,
+            titleValue,
+            description,
+            sellerName,
+            createdDate,
+            endsDate,
+            lastBidAmount,
+            sortedBids,
+          );
+        }
       }
     }
   } catch (error) {

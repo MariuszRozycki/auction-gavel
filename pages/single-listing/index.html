@@ -91,11 +91,11 @@
           </div>
 
           <div class="container-sm mt-4">
-            <div class="row mx-auto justify-content-start">
-              <!-- give a bid form -->
+            <div class="row mx-auto justify-content-start justify-content-md-between">
+              <!-- give a bid form && show all bids -->
               <div
                 id="give-bid-container"
-                class="d-none col-12 col-sm-12 col-md-5 text-light my-2 bg-focus-light rounded py-2"
+                class="d-none col-12 col-sm-12 col-md-4 text-light my-2 bg-focus-light rounded py-3 give-bid-container"
               >
                 <form id="give-bid-form">
                   <div class="mb-3">
@@ -112,10 +112,18 @@
                   </div>
                   <div class="col-6 mx-auto">
                     <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
-                      Give a bid
+                      Bid!
                     </button>
                   </div>
                 </form>
+              </div>
+
+              <!-- show all bids -->
+              <div id="container-show-all-bids" class="col-12 col-sm-12 col-md-7 mt-2 pt-3 d-none rounded">
+                <button id="show-all-bids-btn" class="btn btn-primary text-uppercase d-block mx-auto">
+                  Show all bids
+                </button>
+                <ul class="show-all-bids-list-container mt-3 py-2 rounded"></ul>
               </div>
             </div>
           </div>

@@ -22,6 +22,10 @@ body {
   flex: 1;
 }
 
+ul {
+  list-style: none;
+}
+
 p a,
 a.nav-link {
   text-decoration: none;
@@ -280,6 +284,9 @@ img {
 }
 .single-listing ul.object-details-wrapper .object-detail-element {
   margin: 0;
+}
+.single-listing .give-bid-container {
+  height: fit-content;
 }
 
 /* breakpoint sm */

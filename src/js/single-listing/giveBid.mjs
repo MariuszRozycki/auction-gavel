@@ -3,6 +3,7 @@ import { newBidData } from "./newBidData.mjs";
 import { renderAvatarLoggedUser } from "../avatar/renderAvatarLoggedUser.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
 import { renderDescription } from "./renderDescription.mjs";
+import { showAllBids } from "./showAllBids.mjs";
 
 export const giveBid = (
   listingDescriptionContainer,
@@ -13,43 +14,51 @@ export const giveBid = (
   sellerName,
   createdDate,
   endsDate,
+  lastBidAmount,
+  sortedBids,
 ) => {
   const giveBidContainer = document.querySelector("#give-bid-container");
   const userDataContainer = document.querySelector(".user-data-container");
+  // const showAllBidsListContainer = document.querySelector(".show-all-bids-list-container");
 
   giveBidContainer.classList.remove("d-none");
-  let { credits } = loggedUserData;
+  let { credits, name: loggedUserName } = loggedUserData;
   let updatedCredits = credits;
 
   const giveBidForm = document.querySelector("#give-bid-form");
   const inputBid = document.querySelector("#bid");
 
-  console.log("listingDescriptionContainer: ", listingDescriptionContainer);
-
   giveBidForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const inputBidValue = parseInt(inputBid.value, 10);
-    console.log(typeof inputBidValue);
-    console.log("credits before give a bid: ", credits);
-    credits = updatedCredits - inputBidValue;
 
-    loggedUserData.credits = credits;
-    localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
+    if (inputBidValue > credits) {
+      console.log(`You don't have enough credits!`);
+    }
 
-    console.log("credits after", credits);
-    console.log("inputBidValue", inputBidValue);
+    if (inputBidValue <= lastBidAmount) {
+      console.log(`Your bid must be higher then ${lastBidAmount}`);
+    }
 
+    const newBidDataValue = newBidData(inputBidValue);
     const method = "POST";
     const URL_bidsUpdate = `${URL_base}/auction/listings/${singleListingId}/bids?_seller=true&_bids=true`;
-    const newBidDataValue = newBidData(inputBidValue);
-    console.log("newBidDataValue: ", newBidDataValue);
 
     try {
       const json = await authWithToken(method, URL_bidsUpdate, newBidDataValue);
       console.log(json);
 
+      updatedCredits -= inputBidValue;
+      loggedUserData.credits = updatedCredits;
+      localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
+      console.log(loggedUserData);
+
+      sortedBids.push({ amount: inputBidValue, bidderName: loggedUserName });
+      sortedBids.sort((a, b) => a.amount - b.amount);
+
       userDataContainer.innerHTML = "";
       renderAvatarLoggedUser();
+
       listingDescriptionContainer.innerHTML = "";
       renderDescription(
         listingDescriptionContainer,
@@ -60,12 +69,17 @@ export const giveBid = (
         createdDate,
         endsDate,
       );
+
+      // showAllBidsListContainer.innerHTML = "";
+      showAllBids(sortedBids);
     } catch (error) {
       console.error(error);
     }
 
-    if (inputBidValue > credits) {
-      console.log(`You don't have enough credits!`);
-    }
+    // credits = updatedCredits - inputBidValue;
+    // loggedUserData.credits = credits;
+    // localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
+
+    // const newBidDataValue = newBidData(inputBidValue);
   });
 };
