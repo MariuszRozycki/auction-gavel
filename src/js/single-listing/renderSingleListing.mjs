@@ -63,18 +63,22 @@ export const renderSingleListing = async (singleListingId) => {
     );
 
     /* give a bid */
-    const { name: loggedUserName } = userDataParsed;
-    if (sellerName !== loggedUserName) {
-      giveBid(
-        listingDescriptionContainer,
-        userDataParsed,
-        singleListingId,
-        titleValue,
-        description,
-        sellerName,
-        createdDate,
-        endsDate,
-      );
+    if (new Date() > endsDate) {
+      return;
+    } else {
+      const { name: loggedUserName } = userDataParsed;
+      if (sellerName !== loggedUserName) {
+        giveBid(
+          listingDescriptionContainer,
+          userDataParsed,
+          singleListingId,
+          titleValue,
+          description,
+          sellerName,
+          createdDate,
+          endsDate,
+        );
+      }
     }
   } catch (error) {
     console.error(error);

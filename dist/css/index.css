@@ -294,8 +294,8 @@ img {
   .my-credits .card .img-wrapper {
     height: 130px;
   }
-  .single-listing .carousel-and-description-wrapper .carousel-wrapper .carousel-item {
-    height: 50%;
+  .single-listing .carousel-wrapper .carousel-item {
+    height: 300px;
   }
   .contact ul {
     padding: 0;

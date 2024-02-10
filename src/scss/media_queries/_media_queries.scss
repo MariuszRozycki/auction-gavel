@@ -15,13 +15,9 @@
   }
 
   .single-listing {
-    .carousel-and-description-wrapper {
-      // min-height: 300px;
-
-      .carousel-wrapper {
-        .carousel-item {
-          height: 50%;
-        }
+    .carousel-wrapper {
+      .carousel-item {
+        height: 300px;
       }
     }
   }

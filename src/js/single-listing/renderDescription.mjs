@@ -28,9 +28,10 @@ export const renderDescription = (container, title, description, seller, lastBid
   listItemSeller.append(seller);
 
   const listItemLastBid = createElement("li", "fs-5 object-detail-element");
-  const spanItemLastBid = createElement("span", "fw-bold", "Last bid: ");
-  listItemLastBid.appendChild(spanItemLastBid);
-  listItemLastBid.append(lastBidAmount + " credits");
+  let spanItemLastBid;
+  // let spanItemLastBid = createElement("span", "fw-bold", "Last bid: ");
+  // listItemLastBid.appendChild(spanItemLastBid);
+  // listItemLastBid.append(lastBidAmount + " credits");
 
   const listItemCreatedDate = createElement("li", "fs-5 object-detail-element");
   const spanListItemCreatedDate = createElement("span", "fw-bold", "Created: ");
@@ -42,8 +43,25 @@ export const renderDescription = (container, title, description, seller, lastBid
   listItemEnds.appendChild(spanListItemEnds);
   listItemEnds.append(endsDate.toLocaleString());
 
+  const messageAuctionIsEnded = createElement(
+    "p",
+    "error auction-is-ended",
+    "Auction has finished. You can't give a bid longer!",
+  );
+
   container.appendChild(objectDetailsHeader);
   container.appendChild(objectDetailsWrapper);
+
+  if (new Date() > endsDate) {
+    spanItemLastBid = createElement("span", "fw-bold", "Sold for: ");
+    listItemLastBid.appendChild(spanItemLastBid);
+    listItemLastBid.append(lastBidAmount + " credits");
+    container.appendChild(messageAuctionIsEnded);
+  } else {
+    spanItemLastBid = createElement("span", "fw-bold", "Last bid: ");
+    listItemLastBid.appendChild(spanItemLastBid);
+    listItemLastBid.append(lastBidAmount + " credits");
+  }
 
   objectDetailsWrapper.appendChild(listItemTitle);
   objectDetailsWrapper.appendChild(listItemDividerFirst);
