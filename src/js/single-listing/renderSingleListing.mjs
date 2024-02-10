@@ -7,6 +7,7 @@ import { giveBid } from "./giveBid.mjs";
 
 export const renderSingleListing = async (singleListingId) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
+  const listingDescriptionContainer = document.querySelector("#listing-description-container");
   singleListingContainer.innerHTML = "";
   const userData = localStorage.getItem("USER_DATA");
   const userDataParsed = JSON.parse(userData);
@@ -27,6 +28,9 @@ export const renderSingleListing = async (singleListingId) => {
       tags,
       updated,
     } = singleListingData;
+    console.log("singleListingContainer: ", singleListingData);
+
+    bids.sort((a, b) => a.amount - b.amount);
 
     let lastBidAmount = 0;
 
@@ -45,13 +49,20 @@ export const renderSingleListing = async (singleListingId) => {
     renderCarousel(singleListingId, media, titleValue);
 
     /* description */
-    renderDescription(titleValue, description, sellerName, lastBidAmount);
+    renderDescription(listingDescriptionContainer, titleValue, description, sellerName, lastBidAmount);
 
     /* give a bid */
     const { name: loggedUserName } = userDataParsed;
-    console.log("userDataParsed: ", userDataParsed);
     if (sellerName !== loggedUserName) {
-      giveBid(userDataParsed, singleListingId, sellerName, bids);
+      giveBid(
+        listingDescriptionContainer,
+        userDataParsed,
+        singleListingId,
+        titleValue,
+        description,
+        sellerName,
+        lastBidAmount,
+      );
     }
   } catch (error) {
     console.error(error);

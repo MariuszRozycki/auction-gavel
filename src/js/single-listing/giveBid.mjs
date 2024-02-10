@@ -4,15 +4,26 @@ import { renderAvatarLoggedUser } from "../avatar/renderAvatarLoggedUser.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
 import { renderDescription } from "./renderDescription.mjs";
 
-export const giveBid = (loggedUserData, singleListingId, sellerName) => {
+export const giveBid = (
+  listingDescriptionContainer,
+  loggedUserData,
+  singleListingId,
+  titleValue,
+  description,
+  sellerName,
+  lastBidAmount,
+) => {
   const giveBidContainer = document.querySelector("#give-bid-container");
   const userDataContainer = document.querySelector(".user-data-container");
   giveBidContainer.classList.remove("d-none");
-  let { name, credits } = loggedUserData;
+  let { credits } = loggedUserData;
   let updatedCredits = credits;
 
   const giveBidForm = document.querySelector("#give-bid-form");
   const inputBid = document.querySelector("#bid");
+
+  console.log("listingDescriptionContainer: ", listingDescriptionContainer);
+
   giveBidForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const inputBidValue = parseInt(inputBid.value, 10);
@@ -22,8 +33,6 @@ export const giveBid = (loggedUserData, singleListingId, sellerName) => {
 
     loggedUserData.credits = credits;
     localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
-    userDataContainer.innerHTML = "";
-    renderAvatarLoggedUser();
 
     console.log("credits after", credits);
     console.log("inputBidValue", inputBidValue);
@@ -36,7 +45,10 @@ export const giveBid = (loggedUserData, singleListingId, sellerName) => {
     try {
       const json = await authWithToken(method, URL_bidsUpdate, newBidDataValue);
       console.log(json);
-      renderDescription(userDataParsed, singleListingId, sellerName, bids);
+
+      userDataContainer.innerHTML = "";
+      renderAvatarLoggedUser();
+      // renderDescription(listingDescriptionContainer, titleValue, description, sellerName, lastBidAmount);
     } catch (error) {
       console.error(error);
     }

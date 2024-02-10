@@ -1,8 +1,6 @@
 import { createElement } from "../utils/createElement.mjs";
 
-export const renderDescription = (title, description, seller, lastBidAmount) => {
-  const listingDescriptionContainer = document.querySelector("#listing-description-container");
-
+export const renderDescription = (container, title, description, seller, lastBidAmount) => {
   const objectDetailsHeader = createElement("h2", "object-details-header", "Details: ");
   const objectDetailsWrapper = createElement("ul", "object-details-wrapper");
 
@@ -25,13 +23,13 @@ export const renderDescription = (title, description, seller, lastBidAmount) => 
   listItemSeller.appendChild(spanItemSeller);
   listItemSeller.append(seller);
 
-  const listItemLastBid = createElement("li", "fs-3 object-detail-element");
+  const listItemLastBid = createElement("li", "last-bid-container fs-3 object-detail-element");
   const spanItemLastBid = createElement("span", "fw-bold", "Last bid: ");
   listItemLastBid.appendChild(spanItemLastBid);
   listItemLastBid.append(lastBidAmount + " credits");
 
-  listingDescriptionContainer.appendChild(objectDetailsHeader);
-  listingDescriptionContainer.appendChild(objectDetailsWrapper);
+  container.appendChild(objectDetailsHeader);
+  container.appendChild(objectDetailsWrapper);
 
   objectDetailsWrapper.appendChild(listItemTitle);
   objectDetailsWrapper.appendChild(listItemDivider);
