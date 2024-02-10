@@ -54,7 +54,7 @@ export const giveBid = (
       console.log(loggedUserData);
 
       sortedBids.push({ amount: inputBidValue, bidderName: loggedUserName });
-      sortedBids.sort((a, b) => a.amount - b.amount);
+      // sortedBids.sort((a, b) => a.amount - b.amount);
 
       userDataContainer.innerHTML = "";
       renderAvatarLoggedUser();

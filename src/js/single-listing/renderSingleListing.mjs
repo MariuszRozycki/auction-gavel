@@ -1,5 +1,5 @@
 import { URL_base } from "../api/index.mjs";
-import { getListings } from "../all-listings/getListings.mjs";
+import { getData } from "../getData/getData.mjs";
 import { createHeader } from "./createHeader.mjs";
 import { renderCarousel } from "../utils/renderCarousel.mjs";
 import { renderDescription } from "./renderDescription.mjs";
@@ -16,7 +16,7 @@ export const renderSingleListing = async (singleListingId) => {
   const URL_singleListing = `${URL_base}/auction/listings/${singleListingId}?_seller=true&_bids=true`;
 
   try {
-    const singleListingData = await getListings(URL_singleListing);
+    const singleListingData = await getData(URL_singleListing);
 
     const {
       bids,

@@ -1,6 +1,6 @@
 import { displayError } from "../utils/displayError.mjs";
 
-export const getListings = async (url) => {
+export const getData = async (url) => {
   try {
     const response = await fetch(url);
     const json = await response.json();

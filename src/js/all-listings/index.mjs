@@ -1,6 +1,6 @@
 import { URL_allListings } from "../api/index.mjs";
 import { search } from "../utils/search.mjs";
-import { getListings } from "./getListings.mjs";
+import { getData } from "../getData/getData.mjs";
 import { renderListings } from "./renderListings.mjs";
 import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
 
@@ -28,8 +28,8 @@ export const allListings = async () => {
     const showLessBtn = document.querySelector("#show-less-btn");
 
     try {
-      const jsonAllListings = await getListings(URL_allListingsSortByCreatedDate);
-      const jsonLimitedTo_10 = await getListings(URL_limited_to_10);
+      const jsonAllListings = await getData(URL_allListingsSortByCreatedDate);
+      const jsonLimitedTo_10 = await getData(URL_limited_to_10);
 
       renderListings(jsonLimitedTo_10, path, offsetNr + 1);
       showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, URL_limited_to_10, path);
