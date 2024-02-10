@@ -1,14 +1,17 @@
 export const navSearchDisplay = () => {
   const navSearch = document.querySelector('form[role="search"]');
 
-  window.addEventListener("resize", () => {
+  const toggleSearchVisibility = () => {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 992) {
-      navSearch.classList.add("d-none");
       navSearch.classList.remove("d-flex");
+      navSearch.classList.add("d-none");
     } else {
       navSearch.classList.remove("d-none");
       navSearch.classList.add("d-flex");
     }
-  });
+  };
+
+  window.addEventListener("resize", toggleSearchVisibility);
+  toggleSearchVisibility();
 };

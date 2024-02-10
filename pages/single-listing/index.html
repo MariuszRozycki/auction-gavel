@@ -89,33 +89,34 @@
               class="col-12 col-sm-7 col-md-8 mx-auto me-md-0 p-2 text-light bg-single-listing rounded listing-description-container"
             ></div>
           </div>
-        </div>
-        <div class="container-sm">
-          <div class="row mx-auto">
-            <!-- give a bid form -->
-            <div
-              id="give-bid-container"
-              class="d-none col-12 col-sm-12 col-md-12 text-light my-2 mx-auto bg-focus-light rounded py-2"
-            >
-              <form id="give-bid-form">
-                <div class="mb-3">
-                  <label for="bid" class="form-label fs-5">Give a bid</label>
-                  <input
-                    name="bid"
-                    type="number"
-                    placeholder="Only numbers"
-                    class="form-control fs-5"
-                    id="bid"
-                    aria-describedby="bidHelp"
-                  />
-                  <p class="bid-error error d-none"></p>
-                </div>
-                <div class="col-6 mx-auto">
-                  <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
-                    Give a bid
-                  </button>
-                </div>
-              </form>
+
+          <div class="container-sm px-0 mt-4">
+            <div class="row mx-auto justify-content-start">
+              <!-- give a bid form -->
+              <div
+                id="give-bid-container"
+                class="d-none col-12 col-sm-12 col-md-4 text-light my-2 bg-focus-light rounded py-2"
+              >
+                <form id="give-bid-form">
+                  <div class="mb-3">
+                    <label for="bid" class="form-label fs-5">Give a bid</label>
+                    <input
+                      name="bid"
+                      type="number"
+                      placeholder="Only numbers"
+                      class="form-control fs-5"
+                      id="bid"
+                      aria-describedby="bidHelp"
+                    />
+                    <p class="bid-error error d-none"></p>
+                  </div>
+                  <div class="col-6 mx-auto">
+                    <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
+                      Give a bid
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
