@@ -15,6 +15,7 @@ export const giveBid = (
 ) => {
   const giveBidContainer = document.querySelector("#give-bid-container");
   const userDataContainer = document.querySelector(".user-data-container");
+
   giveBidContainer.classList.remove("d-none");
   let { credits } = loggedUserData;
   let updatedCredits = credits;

@@ -14,6 +14,18 @@
     }
   }
 
+  .single-listing {
+    .carousel-and-description-wrapper {
+      // min-height: 300px;
+
+      .carousel-wrapper {
+        .carousel-item {
+          height: 50%;
+        }
+      }
+    }
+  }
+
   .contact {
     ul {
       padding: 0;

@@ -75,50 +75,51 @@
       </section>
 
       <section class="single-listing">
-        <div class="container-sm">
-          <div class="row">
+        <div class="container-sm bg-single-listing py-4 rounded">
+          <div class="row mx-auto justify-content-between carousel-and-description-wrapper">
+            <!-- carousel wrapper -->
             <div
               id="carousel-wrapper"
-              class="col-11 col-sm-7 col-md-5 py-3 bg-single-listing mx-auto rounded carousel-wrapper"
+              class="col-12 col-sm-5 col-md-4 mx-auto mb-2 mx-md-0 mb-sm-0 rounded carousel-wrapper"
             ></div>
+
+            <!-- description wrapper -->
+            <div
+              id="listing-description-container"
+              class="col-12 col-sm-7 col-md-8 mx-auto me-md-0 p-2 text-light bg-single-listing rounded listing-description-container"
+            ></div>
+          </div>
+        </div>
+        <div class="container-sm">
+          <div class="row mx-auto">
+            <!-- give a bid form -->
+            <div
+              id="give-bid-container"
+              class="d-none col-12 col-sm-12 col-md-12 text-light my-2 mx-auto bg-focus-light rounded py-2"
+            >
+              <form id="give-bid-form">
+                <div class="mb-3">
+                  <label for="bid" class="form-label fs-5">Give a bid</label>
+                  <input
+                    name="bid"
+                    type="number"
+                    placeholder="Only numbers"
+                    class="form-control fs-5"
+                    id="bid"
+                    aria-describedby="bidHelp"
+                  />
+                  <p class="bid-error error d-none"></p>
+                </div>
+                <div class="col-6 mx-auto">
+                  <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
+                    Give a bid
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
-        <!-- give a bid form -->
-        <div id="give-bid-container" class="container-sm d-none">
-          <div class="row">
-            <form
-              class="col-11 col-sm-7 col-md-5 text-light my-3 mx-auto bg-focus-light rounded py-2"
-              id="give-bid-form"
-            >
-              <div class="mb-3">
-                <label for="bid" class="form-label fs-5">Give a bid</label>
-                <input
-                  name="bid"
-                  type="number"
-                  placeholder="Only numbers"
-                  class="form-control fs-5"
-                  id="bid"
-                  aria-describedby="bidHelp"
-                />
-                <p class="bid-error error d-none"></p>
-              </div>
-              <div class="col-6 mx-auto">
-                <button type="submit" id="give-bid-btn" class="btn btn-primary text-uppercase d-block mx-auto">
-                  Give a bid
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="container-sm">
-          <div class="row my-2">
-            <div
-              id="listing-description-container"
-              class="col-11 col-sm-7 col-md-5 text-light mx-auto bg-single-listing rounded"
-            ></div>
-          </div>
-        </div>
         <div class="container-sm">
           <div class="row">
             <div class="col-12 mx-auto my-3 py-3 color-headers element-rounded">

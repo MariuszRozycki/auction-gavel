@@ -268,8 +268,11 @@ img {
   width: 150px;
 }
 
-.single-listing .carousel-item {
-  height: 200px;
+.single-listing .carousel-wrapper {
+  height: 100%;
+}
+.single-listing .carousel-wrapper .carousel-item {
+  height: 250px;
 }
 .single-listing ul.object-details-wrapper {
   list-style: none;
@@ -290,6 +293,9 @@ img {
   .hero .card .img-wrapper,
   .my-credits .card .img-wrapper {
     height: 130px;
+  }
+  .single-listing .carousel-and-description-wrapper .carousel-wrapper .carousel-item {
+    height: 50%;
   }
   .contact ul {
     padding: 0;
