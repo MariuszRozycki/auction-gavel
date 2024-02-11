@@ -8,7 +8,7 @@ export const renderListings = async (data) => {
 
   try {
     for (let listing of data) {
-      const { created, description, endsAt, id, media, tags, title, updated, _count } = listing;
+      const { created, description, endsAt, id, media, tags, title } = listing;
       const createdDate = new Date(created);
       const endsDate = new Date(endsAt);
       const abbrevTitle = abbreviateAndCapitalize(title);
