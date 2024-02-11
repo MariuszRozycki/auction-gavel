@@ -22,6 +22,10 @@ body {
   flex: 1;
 }
 
+ul {
+  list-style: none;
+}
+
 p a,
 a.nav-link {
   text-decoration: none;
@@ -268,8 +272,11 @@ img {
   width: 150px;
 }
 
-.single-listing .carousel-item {
-  height: 200px;
+.single-listing .carousel-wrapper {
+  height: 100%;
+}
+.single-listing .carousel-wrapper .carousel-item {
+  height: 250px;
 }
 .single-listing ul.object-details-wrapper {
   list-style: none;
@@ -277,6 +284,9 @@ img {
 }
 .single-listing ul.object-details-wrapper .object-detail-element {
   margin: 0;
+}
+.single-listing .give-bid-container {
+  height: fit-content;
 }
 
 /* breakpoint sm */
@@ -290,6 +300,9 @@ img {
   .hero .card .img-wrapper,
   .my-credits .card .img-wrapper {
     height: 130px;
+  }
+  .single-listing .carousel-wrapper .carousel-item {
+    height: 300px;
   }
   .contact ul {
     padding: 0;

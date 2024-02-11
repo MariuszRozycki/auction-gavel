@@ -1,7 +1,7 @@
 import { searchListingsContent } from "./searchListingsContent.mjs";
 
 export const search = async (
-  jsonLimitedTo_10,
+  jsonLimited,
   path,
   offerNr,
   showLessBtn,
@@ -18,7 +18,7 @@ export const search = async (
     const searchInputHomeValue = searchInputHome.value.toLowerCase();
 
     searchListingsContent(
-      jsonLimitedTo_10,
+      jsonLimited,
       searchInputHomeValue,
       listingsContainer,
       path,

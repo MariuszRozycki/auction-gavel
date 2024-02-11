@@ -16,7 +16,6 @@ export async function authWithToken(method, url, data) {
     };
 
     const response = await fetch(url, fetchOptions);
-    console.log("response inside authWithToken: ", response);
     const json = await response.json();
 
     return {

@@ -1,9 +1,9 @@
 import { URL_allListings } from "../api/index.mjs";
-import { getListings } from "../all-listings/getListings.mjs";
+import { getData } from "../getData/getData.mjs";
 import { renderListings } from "../all-listings/renderListings.mjs";
 import { renderPageNumbers } from "./renderPageNumbers.mjs";
 
-export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path) => {
+export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder) => {
   const listingsContainer = document.querySelector("#listings-container");
 
   const updatePageNumbers = () => {
@@ -13,9 +13,10 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
 
   const handlePageChange = async (pageNumber) => {
     const newOffsetNr = (pageNumber - 1) * limitNr;
-    const URL_with_offset = `${URL_allListings}?sort=created&sortOrder=desc&limit=${limitNr}&offset=${newOffsetNr}`;
+    const URL_with_offset = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${newOffsetNr}`;
+
     try {
-      const updatedJsonWithOffset = await getListings(URL_with_offset);
+      const updatedJsonWithOffset = await getData(URL_with_offset);
       renderListings(updatedJsonWithOffset, path, newOffsetNr + 1);
       offsetNr = newOffsetNr;
       updatePageNumbers(updatedJsonWithOffset);

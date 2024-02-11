@@ -1,9 +1,10 @@
 import { URL_base } from "../api/index.mjs";
-import { getListings } from "../all-listings/getListings.mjs";
+import { getData } from "../getData/getData.mjs";
 import { createHeader } from "./createHeader.mjs";
 import { renderCarousel } from "../utils/renderCarousel.mjs";
 import { renderDescription } from "./renderDescription.mjs";
 import { giveBid } from "./giveBid.mjs";
+import { showAllBids } from "./showAllBids.mjs";
 
 export const renderSingleListing = async (singleListingId) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
@@ -13,9 +14,10 @@ export const renderSingleListing = async (singleListingId) => {
   const userDataParsed = JSON.parse(userData);
   const titleNotExists = "Title not exists";
   const URL_singleListing = `${URL_base}/auction/listings/${singleListingId}?_seller=true&_bids=true`;
+  const showAllBidsListContainer = document.querySelector(".show-all-bids-list-container");
 
   try {
-    const singleListingData = await getListings(URL_singleListing);
+    const singleListingData = await getData(URL_singleListing);
 
     const {
       bids,
@@ -25,12 +27,9 @@ export const renderSingleListing = async (singleListingId) => {
       media,
       seller: { name: sellerName },
       title,
-      tags,
-      updated,
     } = singleListingData;
-    console.log("singleListingContainer: ", singleListingData);
 
-    bids.sort((a, b) => a.amount - b.amount);
+    const sortedBids = bids.sort((a, b) => a.amount - b.amount);
 
     let lastBidAmount = 0;
 
@@ -39,6 +38,9 @@ export const renderSingleListing = async (singleListingId) => {
 
       lastBidAmount = lastBid.amount;
     }
+
+    const createdDate = new Date(created);
+    const endsDate = new Date(endsAt);
 
     const titleValue = title || titleNotExists;
 
@@ -49,20 +51,39 @@ export const renderSingleListing = async (singleListingId) => {
     renderCarousel(singleListingId, media, titleValue);
 
     /* description */
-    renderDescription(listingDescriptionContainer, titleValue, description, sellerName, lastBidAmount);
+    renderDescription(
+      listingDescriptionContainer,
+      titleValue,
+      description,
+      sellerName,
+      lastBidAmount,
+      createdDate,
+      endsDate,
+    );
 
-    /* give a bid */
-    const { name: loggedUserName } = userDataParsed;
-    if (sellerName !== loggedUserName) {
-      giveBid(
-        listingDescriptionContainer,
-        userDataParsed,
-        singleListingId,
-        titleValue,
-        description,
-        sellerName,
-        lastBidAmount,
-      );
+    if (userData) {
+      /* showAllBids */
+      showAllBidsListContainer.innerHTML = "";
+      showAllBids(sortedBids);
+
+      /* give a bid */
+      if (new Date() <= endsDate) {
+        const { name: loggedUserName } = userDataParsed;
+        if (sellerName !== loggedUserName) {
+          giveBid(
+            listingDescriptionContainer,
+            userDataParsed,
+            singleListingId,
+            titleValue,
+            description,
+            sellerName,
+            createdDate,
+            endsDate,
+            lastBidAmount,
+            sortedBids,
+          );
+        }
+      }
     }
   } catch (error) {
     console.error(error);

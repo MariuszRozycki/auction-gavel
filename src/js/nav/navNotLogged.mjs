@@ -1,7 +1,6 @@
 import { createElement } from "../utils/createElement.mjs";
 
 export const navNotLogged = (navContainer) => {
-  console.log("nie zalogowany");
   const path = location.pathname;
   const navItems = [
     { text: "Home", href: "/" },

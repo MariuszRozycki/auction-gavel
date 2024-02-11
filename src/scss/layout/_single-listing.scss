@@ -1,7 +1,12 @@
 .single-listing {
-  .carousel-item {
-    height: 200px;
+  .carousel-wrapper {
+    height: 100%;
+
+    .carousel-item {
+      height: 250px;
+    }
   }
+
   ul.object-details-wrapper {
     list-style: none;
     padding: 0;
@@ -9,5 +14,9 @@
     .object-detail-element {
       margin: 0;
     }
+  }
+
+  .give-bid-container {
+    height: fit-content;
   }
 }

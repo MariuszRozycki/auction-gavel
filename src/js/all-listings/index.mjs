@@ -1,20 +1,27 @@
 import { URL_allListings } from "../api/index.mjs";
 import { search } from "../utils/search.mjs";
-import { getListings } from "./getListings.mjs";
+import { getData } from "../getData/getData.mjs";
 import { renderListings } from "./renderListings.mjs";
 import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
+import { filteredListings } from "./filteredListings.mjs";
 
 export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;
+
   const isRootPath = path === "/" || path === "/pages/user-details/" || path.startsWith(repoName);
   const userLoggedPath = path === "/pages/user-details/";
 
   const limitNr = 10;
   const offsetNr = 0;
-  const maxLimit = 100;
-  const URL_limited_to_10 = `${URL_allListings}?sort=created&sortOrder=desc&limit=${limitNr}&offset=${offsetNr}`;
-  const URL_allListingsSortByCreatedDate = `${URL_allListings}?sort=created&sortOrder=desc`;
+  const maxLimit = 1000;
+
+  let sortOrder = "desc";
+  const sortOrderLocal = localStorage.getItem("SORT_ORDER");
+
+  if (sortOrderLocal) {
+    sortOrder = JSON.parse(sortOrderLocal);
+  }
 
   if (userLoggedPath) {
     const createNewListingBtn = document.querySelector("#new-listing-btn");
@@ -24,16 +31,24 @@ export const allListings = async () => {
   }
 
   if (isRootPath) {
+    const formFilter = document.querySelector(".form-filter-select");
+
+    formFilter.value = sortOrder;
+    let URL_limited = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${offsetNr}`;
+    const URL_allListingsSortByCreatedDate = `${URL_allListings}?sort=created&sortOrder=desc`;
+
     const showMoreBtn = document.querySelector("#show-more-btn");
     const showLessBtn = document.querySelector("#show-less-btn");
 
     try {
-      const jsonAllListings = await getListings(URL_allListingsSortByCreatedDate);
-      const jsonLimitedTo_10 = await getListings(URL_limited_to_10);
+      const jsonAllListings = await getData(URL_allListingsSortByCreatedDate);
+      const jsonLimited = await getData(URL_limited);
 
-      renderListings(jsonLimitedTo_10, path, offsetNr + 1);
-      showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, URL_limited_to_10, path);
-      search(jsonLimitedTo_10, path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
+      renderListings(jsonLimited);
+      showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder);
+      filteredListings(formFilter, URL_limited, sortOrder, limitNr, offsetNr, showMoreBtn, showLessBtn, maxLimit, path);
+
+      search(jsonLimited, path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
     } catch (error) {
       console.error("Error loading all listings:", error);
     }
