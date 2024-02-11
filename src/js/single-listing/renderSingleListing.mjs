@@ -5,6 +5,8 @@ import { renderCarousel } from "../utils/renderCarousel.mjs";
 import { renderDescription } from "./renderDescription.mjs";
 import { giveBid } from "./giveBid.mjs";
 import { showAllBids } from "./showAllBids.mjs";
+import { textCapitalized } from "../utils/textCapitalized.mjs";
+import { displayError } from "../utils/displayError.mjs";
 
 export const renderSingleListing = async (singleListingId) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
@@ -29,6 +31,10 @@ export const renderSingleListing = async (singleListingId) => {
       title,
     } = singleListingData;
 
+    const titleCapitalized = textCapitalized(title);
+    const descriptionCapitalized = textCapitalized(description);
+    const sellerNameCap = textCapitalized(sellerName);
+
     const sortedBids = bids.sort((a, b) => a.amount - b.amount);
 
     let lastBidAmount = 0;
@@ -42,7 +48,7 @@ export const renderSingleListing = async (singleListingId) => {
     const createdDate = new Date(created);
     const endsDate = new Date(endsAt);
 
-    const titleValue = title || titleNotExists;
+    const titleValue = titleCapitalized || titleNotExists;
 
     /* heading */
     createHeader(singleListingContainer);
@@ -54,8 +60,8 @@ export const renderSingleListing = async (singleListingId) => {
     renderDescription(
       listingDescriptionContainer,
       titleValue,
-      description,
-      sellerName,
+      descriptionCapitalized,
+      sellerNameCap,
       lastBidAmount,
       createdDate,
       endsDate,
@@ -75,8 +81,8 @@ export const renderSingleListing = async (singleListingId) => {
             userDataParsed,
             singleListingId,
             titleValue,
-            description,
-            sellerName,
+            descriptionCapitalized,
+            sellerNameCap,
             createdDate,
             endsDate,
             lastBidAmount,
@@ -87,5 +93,6 @@ export const renderSingleListing = async (singleListingId) => {
     }
   } catch (error) {
     console.error(error);
+    displayError();
   }
 };
