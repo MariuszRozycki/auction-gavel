@@ -8,6 +8,9 @@ An auction site is looking to launch a website where users can add items to be b
 When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use <br>
 credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.<br>
 
+## Live site
+https://genuine-squirrel-c1ec8c.netlify.app/
+
 ## To run project:
 
 1. Clone the repository.
