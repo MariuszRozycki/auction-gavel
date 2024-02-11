@@ -31,7 +31,22 @@ export const giveBid = (
 
   giveBidForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (!bidSuccess.classList.contains("d-none")) {
+      bidSuccess.classList.add("d-none");
+    }
     const inputBidValue = parseInt(inputBid.value, 10);
+
+    if (inputBidValue === 0) {
+      bidError.textContent = `You can't give "0" as a bid!`;
+      bidError.classList.remove("d-none");
+      return;
+    }
+
+    if (isNaN(inputBidValue) || inputBidValue == null) {
+      bidError.textContent = `Bid must be a number, can't be empty.`;
+      bidError.classList.remove("d-none");
+      return;
+    }
 
     if (inputBidValue > credits) {
       bidError.textContent = `You don't have enough credits!`;
@@ -40,25 +55,30 @@ export const giveBid = (
     }
 
     if (inputBidValue <= lastBidAmount) {
-      bidError.textContent = `Your bid must be higher than ${lastBidAmount}`;
+      bidError.textContent = `Your bid must be higher than ${lastBidAmount} credits.`;
       bidError.classList.remove("d-none");
       return;
     }
 
     const newBidDataValue = newBidData(inputBidValue);
     try {
-      const result = await authWithToken(
-        "POST",
-        `${URL_base}/auction/listings/${singleListingId}/bids?_seller=true&_bids=true`,
-        newBidDataValue,
-      );
+      const method = "POST";
+      const URL_newBids = `${URL_base}/auction/listings/${singleListingId}/bids?_seller=true&_bids=true`;
+      const result = await authWithToken(method, URL_newBids, newBidDataValue);
 
       if (!result.response.ok) {
-        const errorMessage = result.json.errors.map((err) => err.message).join(", ");
+        let errorMessage = result.json.errors.map((err) => err.message).join(", ");
+
+        if (errorMessage.includes("current bid")) {
+          errorMessage = `Your bid must be higher than ${lastBidAmount}`;
+        }
+
         bidError.textContent = errorMessage;
         bidError.classList.remove("d-none");
         return;
       }
+
+      lastBidAmount = inputBidValue;
 
       bidError.classList.add("d-none");
       bidSuccess.classList.remove("d-none");
@@ -66,7 +86,6 @@ export const giveBid = (
 
       updatedCredits -= inputBidValue;
       loggedUserData.credits = updatedCredits;
-      console.log(loggedUserData);
       localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
 
       sortedBids.push({ amount: inputBidValue, bidderName: loggedUserName });

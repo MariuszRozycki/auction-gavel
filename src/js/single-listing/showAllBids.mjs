@@ -18,7 +18,6 @@ export const showAllBids = (sortedBids) => {
   showAllBidsBtn.addEventListener("click", () => {
     flag = !flag;
 
-    console.log("flag: ", flag);
     if (flag) {
       showAllBidsListContainer.classList.add("bg-focus-light");
       showAllBidsBtn.innerHTML = "Close all bids";
