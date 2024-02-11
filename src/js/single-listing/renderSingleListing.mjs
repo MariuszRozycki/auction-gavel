@@ -14,6 +14,7 @@ export const renderSingleListing = async (singleListingId) => {
   const userDataParsed = JSON.parse(userData);
   const titleNotExists = "Title not exists";
   const URL_singleListing = `${URL_base}/auction/listings/${singleListingId}?_seller=true&_bids=true`;
+  const showAllBidsListContainer = document.querySelector(".show-all-bids-list-container");
 
   try {
     const singleListingData = await getData(URL_singleListing);
@@ -65,6 +66,7 @@ export const renderSingleListing = async (singleListingId) => {
 
     if (userData) {
       /* showAllBids */
+      showAllBidsListContainer.innerHTML = "";
       showAllBids(sortedBids);
 
       /* give a bid */

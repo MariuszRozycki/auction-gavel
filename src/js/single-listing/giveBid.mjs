@@ -1,3 +1,4 @@
+/* dzialajacy kod */
 import { URL_base } from "../api/index.mjs";
 import { newBidData } from "./newBidData.mjs";
 import { renderAvatarLoggedUser } from "../avatar/renderAvatarLoggedUser.mjs";
@@ -19,7 +20,8 @@ export const giveBid = (
 ) => {
   const giveBidContainer = document.querySelector("#give-bid-container");
   const userDataContainer = document.querySelector(".user-data-container");
-  // const showAllBidsListContainer = document.querySelector(".show-all-bids-list-container");
+  const bidError = document.querySelector(".bid-error");
+  const bidSuccess = document.querySelector(".bid-success");
 
   giveBidContainer.classList.remove("d-none");
   let { credits, name: loggedUserName } = loggedUserData;
@@ -32,29 +34,48 @@ export const giveBid = (
     e.preventDefault();
     const inputBidValue = parseInt(inputBid.value, 10);
 
+    // Przed wysłaniem żądania sprawdź, czy użytkownik ma wystarczająco kredytów i czy oferta jest wyższa niż ostatnia
     if (inputBidValue > credits) {
-      console.log(`You don't have enough credits!`);
+      bidError.textContent = `You don't have enough credits!`;
+      bidError.classList.remove("d-none");
+      return;
     }
 
     if (inputBidValue <= lastBidAmount) {
-      console.log(`Your bid must be higher then ${lastBidAmount}`);
+      bidError.textContent = `Your bid must be higher than ${lastBidAmount}`;
+      bidError.classList.remove("d-none");
+      return;
     }
 
     const newBidDataValue = newBidData(inputBidValue);
-    const method = "POST";
-    const URL_bidsUpdate = `${URL_base}/auction/listings/${singleListingId}/bids?_seller=true&_bids=true`;
-
     try {
-      const json = await authWithToken(method, URL_bidsUpdate, newBidDataValue);
-      console.log(json);
+      const result = await authWithToken(
+        "POST",
+        `${URL_base}/auction/listings/${singleListingId}/bids?_seller=true&_bids=true`,
+        newBidDataValue,
+      );
+
+      // Teraz możemy użyć result.json do dostępu do danych JSON, result.response do dostępu do obiektu odpowiedzi
+      // Sprawdź, czy status odpowiedzi wskazuje na sukces
+      if (!result.response.ok) {
+        // Załóżmy, że błędy są zwracane jako { errors: [{ message: "Error message" }] }
+        const errorMessage = result.json.errors.map((err) => err.message).join(", ");
+        bidError.textContent = errorMessage;
+        bidError.classList.remove("d-none");
+        return;
+      }
+
+      // Jeśli odpowiedź jest ok, kontynuuj aktualizowanie UI
+      bidError.classList.add("d-none");
+      bidSuccess.classList.remove("d-none");
+      console.log(result.json);
 
       updatedCredits -= inputBidValue;
       loggedUserData.credits = updatedCredits;
       localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
-      console.log(loggedUserData);
 
       sortedBids.push({ amount: inputBidValue, bidderName: loggedUserName });
-      // sortedBids.sort((a, b) => a.amount - b.amount);
+      showAllBids(sortedBids);
 
       userDataContainer.innerHTML = "";
       renderAvatarLoggedUser();
@@ -69,17 +90,10 @@ export const giveBid = (
         createdDate,
         endsDate,
       );
-
-      // showAllBidsListContainer.innerHTML = "";
-      showAllBids(sortedBids);
     } catch (error) {
-      console.error(error);
+      console.error("Error submitting bid:", error);
+      bidError.textContent = "An error occurred while submitting your bid.";
+      bidError.classList.remove("d-none");
     }
-
-    // credits = updatedCredits - inputBidValue;
-    // loggedUserData.credits = credits;
-    // localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
-
-    // const newBidDataValue = newBidData(inputBidValue);
   });
 };

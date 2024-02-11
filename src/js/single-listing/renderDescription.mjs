@@ -30,9 +30,6 @@ export const renderDescription = (container, title, description, seller, lastBid
 
   const listItemLastBid = createElement("li", "fs-5 object-detail-element");
   let spanItemLastBid;
-  // let spanItemLastBid = createElement("span", "fw-bold", "Last bid: ");
-  // listItemLastBid.appendChild(spanItemLastBid);
-  // listItemLastBid.append(lastBidAmount + " credits");
 
   const listItemCreatedDate = createElement("li", "fs-5 object-detail-element");
   const spanListItemCreatedDate = createElement("span", "fw-bold", "Created: ");
