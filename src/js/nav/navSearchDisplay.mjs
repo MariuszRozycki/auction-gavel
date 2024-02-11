@@ -3,7 +3,7 @@ export const navSearchDisplay = () => {
 
   const toggleSearchVisibility = () => {
     const screenWidth = window.innerWidth;
-    if (screenWidth >= 992) {
+    if (screenWidth >= 0) {
       navSearch.classList.remove("d-flex");
       navSearch.classList.add("d-none");
     } else {
