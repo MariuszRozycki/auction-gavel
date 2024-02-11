@@ -1,4 +1,3 @@
-/* dzialajacy kod */
 import { URL_base } from "../api/index.mjs";
 import { newBidData } from "./newBidData.mjs";
 import { renderAvatarLoggedUser } from "../avatar/renderAvatarLoggedUser.mjs";
@@ -34,7 +33,6 @@ export const giveBid = (
     e.preventDefault();
     const inputBidValue = parseInt(inputBid.value, 10);
 
-    // Przed wysłaniem żądania sprawdź, czy użytkownik ma wystarczająco kredytów i czy oferta jest wyższa niż ostatnia
     if (inputBidValue > credits) {
       bidError.textContent = `You don't have enough credits!`;
       bidError.classList.remove("d-none");
@@ -55,17 +53,13 @@ export const giveBid = (
         newBidDataValue,
       );
 
-      // Teraz możemy użyć result.json do dostępu do danych JSON, result.response do dostępu do obiektu odpowiedzi
-      // Sprawdź, czy status odpowiedzi wskazuje na sukces
       if (!result.response.ok) {
-        // Załóżmy, że błędy są zwracane jako { errors: [{ message: "Error message" }] }
         const errorMessage = result.json.errors.map((err) => err.message).join(", ");
         bidError.textContent = errorMessage;
         bidError.classList.remove("d-none");
         return;
       }
 
-      // Jeśli odpowiedź jest ok, kontynuuj aktualizowanie UI
       bidError.classList.add("d-none");
       bidSuccess.classList.remove("d-none");
       console.log(result.json);
