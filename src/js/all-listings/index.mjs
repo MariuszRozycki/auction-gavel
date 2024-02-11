@@ -14,7 +14,7 @@ export const allListings = async () => {
 
   const limitNr = 10;
   const offsetNr = 0;
-  const maxLimit = 1000;
+  const maxLimit = 100;
 
   let sortOrder = "desc";
   const sortOrderLocal = localStorage.getItem("SORT_ORDER");
