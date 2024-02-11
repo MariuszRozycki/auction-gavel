@@ -1,7 +1,6 @@
 import { createElement } from "../utils/createElement.mjs";
 import { logOut } from "../auth/logOut.mjs";
 export const navLogged = (navContainer) => {
-  console.log("Pomyslnie zalogowany!");
   const path = location.pathname;
   const navItems = [
     {

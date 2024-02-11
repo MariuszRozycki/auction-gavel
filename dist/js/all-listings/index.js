@@ -7,7 +7,7 @@ import { filteredListings } from "./filteredListings.mjs";
 export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;
-  console.log(path);
+
   const isRootPath = path === "/" || path === "/pages/user-details/" || path.startsWith(repoName);
   const userLoggedPath = path === "/pages/user-details/";
   const limitNr = 10;
@@ -17,9 +17,8 @@ export const allListings = async () => {
   const sortOrderLocal = localStorage.getItem("SORT_ORDER");
   if (sortOrderLocal) {
     sortOrder = JSON.parse(sortOrderLocal);
-    console.log(sortOrder, " inside if statement");
   }
-  console.log("sortOrder inside allListings: ", sortOrder);
+
   if (userLoggedPath) {
     const createNewListingBtn = document.querySelector("#new-listing-btn");
     createNewListingBtn.addEventListener("click", () => {

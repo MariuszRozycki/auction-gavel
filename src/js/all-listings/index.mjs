@@ -8,7 +8,7 @@ import { filteredListings } from "./filteredListings.mjs";
 export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;
-  console.log(path);
+
   const isRootPath = path === "/" || path === "/pages/user-details/" || path.startsWith(repoName);
   const userLoggedPath = path === "/pages/user-details/";
 
@@ -21,10 +21,7 @@ export const allListings = async () => {
 
   if (sortOrderLocal) {
     sortOrder = JSON.parse(sortOrderLocal);
-    console.log(sortOrder, " inside if statement");
   }
-
-  console.log("sortOrder inside allListings: ", sortOrder);
 
   if (userLoggedPath) {
     const createNewListingBtn = document.querySelector("#new-listing-btn");
@@ -38,20 +35,20 @@ export const allListings = async () => {
 
     formFilter.value = sortOrder;
     let URL_limited = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${offsetNr}`;
-    // const URL_allListingsSortByCreatedDate = `${URL_allListings}?sort=created&sortOrder=desc`;
+    const URL_allListingsSortByCreatedDate = `${URL_allListings}?sort=created&sortOrder=desc`;
 
     const showMoreBtn = document.querySelector("#show-more-btn");
     const showLessBtn = document.querySelector("#show-less-btn");
 
     try {
-      // const jsonAllListings = await getData(URL_allListingsSortByCreatedDate);
+      const jsonAllListings = await getData(URL_allListingsSortByCreatedDate);
       const jsonLimited = await getData(URL_limited);
 
       renderListings(jsonLimited);
       showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder);
       filteredListings(formFilter, URL_limited, sortOrder, limitNr, offsetNr, showMoreBtn, showLessBtn, maxLimit, path);
 
-      // search(jsonLimited, path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
+      search(jsonLimited, path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
     } catch (error) {
       console.error("Error loading all listings:", error);
     }

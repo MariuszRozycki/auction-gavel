@@ -14,7 +14,7 @@ export const registerUser = async (url, userData) => {
     };
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(json);
+
     if (response.ok) {
       headerMain.innerText = `You have full access!`;
       userRegisterSuccess.classList.remove("d-none");
@@ -30,7 +30,7 @@ export const registerUser = async (url, userData) => {
       const jsonErrors = json.errors;
       for (const error of jsonErrors) {
         let errorMessage = error.message;
-        console.log(errorMessage);
+
         if (errorMessage.includes(`Only noroff.no emails are allowed to register`)) {
           errorMessage = `Email must contain @noroff.no or @stud.noroff.no`;
         }

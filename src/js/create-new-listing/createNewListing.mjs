@@ -44,7 +44,7 @@ export const createNewListing = () => {
       let listingCreatedSuccessFlag = false;
 
       const json = await authWithToken(method, URL_newListing, newListingsDataValue);
-      console.log("json inside createNewListing: ", json);
+
       const jsonBadRequest = json.json.status;
 
       if (jsonBadRequest) {

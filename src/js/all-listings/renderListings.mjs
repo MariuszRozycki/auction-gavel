@@ -46,7 +46,7 @@ export const renderListings = async (data) => {
     const allCards = document.querySelectorAll(".card");
     singleListingById(allCards);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw error;
   }
 };

@@ -3,7 +3,6 @@ const isValidName = (userName) => {
   return userName && regex.test(userName);
 };
 const isValidEmail = (email) => {
-  // return email && (email.endsWith("@noroff.no") || email.endsWith("@stud.noroff.no"));
   return email && email.endsWith("@stud.noroff.no");
 };
 const isValidPassword = (password) => {
@@ -18,7 +17,7 @@ export const userRegisterData = (userName, email, password, avatar) => {
   };
   const nameError = document.querySelector(".name-error");
   const emailError = document.querySelector(".email-error");
-  console.log(emailError);
+
   const passwordError = document.querySelector(".password-error");
   if (isValidName(userName)) {
     user.name = userName;

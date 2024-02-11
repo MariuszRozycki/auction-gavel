@@ -4,7 +4,7 @@ export const showAllBids = (sortedBids) => {
   const containerShowAllBids = document.querySelector("#container-show-all-bids");
   const showAllBidsBtn = document.querySelector("#show-all-bids-btn");
   const showAllBidsListContainer = document.querySelector(".show-all-bids-list-container");
-  console.log("sortedBids", sortedBids);
+
   containerShowAllBids.classList.remove("d-none");
 
   let flag = false;

@@ -18,8 +18,7 @@ export const registerPath = () => {
       const password = document.querySelector("#password").value;
       const avatar = document.querySelector("#avatar").value;
       const userData = userRegisterData(userName, email, password, avatar);
-      const regiUser = await registerUser(URL_register, userData);
-      console.log("regiUser", regiUser);
+      await registerUser(URL_register, userData);
     });
   }
 };
@@ -31,8 +30,7 @@ export const loginPath = () => {
       const email = document.querySelector("#email").value;
       const password = document.querySelector("#password").value;
       const userData = userLoginData(email, password);
-      const userD = await loginUser(URL_login, userData);
-      console.log(userD);
+      await loginUser(URL_login, userData);
     });
   }
 };

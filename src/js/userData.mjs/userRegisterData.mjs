@@ -22,7 +22,6 @@ export const userRegisterData = (userName, email, password, avatar) => {
 
   const nameError = document.querySelector(".name-error");
   const emailError = document.querySelector(".email-error");
-  console.log(emailError);
   const passwordError = document.querySelector(".password-error");
 
   if (isValidName(userName)) {

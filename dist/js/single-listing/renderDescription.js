@@ -1,6 +1,5 @@
 import { createElement } from "../utils/createElement.mjs";
 export const renderDescription = (container, title, description, seller, lastBidAmount, createdDate, endsDate) => {
-  console.log("lastBidAmount inside renderDescription: ", lastBidAmount);
   const objectDetailsHeader = createElement("h2", "object-details-header", "Details: ");
   const objectDetailsWrapper = createElement("ul", "object-details-wrapper");
   const listItemTitle = createElement("li", "fs-5 object-detail-element");

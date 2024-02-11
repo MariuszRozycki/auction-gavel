@@ -68,7 +68,7 @@ export const giveBid = (
       lastBidAmount = inputBidValue;
       bidError.classList.add("d-none");
       bidSuccess.classList.remove("d-none");
-      console.log(result.json);
+
       updatedCredits -= inputBidValue;
       loggedUserData.credits = updatedCredits;
       localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));

@@ -27,7 +27,7 @@ export const renderSingleListing = async (singleListingId) => {
       tags,
       updated,
     } = singleListingData;
-    console.log("singleListingContainer: ", singleListingData);
+
     const sortedBids = bids.sort((a, b) => a.amount - b.amount);
     let lastBidAmount = 0;
     if (bids.length > 0) {

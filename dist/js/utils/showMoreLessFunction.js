@@ -3,7 +3,6 @@ import { getData } from "../getData/getData.mjs";
 import { renderListings } from "../all-listings/renderListings.mjs";
 import { renderPageNumbers } from "./renderPageNumbers.mjs";
 export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder) => {
-  console.log(sortOrder, " inside showMoreLessFunction");
   const listingsContainer = document.querySelector("#listings-container");
   const updatePageNumbers = () => {
     const currentPage = Math.floor(offsetNr / limitNr) + 1;
@@ -12,7 +11,7 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
   const handlePageChange = async (pageNumber) => {
     const newOffsetNr = (pageNumber - 1) * limitNr;
     const URL_with_offset = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${newOffsetNr}`;
-    console.log(URL_with_offset);
+
     try {
       const updatedJsonWithOffset = await getData(URL_with_offset);
       renderListings(updatedJsonWithOffset, path, newOffsetNr + 1);

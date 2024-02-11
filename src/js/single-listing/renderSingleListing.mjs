@@ -27,10 +27,7 @@ export const renderSingleListing = async (singleListingId) => {
       media,
       seller: { name: sellerName },
       title,
-      tags,
-      updated,
     } = singleListingData;
-    console.log("singleListingContainer: ", singleListingData);
 
     const sortedBids = bids.sort((a, b) => a.amount - b.amount);
 

@@ -9,9 +9,9 @@ export async function loginUser(url, userData) {
       body: JSON.stringify(userData),
     };
     const response = await fetch(url, postData);
-    console.log("response", response);
+
     const json = await response.json();
-    console.log("json", json);
+
     if (response.ok) {
       const accessToken = json.accessToken;
       localStorage.setItem("ACCESS_TOKEN", accessToken);
@@ -20,8 +20,7 @@ export async function loginUser(url, userData) {
       };
       delete userProfileData.accessToken;
       localStorage.setItem("USER_DATA", JSON.stringify(userProfileData));
-      console.log("accessToken", accessToken);
-      console.log("userProfileData", userProfileData);
+
       window.location.href = "../../../pages/user-details/";
     } else {
       const password = document.querySelector("#password").value;
