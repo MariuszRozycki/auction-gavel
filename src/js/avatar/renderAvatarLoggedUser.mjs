@@ -4,7 +4,7 @@ import { authWithToken } from "../auth/authWithToken.mjs";
 
 export const renderAvatarLoggedUser = async () => {
   const userData = localStorage.getItem("USER_DATA");
-  const avatarNotExists = "../../../images/pictures/profile-default.png";
+  const avatarNotExists = "../../../images/pictures/green-monster-user.png";
   const method = "GET";
   if (userData) {
     try {
@@ -14,7 +14,6 @@ export const renderAvatarLoggedUser = async () => {
 
       const json = await authWithToken(method, URL_singleProfile);
       const { name, credits, avatar } = json.json;
-      console.log(json);
 
       const userDataContainer = document.querySelector(".user-data-container");
       const avatarValue = avatar || avatarNotExists;
