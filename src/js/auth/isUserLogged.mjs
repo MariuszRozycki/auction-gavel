@@ -1,5 +1,3 @@
-export const isUserLogged = () => {
-  const userData = localStorage.getItem("USER_DATA");
-
+export const isUserLogged = (userData) => {
   if (userData) window.location.href = "../../../pages/user-details/";
 };

@@ -66,6 +66,7 @@ export const giveBid = (
 
       updatedCredits -= inputBidValue;
       loggedUserData.credits = updatedCredits;
+      console.log(loggedUserData);
       localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
 
       sortedBids.push({ amount: inputBidValue, bidderName: loggedUserName });
