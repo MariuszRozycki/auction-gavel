@@ -18,7 +18,7 @@ export const myCredits = async () => {
     const method = "GET";
     const json = await authWithToken(method, URL_creditsByName);
     const { credits } = json.json;
-    const nameCapitalized = textCapitalize(name);
+    const nameCapitalized = textCapitalized(name);
     const nameContainer = createElement("span", "name-wrapper d-block", "Hi " + nameCapitalized);
     const creditHeaderContainer = createElement("span", "credit-container d-block", "your total credit is:");
     paragraphCreditContainer.innerHTML = credits + " credits!";
