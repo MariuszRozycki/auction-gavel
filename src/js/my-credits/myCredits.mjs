@@ -1,7 +1,7 @@
 import { createElement } from "../utils/createElement.mjs";
 import { URL_allProfiles } from "../api/index.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
-import { nameCapitalize } from "../utils/nameCapitalize.mjs";
+import { textCapitalized } from "../utils/textCapitalized.mjs";
 
 export const myCredits = async () => {
   const userData = localStorage.getItem("USER_DATA");
@@ -18,7 +18,7 @@ export const myCredits = async () => {
     const method = "GET";
     const json = await authWithToken(method, URL_creditsByName);
     const { credits } = json.json;
-    const nameCapitalized = nameCapitalize(name);
+    const nameCapitalized = textCapitalize(name);
     const nameContainer = createElement("span", "name-wrapper d-block", "Hi " + nameCapitalized);
     const creditHeaderContainer = createElement("span", "credit-container d-block", "your total credit is:");
     paragraphCreditContainer.innerHTML = credits + " credits!";

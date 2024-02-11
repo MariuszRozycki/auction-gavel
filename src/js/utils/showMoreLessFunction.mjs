@@ -29,29 +29,36 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
     if (offsetNr + limitNr < maxLimit) {
       listingsContainer.innerHTML = ``;
       offsetNr += limitNr;
-      showLessBtn.classList.remove("d-none");
-      await handlePageChange(offsetNr / limitNr + 1);
+      await handlePageChange(Math.floor(offsetNr / limitNr) + 1);
     }
 
-    if (offsetNr + limitNr === maxLimit) {
-      showMoreBtn.classList.add("d-none");
-      showLessBtn.classList.remove("d-none");
-    }
+    updateButtonVisibility();
   });
 
   showLessBtn.addEventListener("click", async () => {
     if (offsetNr - limitNr >= 0) {
       listingsContainer.innerHTML = ``;
-      showLessBtn.classList.add("d-none");
       offsetNr -= limitNr;
-      await handlePageChange(offsetNr / limitNr + 1);
+      await handlePageChange(Math.floor(offsetNr / limitNr) + 1);
     }
 
-    if (offsetNr + limitNr <= maxLimit) {
-      showLessBtn.classList.remove("d-none");
-      showMoreBtn.classList.remove("d-none");
-    }
+    updateButtonVisibility();
   });
 
+  function updateButtonVisibility() {
+    if (offsetNr === 0) {
+      showLessBtn.classList.add("d-none");
+    } else {
+      showLessBtn.classList.remove("d-none");
+    }
+
+    if (offsetNr + limitNr >= maxLimit) {
+      showMoreBtn.classList.add("d-none");
+    } else {
+      showMoreBtn.classList.remove("d-none");
+    }
+  }
+
+  updateButtonVisibility();
   updatePageNumbers();
 };

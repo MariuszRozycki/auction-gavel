@@ -1,6 +1,8 @@
 import { createElement } from "../utils/createElement.mjs";
 import { URL_allProfiles } from "../api/index.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
+import { textCapitalized } from "../utils/textCapitalized.mjs";
+import { displayError } from "../utils/displayError.mjs";
 
 export const renderAvatarLoggedUser = async () => {
   const userData = localStorage.getItem("USER_DATA");
@@ -15,6 +17,8 @@ export const renderAvatarLoggedUser = async () => {
       const json = await authWithToken(method, URL_singleProfile);
       const { name, credits, avatar } = json.json;
 
+      const nameCapitalize = textCapitalized(name);
+
       const userDataContainer = document.querySelector(".user-data-container");
       const avatarValue = avatar || avatarNotExists;
 
@@ -27,7 +31,7 @@ export const renderAvatarLoggedUser = async () => {
       const avatarImg = createElement("img", "avatar-img rounded-circle border border-2 border-light", null, {
         src: avatarValue,
       });
-      const userName = createElement("p", "avatar-name-paragraph m-0", `Hello ${name}`);
+      const userName = createElement("p", "avatar-name-paragraph m-0", `Hello ${nameCapitalize}`);
 
       /* credit container */
       const creditContainer = createElement("div", "credit-container d-flex justify-content-end align-items-end");
@@ -47,7 +51,8 @@ export const renderAvatarLoggedUser = async () => {
       creditContainer.appendChild(iconCreditContainer);
       iconCreditContainer.appendChild(imgIconCredit);
     } catch (error) {
-      console.error("Error loading or parsing user data from localStorage:", error);
+      console.error(error);
+      displayError();
     }
   }
 };
