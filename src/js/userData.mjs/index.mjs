@@ -5,6 +5,23 @@ import { registerUser } from "../userData.mjs/registerUser.mjs";
 import { userLoginData } from "./userLoginData.mjs";
 import { loginUser } from "../auth/loginUser.mjs";
 
+/**
+ * Handles user registration and login based on the current page path.
+ *
+ * `registerPath` listens for the submit event on the registration form and collects user input to create a new user account.
+ * It uses the `registerUser` function to send the collected data to the server for account creation.
+ *
+ * `loginPath` listens for the submit event on the login form and collects user credentials to log the user in.
+ * It uses the `loginUser` function to authenticate the user with the server.
+ *
+ * Both functions check the current page path to ensure that the form event listeners are only added on the appropriate pages.
+ *
+ * @example
+ * // To be called on page load to set up form submissions for registration and login
+ * registerPath();
+ * loginPath();
+ */
+
 const path = location.pathname;
 const registerForm = document.querySelector("#register-form");
 const logInForm = document.querySelector("#log-in-form");

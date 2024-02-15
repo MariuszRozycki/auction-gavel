@@ -1,3 +1,24 @@
+/**
+ * Validates user registration data (name, email, password, and optionally avatar) and returns an object containing these details.
+ * Utilizes helper functions to check the validity of the name, email, and password:
+ * - `isValidName` checks if the name contains only word characters.
+ * - `isValidEmail` ensures the email is a valid Noroff student email address.
+ * - `isValidPassword` verifies that the password is at least 8 characters long.
+ * Displays error messages next to the respective input fields if the validation fails.
+ * The avatar URL is included if provided; otherwise, it defaults to an empty string.
+ *
+ * @param {string} userName The user's name.
+ * @param {string} email The user's email address.
+ * @param {string} password The user's password.
+ * @param {string} avatar The URL of the user's avatar image (optional).
+ * @returns {Object} An object with the user's registration data.
+ *
+ * @example
+ * // Example usage for creating registration data
+ * const registrationData = userRegisterData("JohnDoe", "john.doe@stud.noroff.no", "password123", "http://example.com/avatar.jpg");
+ * // registrationData will contain the name, email, password, and avatar if valid, or empty strings with displayed errors if not.
+ */
+
 const isValidName = (userName) => {
   const regex = /^[\w]+$/;
   return userName && regex.test(userName);
