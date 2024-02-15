@@ -10,13 +10,19 @@ export const showAllBids = (sortedBids) => {
   let flag = false;
 
   showAllBidsListContainer.innerHTML = "";
+
   if (showAllBidsListContainer.classList.contains("bg-focus-light")) {
     showAllBidsListContainer.classList.remove("bg-focus-light");
     showAllBidsBtn.innerHTML = "Show all bids";
   }
 
   showAllBidsBtn.addEventListener("click", () => {
+    showAllBidsListContainer.innerHTML = "";
     flag = !flag;
+
+    if (flag && sortedBids.length === 0) {
+      showAllBidsListContainer.innerHTML = "There is no bids.";
+    }
 
     if (flag) {
       showAllBidsListContainer.classList.add("bg-focus-light");
