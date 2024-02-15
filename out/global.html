@@ -696,6 +696,182 @@ const body = createBodyJson('POST', data);
 const bodyForGet = createBodyJson('GET', data);
 // bodyForGet is undefined
 ```</code></pre>
+
+          <h4 class="name" id="loginUser">
+            <span class="type-signature">(async) </span>loginUser<span class="signature">(url, userData)</span
+            ><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span>
+          </h4>
+
+          <div class="description">
+            Attempts to log in a user using provided credentials. Sends a POST request with the user data to the
+            specified URL. On successful login, stores the access token and user profile data in localStorage. Redirects
+            the user to the user details page upon successful login. Displays appropriate error messages for email or
+            password validation failures. Utilizes the `displayError` function to handle any fetch-related errors.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>url</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">The URL to which the login request is sent.</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>userData</code></td>
+
+                <td class="type">
+                  <span class="param-type">Object</span>
+                </td>
+
+                <td class="description last">An object containing the user's login credentials.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="auth_loginUser.mjs.html">auth/loginUser.mjs</a>,
+                  <a href="auth_loginUser.mjs.html#line28">line 28</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Throws:</h5>
+
+          <div class="param-desc">Will throw an error if the fetch request fails.</div>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">A promise that resolves with the JSON response from the server.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type">Promise.&lt;Object></span>
+            </dd>
+          </dl>
+
+          <h5>Example</h5>
+
+          <pre class="prettyprint"><code>```js
+// Example of using loginUser to attempt a user login
+const userData = {
+  email: "user@noroff.no",
+  password: "password123"
+};
+loginUser('https://api.noroff.dev/api/v1/auth/login', userData)
+  .then(response => console.log(response))
+  .catch(error => console.error(error));
+```</code></pre>
+
+          <h4 class="name" id="loginUser">
+            <span class="type-signature">(async) </span>loginUser<span class="signature">(url, userData)</span
+            ><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span>
+          </h4>
+
+          <div class="description">
+            Attempts to log in a user using provided credentials. Sends a POST request with the user data to the
+            specified URL. On successful login, stores the access token and user profile data in localStorage. Redirects
+            the user to the user details page upon successful login. Displays appropriate error messages for email or
+            password validation failures. Utilizes the `displayError` function to handle any fetch-related errors.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>url</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">The URL to which the login request is sent.</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>userData</code></td>
+
+                <td class="type">
+                  <span class="param-type">Object</span>
+                </td>
+
+                <td class="description last">An object containing the user's login credentials.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="auth_loginUser.mjs.html">auth/loginUser.mjs</a>,
+                  <a href="auth_loginUser.mjs.html#line28">line 28</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Throws:</h5>
+
+          <div class="param-desc">Will throw an error if the fetch request fails.</div>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">A promise that resolves with the JSON response from the server.</div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type">Promise.&lt;Object></span>
+            </dd>
+          </dl>
+
+          <h5>Example</h5>
+
+          <pre class="prettyprint"><code>```js
+// Example of using loginUser to attempt a user login
+const userData = {
+  email: "user@noroff.no",
+  password: "password123"
+};
+loginUser('https://api.noroff.dev/api/v1/auth/login', userData)
+  .then(response => console.log(response))
+  .catch(error => console.error(error));
+```</code></pre>
         </article>
       </section>
     </div>
@@ -710,6 +886,7 @@ const bodyForGet = createBodyJson('GET', data);
         <li><a href="global.html#filteredListings">filteredListings</a></li>
         <li><a href="global.html#isUserLogged">isUserLogged</a></li>
         <li><a href="global.html#isUserLoggedPath">isUserLoggedPath</a></li>
+        <li><a href="global.html#loginUser">loginUser</a></li>
         <li><a href="global.html#renderListings">renderListings</a></li>
       </ul>
     </nav>
@@ -717,7 +894,7 @@ const bodyForGet = createBodyJson('GET', data);
     <br class="clear" />
 
     <footer>
-      Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 10:14:30
+      Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 10:17:49
       GMT+0100 (czas środkowoeuropejski standardowy)
     </footer>
 
