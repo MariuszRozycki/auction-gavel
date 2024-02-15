@@ -8,6 +8,20 @@ import { showAllBids } from "./showAllBids.mjs";
 import { textCapitalized } from "../utils/textCapitalized.mjs";
 import { displayError } from "../utils/displayError.mjs";
 
+/**
+ * Asynchronously fetches and displays details of a single listing based on its ID.
+ * This function retrieves listing data, including bids, from the server and then dynamically renders
+ * various components of the listing, such as a header, image carousel, description, and bid information.
+ * It also initializes functionality for showing all bids and submitting a new bid if the user is logged in
+ * and not the seller of the listing. The function handles any errors by displaying an error message.
+ *
+ * @param {string} singleListingId The unique identifier for the listing to be rendered.
+ *
+ * @example
+ * // To be called with the ID of the listing to render its details
+ * renderSingleListing('12345');
+ */
+
 export const renderSingleListing = async (singleListingId) => {
   const singleListingContainer = document.querySelector("#single-listing-container");
   const listingDescriptionContainer = document.querySelector("#listing-description-container");

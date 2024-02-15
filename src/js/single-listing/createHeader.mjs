@@ -1,5 +1,19 @@
 import { createElement } from "../utils/createElement.mjs";
 
+/**
+ * Constructs and appends a header section to a specified container.
+ * This header includes a title "Listing details" and a button "View all listings" that links back to the user details page.
+ * The "View all listings" button is visually enhanced with an arrow icon, indicating a return or back action.
+ * Designed to provide a consistent header layout for pages displaying details of a listing.
+ *
+ * @param {HTMLElement} container The DOM element to which the header will be appended.
+ *
+ * @example
+ * // Assuming there's a container element in your HTML with an id of 'header-container'
+ * const headerContainer = document.querySelector('#header-container');
+ * createHeader(headerContainer);
+ */
+
 export const createHeader = (container) => {
   /* header */
   const singleListingH1 = createElement("h1", "h1 h1-header-focus text-center text-light my-0", "Listing details");

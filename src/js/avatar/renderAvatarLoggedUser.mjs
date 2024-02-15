@@ -4,6 +4,21 @@ import { authWithToken } from "../auth/authWithToken.mjs";
 import { textCapitalized } from "../utils/textCapitalized.mjs";
 import { displayError } from "../utils/displayError.mjs";
 
+/**
+ * Renders the logged user's avatar, name, and credits in the user data container.
+ * Fetches the user's profile data using the `authWithToken` function with a GET request.
+ * If the avatar URL is not provided, a default avatar image is used.
+ * The user's name is capitalized and displayed along with the avatar.
+ * Credits are also displayed in a dedicated container with an icon.
+ * Assumes the presence of a `.user-data-container` in the DOM.
+ * Displays an error message using `displayError` if fetching data fails.
+ *
+ * @async
+ * @example
+ * // To be called when the user data section of the page needs to be populated
+ * renderAvatarLoggedUser();
+ */
+
 export const renderAvatarLoggedUser = async () => {
   const userData = localStorage.getItem("USER_DATA");
   const avatarNotExists = "../../../images/pictures/green-monster-user.png";
@@ -28,7 +43,7 @@ export const renderAvatarLoggedUser = async () => {
         "avatar-and-name-container d-flex flex-column justify-content-center m-0",
       );
       const avatarContainer = createElement("div", "avatar-container");
-      const avatarImg = createElement("img", "avatar-img rounded-circle border border-2 border-light", null, {
+      const avatarImg = createElement("img", "avatar-img rounded-circle border border-dark border-2", null, {
         src: avatarValue,
       });
       const userName = createElement("p", "avatar-name-paragraph m-0", `Hello ${nameCapitalize}`);

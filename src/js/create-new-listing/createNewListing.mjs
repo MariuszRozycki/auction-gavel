@@ -3,6 +3,19 @@ import { newListingData } from "./newListingData.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
 import { displayError } from "../utils/displayError.mjs";
 
+/**
+ * Handles the creation of a new listing through a form submission.
+ * Collects input values from the form, constructs a listing data object, and sends it to the server using `authWithToken`.
+ * Displays success or error messages based on the server response.
+ * On successful listing creation, clears the form, shows a success message, and redirects to the user details page.
+ * On failure, displays appropriate error messages next to the relevant input fields.
+ * Utilizes `displayError` to show a generic error message if an exception occurs during the process.
+ *
+ * @example
+ * // To be called on the new listing form page to initialize form handling
+ * createNewListing();
+ */
+
 export const createNewListing = () => {
   const listingCreatedSuccess = document.querySelector("#new-listing-created");
   const URL_newListing = URL_base + `/auction/listings`;
@@ -45,7 +58,7 @@ export const createNewListing = () => {
       let listingCreatedSuccessFlag = false;
 
       const json = await authWithToken(method, URL_newListing, newListingsDataValue);
-      console.log(json);
+
       const jsonBadRequest = !json.response.ok;
 
       if (jsonBadRequest) {

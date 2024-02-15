@@ -4,6 +4,29 @@ import { renderAvatarLoggedUser } from "../avatar/renderAvatarLoggedUser.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
 import { renderDescription } from "./renderDescription.mjs";
 import { showAllBids } from "./showAllBids.mjs";
+import { displayError } from "../utils/displayError.mjs";
+
+/**
+ * Handles the bid submission process for a listing.
+ * Validates the bid amount entered by the user, displays error messages for invalid bids,
+ * and submits the bid to the server if valid. Updates the user's credits and the listing's last bid amount
+ * upon a successful bid. Also updates the UI to reflect the new bid and user credits.
+ *
+ * @param {HTMLElement} listingDescriptionContainer The container where the listing's description is displayed.
+ * @param {Object} loggedUserData Data of the logged-in user, including credits and name.
+ * @param {string} singleListingId The ID of the listing being bid on.
+ * @param {string} titleValue The title of the listing.
+ * @param {string} description The description of the listing.
+ * @param {string} sellerName The name of the seller of the listing.
+ * @param {string} createdDate The creation date of the listing.
+ * @param {string} endsDate The end date of the listing.
+ * @param {number} lastBidAmount The amount of the last bid made on the listing.
+ * @param {Array} sortedBids An array of bids made on the listing, sorted in some order.
+ *
+ * @example
+ * // Assuming all necessary elements and data are defined
+ * giveBid(listingDescriptionContainer, loggedUserData, singleListingId, titleValue, description, sellerName, createdDate, endsDate, lastBidAmount, sortedBids);
+ */
 
 export const giveBid = (
   listingDescriptionContainer,
@@ -22,7 +45,7 @@ export const giveBid = (
   const bidError = document.querySelector(".bid-error");
   const bidSuccess = document.querySelector(".bid-success");
 
-  giveBidContainer.classList.remove("d-none");
+  giveBidContainer.classList.remove("invisible");
   let { credits, name: loggedUserName } = loggedUserData;
   let updatedCredits = credits;
 
@@ -105,8 +128,7 @@ export const giveBid = (
       );
     } catch (error) {
       console.error("Error submitting bid:", error);
-      bidError.textContent = "An error occurred while submitting your bid.";
-      bidError.classList.remove("d-none");
+      displayError();
     }
   });
 };

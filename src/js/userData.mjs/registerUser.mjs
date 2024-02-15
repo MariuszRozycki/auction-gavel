@@ -1,6 +1,27 @@
 import { counter } from "../utils/counter.mjs";
 import { displayError } from "../utils/displayError.mjs";
 
+/**
+ * Attempts to register a new user with the provided user data by sending a POST request to the specified URL.
+ * Displays success or failure messages based on the server's response.
+ * On successful registration, it shows a success message and briefly activates a counter function.
+ * On failure, it displays specific error messages related to the failed registration criteria, such as invalid email or missing fields.
+ * Utilizes `displayError` to show a generic error message if an exception occurs during the fetch operation.
+ *
+ * @param {string} url The URL to which the registration request is sent.
+ * @param {Object} userData An object containing the user's registration data (name, email, password, etc.).
+ *
+ * @example
+ * // Example usage for registering a new user
+ * const userData = {
+ *   name: "John Doe",
+ *   email: "john.doe@stud.noroff.no",
+ *   password: "password123",
+ *   avatar: "http://example.com/avatar.jpg"
+ * };
+ * registerUser('https://api.example.com/register', userData);
+ */
+
 export const registerUser = async (url, userData) => {
   const headerMain = document.querySelector("#header-main");
   const userRegisterFailure = document.querySelector("#user-not-registered");

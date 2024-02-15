@@ -3,6 +3,21 @@ import { mediaProfileData } from "./mediaProfileData.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
 import { displayError } from "../utils/displayError.mjs";
 
+/**
+ * Handles the avatar update process for the logged-in user.
+ * Initializes the avatar update form with the current user's avatar URL from localStorage.
+ * On form submission, updates the user's avatar URL in localStorage and sends a PUT request
+ * to update the avatar in the backend via `authWithToken`.
+ * Displays any errors returned by the backend on the form.
+ * Redirects to the avatar updated confirmation page upon successful update.
+ * Utilizes `displayError` to show error messages if any exceptions occur during the process.
+ *
+ * @async
+ * @example
+ * // To be called on the avatar update page to initialize the form and handle updates
+ * updateAvatar();
+ */
+
 export const updateAvatar = async () => {
   try {
     const loggedUserData = localStorage.getItem("USER_DATA");
@@ -28,7 +43,6 @@ export const updateAvatar = async () => {
 
         const method = "PUT";
         const json = await authWithToken(method, URL_updateAvatar, mediaData);
-        console.log(json);
 
         const responseError = !json.response.ok;
         if (responseError) {

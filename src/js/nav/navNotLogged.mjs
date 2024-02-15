@@ -1,5 +1,20 @@
 import { createElement } from "../utils/createElement.mjs";
 
+/**
+ * Populates the navigation container with links for users who are not logged in.
+ * It creates navigation items for "Home", "About Us", "Contact", and "Log in" pages.
+ * Highlights the current page in the navigation by setting 'aria-current' to 'page'.
+ * Inserts a visual divider after the "Home" link for better separation and aesthetics.
+ * This function dynamically builds the navigation based on the user's login status, specifically for guests.
+ *
+ * @param {HTMLElement} navContainer The container element where navigation items will be added.
+ *
+ * @example
+ * // Assuming there's a <ul> or <div> with id="nav-container" in your HTML
+ * const container = document.querySelector("#nav-container");
+ * navNotLogged(container);
+ */
+
 export const navNotLogged = (navContainer) => {
   const path = location.pathname;
   const navItems = [
