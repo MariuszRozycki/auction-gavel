@@ -1,3 +1,17 @@
+/**
+ * Generates a globally unique identifier (GUID) string.
+ * This function creates a GUID using the current time and high-resolution time measurements if available.
+ * It follows the version 4 UUID format, which is randomly generated and includes specific variant bits as per the standard.
+ * The generated GUID is in the format "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx", where each "x" is replaced with a random hexadecimal digit and "y" is replaced with a value that makes the GUID conform to version 4 specifications.
+ *
+ * @returns {string} A string representing a version 4 UUID.
+ *
+ * @example
+ * // Example usage to generate a GUID
+ * const myGUID = guidGenerator();
+ * console.log(myGUID);
+ */
+
 export const guidGenerator = () => {
   var d = new Date().getTime();
   var d2 = (performance && performance.now && performance.now() * 1000) || 0;

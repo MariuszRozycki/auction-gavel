@@ -1,6 +1,23 @@
 import { createElement } from "./createElement.mjs";
 import { abbreviateAndCapitalize } from "./abbrevAndCapitalize.mjs";
 
+/**
+ * Creates and inserts a carousel into a specified container for displaying images.
+ * This function takes an ID, an array of media URLs, and a title to generate a carousel.
+ * If no media URLs are provided or the array is empty, a default "no image" picture is displayed.
+ * The title of the carousel is abbreviated and capitalized for display as the alt text for each image.
+ * Navigation buttons are added to the carousel only if there is more than one image.
+ *
+ * @param {string} id Unique identifier for the carousel, ensuring the carousel controls work correctly.
+ * @param {Array<string>} media Array of URLs for the images to be displayed in the carousel.
+ * @param {string} title The title of the item being displayed, used for image alt text.
+ *
+ * @example
+ * // Example usage to create a carousel with images
+ * const mediaUrls = ["http://example.com/image1.jpg", "http://example.com/image2.jpg"];
+ * renderCarousel("1", mediaUrls, "Example Title");
+ */
+
 export const renderCarousel = (id, media, title) => {
   const carouselWrapper = document.querySelector("#carousel-wrapper");
   const mediaNotExists = ["../../../images/pictures/no-img.png"];

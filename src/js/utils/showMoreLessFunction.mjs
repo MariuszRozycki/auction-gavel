@@ -3,6 +3,25 @@ import { getData } from "../getData/getData.mjs";
 import { renderListings } from "../all-listings/renderListings.mjs";
 import { renderPageNumbers } from "./renderPageNumbers.mjs";
 
+/**
+ * Implements pagination functionality for listing items, including "Show More" and "Show Less" buttons.
+ * Dynamically updates the listings displayed based on the current page number, limit per page, and total available listings.
+ * Adjusts the visibility of "Show More" and "Show Less" buttons depending on the current offset and the maximum limit of items.
+ * Also updates pagination numbers to reflect the current page state.
+ *
+ * @param {HTMLElement} showMoreBtn The "Show More" button element.
+ * @param {HTMLElement} showLessBtn The "Show Less" button element.
+ * @param {number} limitNr The number of items to display per page.
+ * @param {number} offsetNr The current offset from the start of the listings.
+ * @param {number} maxLimit The maximum number of items available.
+ * @param {string} path The current page path, used for context in rendering listings.
+ * @param {string} sortOrder The order in which listings are sorted ("asc" or "desc").
+ *
+ * @example
+ * // Example usage to enable pagination for a listings container
+ * showMoreLessFunction(document.querySelector('#show-more'), document.querySelector('#show-less'), 10, 0, 100, '/listings', 'desc');
+ */
+
 export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder) => {
   const listingsContainer = document.querySelector("#listings-container");
 
