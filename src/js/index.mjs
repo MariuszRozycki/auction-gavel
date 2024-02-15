@@ -19,3 +19,17 @@ avatarPathFunctions();
 myCreditsPath();
 createNewListingPath();
 singleListingPath();
+
+const navLogo = document.querySelector(".navbar-brand");
+navLogo.addEventListener("click", (e) => {
+  e.preventDefault();
+  const userData = localStorage.getItem("USER_DATA");
+
+  if (userData) {
+    navLogo.setAttribute("href", "/pages/user-details/");
+    window.location.href = "../../../pages/user-details/";
+  }
+  if (!userData) {
+    window.location.href = "/";
+  }
+});
