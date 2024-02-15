@@ -52,6 +52,7 @@ export const renderListings = async (data) => {
         "Created: " + createdDate.toLocaleString(),
       );
       const listingEnds = createElement("p", "card-text listing-ends", "Listing ends: " + endsDate.toLocaleString());
+      const listingsTags = createElement("p", "card-text listings-tags", "Tags: " + tagsList);
 
       listingsContainer.appendChild(card);
       card.appendChild(offerTitle);
@@ -61,6 +62,7 @@ export const renderListings = async (data) => {
       cardBody.appendChild(cardText);
       cardBody.appendChild(listingCreated);
       cardBody.appendChild(listingEnds);
+      cardBody.appendChild(listingsTags);
     }
 
     const allCards = document.querySelectorAll(".card");
