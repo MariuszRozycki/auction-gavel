@@ -45,7 +45,10 @@
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source">
               <ul class="dummy">
-                <li><a href="index.mjs.html">index.mjs</a>, <a href="index.mjs.html#line22">line 22</a></li>
+                <li>
+                  <a href="all-listings_index.mjs.html">all-listings/index.mjs</a>,
+                  <a href="all-listings_index.mjs.html#line22">line 22</a>
+                </li>
               </ul>
             </dd>
           </dl>
@@ -73,7 +76,10 @@ allListings();
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source">
               <ul class="dummy">
-                <li><a href="index.mjs.html">index.mjs</a>, <a href="index.mjs.html#line22">line 22</a></li>
+                <li>
+                  <a href="all-listings_index.mjs.html">all-listings/index.mjs</a>,
+                  <a href="all-listings_index.mjs.html#line22">line 22</a>
+                </li>
               </ul>
             </dd>
           </dl>
@@ -96,8 +102,8 @@ allListings();
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="filteredListings.mjs.html">filteredListings.mjs</a>,
-                  <a href="filteredListings.mjs.html#line24">line 24</a>
+                  <a href="all-listings_filteredListings.mjs.html">all-listings/filteredListings.mjs</a>,
+                  <a href="all-listings_filteredListings.mjs.html#line24">line 24</a>
                 </li>
               </ul>
             </dd>
@@ -121,8 +127,8 @@ filteredListings(form, 'https://api.noroff.dev/api/v1/listings?sort=created&amp;
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="filteredListings.mjs.html">filteredListings.mjs</a>,
-                  <a href="filteredListings.mjs.html#line24">line 24</a>
+                  <a href="all-listings_filteredListings.mjs.html">all-listings/filteredListings.mjs</a>,
+                  <a href="all-listings_filteredListings.mjs.html#line24">line 24</a>
                 </li>
               </ul>
             </dd>
@@ -152,8 +158,8 @@ filteredListings(form, 'https://api.noroff.dev/api/v1/listings?sort=created&amp;
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="renderListings.mjs.html">renderListings.mjs</a>,
-                  <a href="renderListings.mjs.html#line24">line 24</a>
+                  <a href="all-listings_renderListings.mjs.html">all-listings/renderListings.mjs</a>,
+                  <a href="all-listings_renderListings.mjs.html#line24">line 24</a>
                 </li>
               </ul>
             </dd>
@@ -184,8 +190,8 @@ renderListings(listingsData);
             <dd class="tag-source">
               <ul class="dummy">
                 <li>
-                  <a href="renderListings.mjs.html">renderListings.mjs</a>,
-                  <a href="renderListings.mjs.html#line24">line 24</a>
+                  <a href="all-listings_renderListings.mjs.html">all-listings/renderListings.mjs</a>,
+                  <a href="all-listings_renderListings.mjs.html#line24">line 24</a>
                 </li>
               </ul>
             </dd>
@@ -198,6 +204,206 @@ renderListings(listingsData);
 const listingsData = await fetchListingsData();
 renderListings(listingsData);
 ```</code></pre>
+
+          <h3 class="subsection-title">Methods</h3>
+
+          <h4 class="name" id="authWithToken">
+            <span class="type-signature">(async) </span>authWithToken<span class="signature">(method, url, data)</span
+            ><span class="type-signature">
+              &rarr; {Promise.&lt;{json: Object, status: number, response: Response}>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Performs an authenticated HTTP request using a provided method, URL, and data. Utilizes a token stored in
+            localStorage for authentication. Converts data to JSON format and includes it in the request if necessary.
+            Handles both successful and error responses, returning JSON data and response status. In case of an error,
+            displays an error message using a utility function.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>method</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">HTTP method to be used for the request (e.g., 'GET', 'POST').</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>url</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">URL to which the request is sent.</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>data</code></td>
+
+                <td class="type">
+                  <span class="param-type">Object</span>
+                </td>
+
+                <td class="description last">Data to be sent with the request, will be converted to JSON.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="auth_authWithToken.mjs.html">auth/authWithToken.mjs</a>,
+                  <a href="auth_authWithToken.mjs.html#line26">line 26</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Throws:</h5>
+
+          <div class="param-desc">Will throw an error if the request fails for any reason.</div>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            An object containing the JSON response, status code, and the full response object.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type">Promise.&lt;{json: Object, status: number, response: Response}></span>
+            </dd>
+          </dl>
+
+          <h5>Example</h5>
+
+          <pre class="prettyprint"><code>```js
+// Example of using authWithToken to make an authenticated POST request
+const data = { username: 'example', password: 'password' };
+authWithToken('POST', 'https://api.noroff.dev/api/v1/auth', data)
+  .then(({ json, status, response }) => console.log(json, status))
+  .catch(error => console.error(error));
+```</code></pre>
+
+          <h4 class="name" id="authWithToken">
+            <span class="type-signature">(async) </span>authWithToken<span class="signature">(method, url, data)</span
+            ><span class="type-signature">
+              &rarr; {Promise.&lt;{json: Object, status: number, response: Response}>}</span
+            >
+          </h4>
+
+          <div class="description">
+            Performs an authenticated HTTP request using a provided method, URL, and data. Utilizes a token stored in
+            localStorage for authentication. Converts data to JSON format and includes it in the request if necessary.
+            Handles both successful and error responses, returning JSON data and response status. In case of an error,
+            displays an error message using a utility function.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>method</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">HTTP method to be used for the request (e.g., 'GET', 'POST').</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>url</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">URL to which the request is sent.</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>data</code></td>
+
+                <td class="type">
+                  <span class="param-type">Object</span>
+                </td>
+
+                <td class="description last">Data to be sent with the request, will be converted to JSON.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="auth_authWithToken.mjs.html">auth/authWithToken.mjs</a>,
+                  <a href="auth_authWithToken.mjs.html#line26">line 26</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Throws:</h5>
+
+          <div class="param-desc">Will throw an error if the request fails for any reason.</div>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            An object containing the JSON response, status code, and the full response object.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type">Promise.&lt;{json: Object, status: number, response: Response}></span>
+            </dd>
+          </dl>
+
+          <h5>Example</h5>
+
+          <pre class="prettyprint"><code>```js
+// Example of using authWithToken to make an authenticated POST request
+const data = { username: 'example', password: 'password' };
+authWithToken('POST', 'https://api.noroff.dev/api/v1/auth', data)
+  .then(({ json, status, response }) => console.log(json, status))
+  .catch(error => console.error(error));
+```</code></pre>
         </article>
       </section>
     </div>
@@ -207,6 +413,7 @@ renderListings(listingsData);
       <h3>Global</h3>
       <ul>
         <li><a href="global.html#allListings">allListings</a></li>
+        <li><a href="global.html#authWithToken">authWithToken</a></li>
         <li><a href="global.html#filteredListings">filteredListings</a></li>
         <li><a href="global.html#renderListings">renderListings</a></li>
       </ul>
@@ -215,7 +422,7 @@ renderListings(listingsData);
     <br class="clear" />
 
     <footer>
-      Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 07:18:28
+      Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 10:06:14
       GMT+0100 (czas środkowoeuropejski standardowy)
     </footer>
 
