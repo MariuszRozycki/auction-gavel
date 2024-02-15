@@ -15,6 +15,7 @@ export const renderSingleListing = async (singleListingId) => {
   const userData = localStorage.getItem("USER_DATA");
   const userDataParsed = JSON.parse(userData);
   const titleNotExists = "Title not exists";
+  const descriptionNotExists = "Description not exists";
   const URL_singleListing = `${URL_base}/auction/listings/${singleListingId}?_seller=true&_bids=true`;
   const showAllBidsListContainer = document.querySelector(".show-all-bids-list-container");
 
@@ -31,8 +32,10 @@ export const renderSingleListing = async (singleListingId) => {
       title,
     } = singleListingData;
 
-    const titleCapitalized = textCapitalized(title);
-    const descriptionCapitalized = textCapitalized(description);
+    console.log(singleListingData);
+
+    const titleCapitalized = title ? textCapitalized(title) : titleNotExists;
+    const descriptionCapitalized = description ? textCapitalized(description) : descriptionNotExists;
     const sellerNameCap = textCapitalized(sellerName);
 
     const sortedBids = bids.sort((a, b) => a.amount - b.amount);
@@ -48,18 +51,16 @@ export const renderSingleListing = async (singleListingId) => {
     const createdDate = new Date(created);
     const endsDate = new Date(endsAt);
 
-    const titleValue = titleCapitalized || titleNotExists;
-
     /* heading */
     createHeader(singleListingContainer);
 
     /* carousel */
-    renderCarousel(singleListingId, media, titleValue);
+    renderCarousel(singleListingId, media, titleCapitalized);
 
     /* description */
     renderDescription(
       listingDescriptionContainer,
-      titleValue,
+      titleCapitalized,
       descriptionCapitalized,
       sellerNameCap,
       lastBidAmount,
@@ -80,7 +81,7 @@ export const renderSingleListing = async (singleListingId) => {
             listingDescriptionContainer,
             userDataParsed,
             singleListingId,
-            titleValue,
+            titleCapitalized,
             descriptionCapitalized,
             sellerNameCap,
             createdDate,

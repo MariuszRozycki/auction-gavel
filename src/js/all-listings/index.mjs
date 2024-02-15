@@ -5,6 +5,20 @@ import { renderListings } from "./renderListings.mjs";
 import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
 import { filteredListings } from "./filteredListings.mjs";
 
+/**
+ * Initializes the process of fetching and displaying all listings on the main page or user details page.
+ * Handles user interactions for sorting and pagination of listings.
+ * Dynamically adjusts the API request based on user selections for sorting and pagination.
+ * Adds event listeners for creating new listings and filtering existing ones.
+ * Utilizes imported functions for fetching data, rendering listings, handling pagination, and filtering.
+ * @async
+ * @example
+ * ```js
+ * // To initialize the listings display and functionality on the page
+ * allListings();
+ * ```
+ */
+
 export const allListings = async () => {
   const repoName = "/auction-gavel/";
   const path = location.pathname;

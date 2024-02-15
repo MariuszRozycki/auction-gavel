@@ -1,5 +1,30 @@
 import { displayError } from "../utils/displayError.mjs";
 
+/**
+ * Attempts to log in a user using provided credentials.
+ * Sends a POST request with the user data to the specified URL.
+ * On successful login, stores the access token and user profile data in localStorage.
+ * Redirects the user to the user details page upon successful login.
+ * Displays appropriate error messages for email or password validation failures.
+ * Utilizes the `displayError` function to handle any fetch-related errors.
+ * @async
+ * @param {string} url The URL to which the login request is sent.
+ * @param {Object} userData An object containing the user's login credentials.
+ * @returns {Promise<Object>} A promise that resolves with the JSON response from the server.
+ * @throws Will throw an error if the fetch request fails.
+ * @example
+ * ```js
+ * // Example of using loginUser to attempt a user login
+ * const userData = {
+ *   email: "user@noroff.no",
+ *   password: "password123"
+ * };
+ * loginUser('https://api.noroff.dev/api/v1/auth/login', userData)
+ *   .then(response => console.log(response))
+ *   .catch(error => console.error(error));
+ * ```
+ */
+
 export async function loginUser(url, userData) {
   try {
     const postData = {

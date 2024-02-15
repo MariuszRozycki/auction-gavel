@@ -6,10 +6,10 @@ export const navLogged = (navContainer) => {
   const navItems = [
     { text: "Home", href: "/pages/user-details/" },
     { text: "My credits", href: "/pages/my-credits/" },
+    { text: "Create listing", href: "/pages/create-new-listing/" },
+    { text: "Update avatar", href: "/pages/update-avatar/" },
     { text: "About Us", href: "/pages/about/" },
     { text: "Contact", href: "/pages/contact/" },
-    { text: "Update avatar", href: "/pages/update-avatar/" },
-    { text: "Create listing", href: "/pages/create-new-listing/" },
     { text: "Log out", href: "#" },
   ];
 
