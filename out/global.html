@@ -404,6 +404,184 @@ authWithToken('POST', 'https://api.noroff.dev/api/v1/auth', data)
   .then(({ json, status, response }) => console.log(json, status))
   .catch(error => console.error(error));
 ```</code></pre>
+
+          <h4 class="name" id="createBodyJson">
+            <span class="type-signature"></span>createBodyJson<span class="signature">(method, data)</span
+            ><span class="type-signature"> &rarr; {string|undefined}</span>
+          </h4>
+
+          <div class="description">
+            Prepares the request body for HTTP methods other than GET by converting data to a JSON string. If the
+            request method is GET or data is not provided, the body remains undefined.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>method</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">The HTTP method to be used for the request.</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>data</code></td>
+
+                <td class="type">
+                  <span class="param-type">Object</span>
+                </td>
+
+                <td class="description last">
+                  The data to be sent with the request, which will be converted to a JSON string if applicable.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="auth_createBodyJson.mjs.html">auth/createBodyJson.mjs</a>,
+                  <a href="auth_createBodyJson.mjs.html#line20">line 20</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            A stringified JSON representation of the data or undefined if the method is GET or data is not provided.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type">string</span>
+              |
+
+              <span class="param-type">undefined</span>
+            </dd>
+          </dl>
+
+          <h5>Example</h5>
+
+          <pre class="prettyprint"><code>```js
+// Example of using createBodyJson for a POST request
+const data = { username: 'user', password: 'pass' };
+const body = createBodyJson('POST', data);
+// body is '{"username":"user","password":"pass"}'
+
+// Example for a GET request
+const bodyForGet = createBodyJson('GET', data);
+// bodyForGet is undefined
+```</code></pre>
+
+          <h4 class="name" id="createBodyJson">
+            <span class="type-signature"></span>createBodyJson<span class="signature">(method, data)</span
+            ><span class="type-signature"> &rarr; {string|undefined}</span>
+          </h4>
+
+          <div class="description">
+            Prepares the request body for HTTP methods other than GET by converting data to a JSON string. If the
+            request method is GET or data is not provided, the body remains undefined.
+          </div>
+
+          <h5>Parameters:</h5>
+
+          <table class="params">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Type</th>
+
+                <th class="last">Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="name"><code>method</code></td>
+
+                <td class="type">
+                  <span class="param-type">string</span>
+                </td>
+
+                <td class="description last">The HTTP method to be used for the request.</td>
+              </tr>
+
+              <tr>
+                <td class="name"><code>data</code></td>
+
+                <td class="type">
+                  <span class="param-type">Object</span>
+                </td>
+
+                <td class="description last">
+                  The data to be sent with the request, which will be converted to a JSON string if applicable.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <dl class="details">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source">
+              <ul class="dummy">
+                <li>
+                  <a href="auth_createBodyJson.mjs.html">auth/createBodyJson.mjs</a>,
+                  <a href="auth_createBodyJson.mjs.html#line20">line 20</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <h5>Returns:</h5>
+
+          <div class="param-desc">
+            A stringified JSON representation of the data or undefined if the method is GET or data is not provided.
+          </div>
+
+          <dl>
+            <dt>Type</dt>
+            <dd>
+              <span class="param-type">string</span>
+              |
+
+              <span class="param-type">undefined</span>
+            </dd>
+          </dl>
+
+          <h5>Example</h5>
+
+          <pre class="prettyprint"><code>```js
+// Example of using createBodyJson for a POST request
+const data = { username: 'user', password: 'pass' };
+const body = createBodyJson('POST', data);
+// body is '{"username":"user","password":"pass"}'
+
+// Example for a GET request
+const bodyForGet = createBodyJson('GET', data);
+// bodyForGet is undefined
+```</code></pre>
         </article>
       </section>
     </div>
@@ -414,6 +592,7 @@ authWithToken('POST', 'https://api.noroff.dev/api/v1/auth', data)
       <ul>
         <li><a href="global.html#allListings">allListings</a></li>
         <li><a href="global.html#authWithToken">authWithToken</a></li>
+        <li><a href="global.html#createBodyJson">createBodyJson</a></li>
         <li><a href="global.html#filteredListings">filteredListings</a></li>
         <li><a href="global.html#renderListings">renderListings</a></li>
       </ul>
@@ -422,7 +601,7 @@ authWithToken('POST', 'https://api.noroff.dev/api/v1/auth', data)
     <br class="clear" />
 
     <footer>
-      Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 10:06:14
+      Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 10:08:56
       GMT+0100 (czas środkowoeuropejski standardowy)
     </footer>
 
