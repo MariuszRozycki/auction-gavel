@@ -83,6 +83,10 @@ textarea.form-control:focus {
   }
 }
 
+.border-dark {
+  border-color: red;
+}
+
 .fa-search {
   font-size: 1.5rem;
 }
@@ -115,5 +119,9 @@ img {
   .icon-credit-container {
     height: 20px;
     width: 20px;
+
+    .icon-credit {
+      margin-top: -6px;
+    }
   }
 }

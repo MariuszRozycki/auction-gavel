@@ -28,7 +28,7 @@ export const renderAvatarLoggedUser = async () => {
         "avatar-and-name-container d-flex flex-column justify-content-center m-0",
       );
       const avatarContainer = createElement("div", "avatar-container");
-      const avatarImg = createElement("img", "avatar-img rounded-circle border border-2 border-light", null, {
+      const avatarImg = createElement("img", "avatar-img rounded-circle border border-dark border-2", null, {
         src: avatarValue,
       });
       const userName = createElement("p", "avatar-name-paragraph m-0", `Hello ${nameCapitalize}`);
