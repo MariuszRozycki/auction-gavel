@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>JSDoc: Source: auth/createBodyJson.mjs</title>
+    <title>JSDoc: Source: auth/index.mjs</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -15,37 +15,31 @@
 
   <body>
     <div id="main">
-      <h1 class="page-title">Source: auth/createBodyJson.mjs</h1>
+      <h1 class="page-title">Source: auth/index.mjs</h1>
 
       <section>
         <article>
-          <pre class="prettyprint source linenums"><code>/**
- * Prepares the request body for HTTP methods other than GET by converting data to a JSON string.
- * If the request method is GET or data is not provided, the body remains undefined.
- * @param {string} method The HTTP method to be used for the request.
- * @param {Object} data The data to be sent with the request, which will be converted to a JSON string if applicable.
- * @returns {string|undefined} A stringified JSON representation of the data or undefined if the method is GET or data is not provided.
+          <pre class="prettyprint source linenums"><code>import { isUserLogged } from "./isUserLogged.mjs";
+
+/**
+ * Checks if the user is on the root path and has user data stored in localStorage.
+ * If both conditions are met, it calls the `isUserLogged` function with the user data.
+ * This function is typically used to verify if a logged-in user is accessing the home page.
  * @example
  * ```js
- * // Example of using createBodyJson for a POST request
- * const data = { username: 'user', password: 'pass' };
- * const body = createBodyJson('POST', data);
- * // body is '{"username":"user","password":"pass"}'
- *
- * // Example for a GET request
- * const bodyForGet = createBodyJson('GET', data);
- * // bodyForGet is undefined
+ * // To check if a logged-in user is on the home page and take appropriate action
+ * isUserLoggedPath();
  * ```
  */
 
-export function createBodyJson(method, data) {
-  let body;
-  if (method !== "GET" &amp;&amp; data) {
-    body = JSON.stringify(data);
-  }
+export const isUserLoggedPath = () => {
+  const userData = localStorage.getItem("USER_DATA");
+  const path = location.pathname;
 
-  return body;
-}
+  if (path === "/" &amp;&amp; userData) {
+    isUserLogged(userData);
+  }
+};
 </code></pre>
         </article>
       </section>
