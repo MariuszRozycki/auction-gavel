@@ -101,6 +101,8 @@ export const createNewListing = () => {
         mediaError.classList.add("d-none");
 
         listingCreatedSuccess.classList.remove("d-none");
+
+        window.location.href = "../../../pages/user-details/";
       }
     } catch (error) {
       console.error();
