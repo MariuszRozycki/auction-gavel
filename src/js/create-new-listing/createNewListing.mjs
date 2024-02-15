@@ -1,6 +1,7 @@
 import { URL_base } from "../api/index.mjs";
 import { newListingData } from "./newListingData.mjs";
 import { authWithToken } from "../auth/authWithToken.mjs";
+import { displayError } from "../utils/displayError.mjs";
 
 export const createNewListing = () => {
   const listingCreatedSuccess = document.querySelector("#new-listing-created");
@@ -44,37 +45,21 @@ export const createNewListing = () => {
       let listingCreatedSuccessFlag = false;
 
       const json = await authWithToken(method, URL_newListing, newListingsDataValue);
-
-      const jsonBadRequest = json.json.status;
+      console.log(json);
+      const jsonBadRequest = !json.response.ok;
 
       if (jsonBadRequest) {
         const jsonErrors = json.json.errors;
 
         for (const error of jsonErrors) {
           const errorMessage = error.message;
-          const errorMessageEmptyTitle = `Title can't be empty`;
-          const errorMessageEmptyDescription = `Description can't be empty`;
           const errorDateMessage = `Field can't be empty. Date max one year from now`;
-
-          if (newListingTitleValue === "") {
-            isTitleError = true;
-            listingCreatedSuccessFlag = true;
-            titleError.classList.remove("d-none");
-            titleError.innerText = errorMessageEmptyTitle;
-          }
 
           if (errorMessage.includes("Title")) {
             isTitleError = true;
             listingCreatedSuccessFlag = true;
             titleError.classList.remove("d-none");
             titleError.innerText = errorMessage;
-          }
-
-          if (newListingDescriptionValue === "") {
-            isDescriptionError = true;
-            listingCreatedSuccessFlag = true;
-            descriptionError.classList.remove("d-none");
-            descriptionError.innerText = errorMessageEmptyDescription;
           }
 
           if (errorMessage.includes("Description")) {
@@ -103,6 +88,7 @@ export const createNewListing = () => {
           if (!isDateError) endsAtError.classList.add("d-none");
           if (!isMediaError) mediaError.classList.add("d-none");
           if (!listingCreatedSuccessFlag) listingCreatedSuccess.classList.remove("d-none");
+          if (listingCreatedSuccessFlag) listingCreatedSuccess.classList.add("d-none");
         }
       } else {
         newListingTitle.value = "";
@@ -118,6 +104,7 @@ export const createNewListing = () => {
       }
     } catch (error) {
       console.error();
+      displayError();
     }
   });
 };

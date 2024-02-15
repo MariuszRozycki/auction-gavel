@@ -1,6 +1,7 @@
 import { createElement } from "../utils/createElement.mjs";
 import { abbreviateAndCapitalize } from "../utils/abbrevAndCapitalize.mjs";
 import { singleListingById } from "../single-listing/singleListingById.mjs";
+import { displayError } from "../utils/displayError.mjs";
 
 /**
  * Renders listings in the UI from provided data, creating cards for each listing.
@@ -66,6 +67,7 @@ export const renderListings = async (data) => {
     singleListingById(allCards);
   } catch (error) {
     console.error(error);
+    displayError();
     throw error;
   }
 };

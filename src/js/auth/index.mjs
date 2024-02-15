@@ -18,4 +18,18 @@ export const isUserLoggedPath = () => {
   if (path === "/" && userData) {
     isUserLogged(userData);
   }
+
+  if (
+    (path === "/pages/contact/" && userData) ||
+    (path === "/pages/about/" && userData) ||
+    (path === "/pages/single-listing/" && userData) ||
+    (path === "/pages/avatar-is-updated/" && userData) ||
+    (path === "/pages/create-new-listing/" && userData) ||
+    (path === "/pages/my-credits/" && userData) ||
+    (path === "/pages/update-avatar/" && userData) ||
+    (path === "/pages/user-details/" && userData)
+  ) {
+    const userDataAvatarContainer = document.querySelector(".user-data");
+    userDataAvatarContainer.classList.remove("d-none");
+  }
 };
