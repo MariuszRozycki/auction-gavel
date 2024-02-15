@@ -22,7 +22,7 @@ export const giveBid = (
   const bidError = document.querySelector(".bid-error");
   const bidSuccess = document.querySelector(".bid-success");
 
-  giveBidContainer.classList.remove("d-none");
+  giveBidContainer.classList.remove("invisible");
   let { credits, name: loggedUserName } = loggedUserData;
   let updatedCredits = credits;
 
