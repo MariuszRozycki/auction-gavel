@@ -1,5 +1,20 @@
 import { createElement } from "../utils/createElement.mjs";
 
+/**
+ * Toggles the display of all bids for a listing within a specified container.
+ * Initially hides the bids list and provides a button to show or hide the bids.
+ * When the "Show all bids" button is clicked, it either displays all bids with bidder names and amounts
+ * or hides the list, depending on the current state. The list's visibility and the button text change
+ * dynamically based on user interaction.
+ *
+ * @param {Array} sortedBids An array of bid objects, each containing an `amount` and `bidderName`.
+ *
+ * @example
+ * // Assuming sortedBids is an array of bid objects
+ * const sortedBids = [{ amount: 100, bidderName: 'John Doe' }, { amount: 150, bidderName: 'Jane Doe' }];
+ * showAllBids(sortedBids);
+ */
+
 export const showAllBids = (sortedBids) => {
   const containerShowAllBids = document.querySelector("#container-show-all-bids");
   const showAllBidsBtn = document.querySelector("#show-all-bids-btn");
