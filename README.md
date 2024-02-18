@@ -12,6 +12,9 @@ Sorting takes place from the newest to the oldest or from the oldest to the newe
 When searching the listings, we look for 100 API responses. The entered letter, word, searches among the results in titles, descriptions and tags. <br>
 <br>
 Data such as: 'SORT_ORDER', 'USER_DATA', 'ACCESS_TOKEN' and 'LAST_RENDERED_LISTINGS' are saved to and retrieved from localStorage when the appropriate conditions are met.
+<br>
+If a logged-in person creates a listing, cannot submit a bid. If the person logged in and the person who created the listing are the same, <br> 
+it is not possible to display the form in which you can submit your offer.
 
 ## Live site
 https://genuine-squirrel-c1ec8c.netlify.app/
