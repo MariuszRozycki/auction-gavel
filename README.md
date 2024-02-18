@@ -7,6 +7,11 @@ An auction site is looking to launch a website where users can add items to be b
 
 When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use <br>
 credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.<br>
+The maximum number of responses from the API is 100. The main page is divided into 10 smaller pages by pagination. <br> 
+Sorting takes place from the newest to the oldest or from the oldest to the newest. The sort contains 100 responses from the API. <br>
+When searching the listings, we look for 100 API responses. The entered letter, word, searches among the results in titles, descriptions and tags. <br>
+<br>
+Data such as: 'SORT_ORDER', 'USER_DATA', 'ACCESS_TOKEN' and 'LAST_RENDERED_LISTINGS' are saved to and retrieved from localStorage when the appropriate conditions are met.
 
 ## Live site
 https://genuine-squirrel-c1ec8c.netlify.app/
