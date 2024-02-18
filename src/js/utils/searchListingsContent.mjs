@@ -1,4 +1,6 @@
 import { renderListings } from "../all-listings/renderListings.mjs";
+import { URL_allListings } from "../api/index.mjs";
+import { getData } from "../getData/getData.mjs";
 import { displayError } from "./displayError.mjs";
 
 /**
@@ -23,25 +25,29 @@ import { displayError } from "./displayError.mjs";
  */
 
 export const searchListingsContent = async (
-  jsonLimitedTo_10,
   inputValue,
   listingsContainer,
   path,
   offsetNr,
   showLessBtn,
   showMoreBtn,
-  URL_allListingsSortByCreatedDate,
 ) => {
   try {
+    const sortOrder = localStorage.getItem("SORT_ORDER");
+    const sortOrderParsed = JSON.parse(sortOrder);
+    const URL_searchMax = `${URL_allListings}?sort=created&sortOrder=${sortOrderParsed}`;
+    const jsonSearchMax = await getData(URL_searchMax);
     listingsContainer.innerHTML = "";
 
     if (inputValue === "") {
-      renderListings(jsonLimitedTo_10, path, offsetNr + 1);
+      const lastListingsStringify = localStorage.getItem("LAST_RENDERED_LISTINGS");
+      const lastRenderedListings = JSON.parse(lastListingsStringify);
+      renderListings(lastRenderedListings, path, offsetNr + 1);
       showMoreBtn.classList.remove("d-none");
       return;
     }
 
-    let searchedContent = URL_allListingsSortByCreatedDate.filter((listing) => {
+    let searchedContent = jsonSearchMax.filter((listing) => {
       showLessBtn.classList.add("d-none");
       showMoreBtn.classList.add("d-none");
 

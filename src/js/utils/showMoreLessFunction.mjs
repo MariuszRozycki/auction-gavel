@@ -24,6 +24,7 @@ import { renderPageNumbers } from "./renderPageNumbers.mjs";
 
 export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder) => {
   const listingsContainer = document.querySelector("#listings-container");
+  let lastRenderedListings = [];
 
   const updatePageNumbers = () => {
     const currentPage = Math.floor(offsetNr / limitNr) + 1;
@@ -36,6 +37,8 @@ export const showMoreLessFunction = async (showMoreBtn, showLessBtn, limitNr, of
 
     try {
       const updatedJsonWithOffset = await getData(URL_with_offset);
+      lastRenderedListings = updatedJsonWithOffset;
+      localStorage.setItem("LAST_RENDERED_LISTINGS", JSON.stringify(lastRenderedListings));
       renderListings(updatedJsonWithOffset, path, newOffsetNr + 1);
       offsetNr = newOffsetNr;
       updatePageNumbers(updatedJsonWithOffset);

@@ -32,6 +32,7 @@ export const allListings = async () => {
 
   let sortOrder = "desc";
   const sortOrderLocal = localStorage.getItem("SORT_ORDER");
+  let lastRenderedListings = [];
 
   if (sortOrderLocal) {
     sortOrder = JSON.parse(sortOrderLocal);
@@ -50,7 +51,6 @@ export const allListings = async () => {
     formFilter.value = sortOrder;
     let URL_limited = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${offsetNr}`;
     const URL_allListingsSortByCreatedDate = `${URL_allListings}?sort=created&sortOrder=desc`;
-
     const showMoreBtn = document.querySelector("#show-more-btn");
     const showLessBtn = document.querySelector("#show-less-btn");
 
@@ -58,11 +58,13 @@ export const allListings = async () => {
       const jsonAllListings = await getData(URL_allListingsSortByCreatedDate);
       const jsonLimited = await getData(URL_limited);
 
+      lastRenderedListings = jsonLimited;
+      localStorage.setItem("LAST_RENDERED_LISTINGS", JSON.stringify(lastRenderedListings));
+
       renderListings(jsonLimited);
       showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder);
       filteredListings(formFilter, URL_limited, sortOrder, limitNr, offsetNr, showMoreBtn, showLessBtn, maxLimit, path);
-
-      search(jsonLimited, path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
+      search(path, offsetNr, showLessBtn, showMoreBtn, jsonAllListings);
     } catch (error) {
       console.error("Error loading all listings:", error);
     }
