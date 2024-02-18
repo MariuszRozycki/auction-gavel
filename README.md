@@ -7,6 +7,14 @@ An auction site is looking to launch a website where users can add items to be b
 
 When a new user joins the website, they are given 1000 credits to use on the site. They can get credits by selling items and use <br>
 credit by buying items. Non-registered users can search through the listings, but only registered users can make bids on listings.<br>
+The maximum number of responses from the API is 100. The main page is divided into 10 smaller pages by pagination. <br> 
+Sorting takes place from the newest to the oldest or from the oldest to the newest. The sort contains 100 responses from the API. <br>
+When searching the listings, we look for 100 API responses. The entered letter, word, searches among the results in titles, descriptions and tags. <br>
+<br>
+Data such as: 'SORT_ORDER', 'USER_DATA', 'ACCESS_TOKEN' and 'LAST_RENDERED_LISTINGS' are saved to and retrieved from localStorage when the appropriate conditions are met.
+<br>
+If a logged-in person creates a listing, cannot submit a bid. If the person logged in and the person who created the listing are the same, <br> 
+it is not possible to display the form in which you can submit your offer.
 
 ## Live site
 https://genuine-squirrel-c1ec8c.netlify.app/
@@ -18,6 +26,7 @@ https://genuine-squirrel-c1ec8c.netlify.app/
 3. Install the dependencies with `npm install`.
 4. Build the project with `npm run build`.
 5. Start watching for changes and launch the live server with `npm run watch`.
+6. Create JSCDocs: 'npm run docs'.
 
 ## Project assumptions
 1. A user with a stud.noroff.no email may register
@@ -42,3 +51,9 @@ https://genuine-squirrel-c1ec8c.netlify.app/
 
 ### Planning applications
 - Trello
+
+### Design
+- Style Tile, design & prototypes made in AdobeXD
+- [Link to Style Tile ](https://xd.adobe.com/view/72d8fd7f-7d9e-42ec-a3bb-a1bcb82c9d31-278b/)
+- [Link to prototypes - desktop ](https://xd.adobe.com/view/636868b3-1b56-40c7-810b-912308a44f6e-363b/)
+- [Link to prototypes - mobile ](https://xd.adobe.com/view/f38e74a7-dc05-4fe7-8fa0-5da2529ec313-a6dd/) 
