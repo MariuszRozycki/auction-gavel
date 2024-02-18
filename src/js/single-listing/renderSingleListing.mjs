@@ -46,8 +46,6 @@ export const renderSingleListing = async (singleListingId) => {
       title,
     } = singleListingData;
 
-    console.log(singleListingData);
-
     const titleCapitalized = title ? textCapitalized(title) : titleNotExists;
     const descriptionCapitalized = description ? textCapitalized(description) : descriptionNotExists;
     const sellerNameCap = textCapitalized(sellerName);

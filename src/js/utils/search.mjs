@@ -18,14 +18,7 @@ import { searchListingsContent } from "./searchListingsContent.mjs";
  * search(jsonData, '/listings', 10, document.querySelector('#show-less'), document.querySelector('#show-more'), 'https://api.example.com/listings?sort=created');
  */
 
-export const search = async (
-  jsonLimited,
-  path,
-  offerNr,
-  showLessBtn,
-  showMoreBtn,
-  URL_allListingsSortByCreatedDate,
-) => {
+export const search = async (path, offsetNr, showLessBtn, showMoreBtn, URL_allListingsSortByCreatedDate) => {
   const searchForm = document.querySelector("#search-form");
   const searchInputHome = document.querySelector("#search-input-home");
   const listingsContainer = document.querySelector("#listings-container");
@@ -36,11 +29,10 @@ export const search = async (
     const searchInputHomeValue = searchInputHome.value.toLowerCase();
 
     searchListingsContent(
-      jsonLimited,
       searchInputHomeValue,
       listingsContainer,
       path,
-      offerNr,
+      offsetNr,
       showLessBtn,
       showMoreBtn,
       URL_allListingsSortByCreatedDate,

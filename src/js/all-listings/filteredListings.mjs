@@ -17,7 +17,7 @@ import { showMoreLessFunction } from "../utils/showMoreLessFunction.mjs";
  * @example
  * ```js
  * // Example of filtering listings based on selected criteria
- * filteredListings(form, 'https://api.noroff.dev/api/v1/listings?sort=created&sortOrder=asc&limit=10&offset=0&_active=true', 'asc', 10, 0, showMoreButton, showLessButton, 100, '/listings');
+ * filteredListings(form, 'https://api.noroff.dev/api/v1/listings?sort=created&sortOrder=asc&limit=10&offset=0', 'asc', 10, 0, showMoreButton, showLessButton, 100, '/listings');
  * ```
  */
 
@@ -35,15 +35,17 @@ export const filteredListings = (
   formFilter.addEventListener("change", async () => {
     const listingsContainer = document.querySelector("#listings-container");
     const selectedValue = formFilter.value;
+    let lastRenderedListings = [];
 
     sortOrder = selectedValue;
     localStorage.setItem("SORT_ORDER", JSON.stringify(sortOrder));
-    URL_limited = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${offsetNr}&_active=true`;
+    URL_limited = `${URL_allListings}?sort=created&sortOrder=${sortOrder}&limit=${limitNr}&offset=${offsetNr}`;
 
     const json = await getData(URL_limited);
+    lastRenderedListings = json;
+    localStorage.setItem("LAST_RENDERED_LISTINGS", JSON.stringify(lastRenderedListings));
     listingsContainer.innerHTML = "";
     renderListings(json);
-
     showMoreLessFunction(showMoreBtn, showLessBtn, limitNr, offsetNr, maxLimit, path, sortOrder);
   });
 };
