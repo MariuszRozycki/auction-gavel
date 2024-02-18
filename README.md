@@ -46,6 +46,6 @@ https://genuine-squirrel-c1ec8c.netlify.app/
 
 ### Design
 - Style Tile, design & prototypes made in AdobeXD
-- [Link to Style Tile: ](https://xd.adobe.com/view/72d8fd7f-7d9e-42ec-a3bb-a1bcb82c9d31-278b/)
-- [Link to prototypes - desktop: ](https://xd.adobe.com/view/636868b3-1b56-40c7-810b-912308a44f6e-363b/)
-- [Link to prototypes - mobile: ](https://xd.adobe.com/view/f38e74a7-dc05-4fe7-8fa0-5da2529ec313-a6dd/) 
+- [Link to Style Tile ](https://xd.adobe.com/view/72d8fd7f-7d9e-42ec-a3bb-a1bcb82c9d31-278b/)
+- [Link to prototypes - desktop ](https://xd.adobe.com/view/636868b3-1b56-40c7-810b-912308a44f6e-363b/)
+- [Link to prototypes - mobile ](https://xd.adobe.com/view/f38e74a7-dc05-4fe7-8fa0-5da2529ec313-a6dd/) 
